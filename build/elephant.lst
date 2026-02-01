@@ -1,0 +1,211 @@
+ARM GAS  /tmp/cc9zEwNP.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"elephant.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "App/Src/elephant.cpp"
+  20              		.section	.text._ZN8Elephant6toggleEv,"ax",%progbits
+  21              		.align	1
+  22              		.global	_ZN8Elephant6toggleEv
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN8Elephant6toggleEv:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB20:
+   1:App/Src/elephant.cpp **** #include "elephant.h"
+   2:App/Src/elephant.cpp **** 
+   3:App/Src/elephant.cpp **** Elephant::Elephant()
+   4:App/Src/elephant.cpp **** {
+   5:App/Src/elephant.cpp ****     this->setState(ElephLightSleep::getInstance());
+   6:App/Src/elephant.cpp **** }
+   7:App/Src/elephant.cpp **** 
+   8:App/Src/elephant.cpp **** void Elephant::toggle()
+   9:App/Src/elephant.cpp **** {
+  31              		.loc 1 9 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 9 1 is_stmt 0 view .LVU1
+  36 0000 08B5     		push	{r3, lr}
+  37              		.save {r3, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 3, -8
+  40              		.cfi_offset 14, -4
+  41 0002 0146     		mov	r1, r0
+  10:App/Src/elephant.cpp ****     currentState->toggle(this);
+  42              		.loc 1 10 5 is_stmt 1 view .LVU2
+  43 0004 0068     		ldr	r0, [r0]
+  44              	.LVL1:
+  45              		.loc 1 10 25 is_stmt 0 view .LVU3
+  46 0006 0368     		ldr	r3, [r0]
+  47 0008 5B68     		ldr	r3, [r3, #4]
+  48 000a 9847     		blx	r3
+ARM GAS  /tmp/cc9zEwNP.s 			page 2
+
+
+  49              	.LVL2:
+  11:App/Src/elephant.cpp **** }
+  50              		.loc 1 11 1 view .LVU4
+  51 000c 08BD     		pop	{r3, pc}
+  52              		.cfi_endproc
+  53              	.LFE20:
+  54              		.fnend
+  56              		.section	.text._ZN8Elephant8setStateER13ElephantState,"ax",%progbits
+  57              		.align	1
+  58              		.global	_ZN8Elephant8setStateER13ElephantState
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+  63              	_ZN8Elephant8setStateER13ElephantState:
+  64              		.fnstart
+  65              	.LVL3:
+  66              	.LFB21:
+  12:App/Src/elephant.cpp **** 
+  13:App/Src/elephant.cpp **** void Elephant::setState(ElephantState& newState)
+  14:App/Src/elephant.cpp **** {
+  67              		.loc 1 14 1 is_stmt 1 view -0
+  68              		.cfi_startproc
+  69              		@ args = 0, pretend = 0, frame = 0
+  70              		@ frame_needed = 0, uses_anonymous_args = 0
+  71              		.loc 1 14 1 is_stmt 0 view .LVU6
+  72 0000 38B5     		push	{r3, r4, r5, lr}
+  73              		.save {r3, r4, r5, lr}
+  74              		.cfi_def_cfa_offset 16
+  75              		.cfi_offset 3, -16
+  76              		.cfi_offset 4, -12
+  77              		.cfi_offset 5, -8
+  78              		.cfi_offset 14, -4
+  79 0002 0446     		mov	r4, r0
+  80 0004 0D46     		mov	r5, r1
+  15:App/Src/elephant.cpp ****     currentState->exit(this);
+  81              		.loc 1 15 5 is_stmt 1 view .LVU7
+  82 0006 0068     		ldr	r0, [r0]
+  83              	.LVL4:
+  84              		.loc 1 15 23 is_stmt 0 view .LVU8
+  85 0008 0368     		ldr	r3, [r0]
+  86 000a 9B68     		ldr	r3, [r3, #8]
+  87 000c 2146     		mov	r1, r4
+  88              	.LVL5:
+  89              		.loc 1 15 23 view .LVU9
+  90 000e 9847     		blx	r3
+  91              	.LVL6:
+  16:App/Src/elephant.cpp ****     currentState = &newState;
+  92              		.loc 1 16 5 is_stmt 1 view .LVU10
+  93              		.loc 1 16 18 is_stmt 0 view .LVU11
+  94 0010 2560     		str	r5, [r4]
+  17:App/Src/elephant.cpp ****     currentState->enter(this);
+  95              		.loc 1 17 5 is_stmt 1 view .LVU12
+  96              		.loc 1 17 24 is_stmt 0 view .LVU13
+  97 0012 2B68     		ldr	r3, [r5]
+  98 0014 1B68     		ldr	r3, [r3]
+  99 0016 2146     		mov	r1, r4
+ 100 0018 2846     		mov	r0, r5
+ARM GAS  /tmp/cc9zEwNP.s 			page 3
+
+
+ 101 001a 9847     		blx	r3
+ 102              	.LVL7:
+  18:App/Src/elephant.cpp **** }...
+ 103              		.loc 1 18 1 view .LVU14
+ 104 001c 38BD     		pop	{r3, r4, r5, pc}
+ 105              		.loc 1 18 1 view .LVU15
+ 106              		.cfi_endproc
+ 107              	.LFE21:
+ 108              		.fnend
+ 110              		.section	.text._ZN8ElephantC2Ev,"ax",%progbits
+ 111              		.align	1
+ 112              		.global	_ZN8ElephantC2Ev
+ 113              		.syntax unified
+ 114              		.thumb
+ 115              		.thumb_func
+ 117              	_ZN8ElephantC2Ev:
+ 118              		.fnstart
+ 119              	.LVL8:
+ 120              	.LFB18:
+   3:App/Src/elephant.cpp **** Elephant::Elephant()
+ 121              		.loc 1 3 1 is_stmt 1 view -0
+ 122              		.cfi_startproc
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 0, uses_anonymous_args = 0
+   3:App/Src/elephant.cpp **** Elephant::Elephant()
+ 125              		.loc 1 3 1 is_stmt 0 view .LVU17
+ 126 0000 10B5     		push	{r4, lr}
+ 127              		.save {r4, lr}
+ 128              		.cfi_def_cfa_offset 8
+ 129              		.cfi_offset 4, -8
+ 130              		.cfi_offset 14, -4
+ 131 0002 0446     		mov	r4, r0
+ 132              	.LBB2:
+   5:App/Src/elephant.cpp ****     this->setState(ElephLightSleep::getInstance());
+ 133              		.loc 1 5 5 is_stmt 1 view .LVU18
+   5:App/Src/elephant.cpp ****     this->setState(ElephLightSleep::getInstance());
+ 134              		.loc 1 5 19 is_stmt 0 view .LVU19
+ 135 0004 FFF7FEFF 		bl	_ZN15ElephLightSleep11getInstanceEv
+ 136              	.LVL9:
+   5:App/Src/elephant.cpp ****     this->setState(ElephLightSleep::getInstance());
+ 137              		.loc 1 5 19 view .LVU20
+ 138 0008 0146     		mov	r1, r0
+   5:App/Src/elephant.cpp ****     this->setState(ElephLightSleep::getInstance());
+ 139              		.loc 1 5 19 discriminator 1 view .LVU21
+ 140 000a 2046     		mov	r0, r4
+ 141 000c FFF7FEFF 		bl	_ZN8Elephant8setStateER13ElephantState
+ 142              	.LVL10:
+ 143              	.LBE2:
+   6:App/Src/elephant.cpp **** }
+ 144              		.loc 1 6 1 view .LVU22
+ 145 0010 2046     		mov	r0, r4
+ 146 0012 10BD     		pop	{r4, pc}
+   6:App/Src/elephant.cpp **** }
+ 147              		.loc 1 6 1 view .LVU23
+ 148              		.cfi_endproc
+ 149              	.LFE18:
+ 150              		.fnend
+ARM GAS  /tmp/cc9zEwNP.s 			page 4
+
+
+ 152              		.global	_ZN8ElephantC1Ev
+ 153              		.thumb_set _ZN8ElephantC1Ev,_ZN8ElephantC2Ev
+ 154              		.text
+ 155              	.Letext0:
+ 156              		.file 2 "App/Inc/elephant.h"
+ 157              		.file 3 "App/Inc/elephant_state.h"
+ 158              		.file 4 "App/Inc/concrete_elephant_states.h"
+ARM GAS  /tmp/cc9zEwNP.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 elephant.cpp
+     /tmp/cc9zEwNP.s:21     .text._ZN8Elephant6toggleEv:00000000 $t
+     /tmp/cc9zEwNP.s:27     .text._ZN8Elephant6toggleEv:00000000 _ZN8Elephant6toggleEv
+.ARM.extab.text._ZN8Elephant6toggleEv:00000000 $d
+.ARM.exidx.text._ZN8Elephant6toggleEv:00000000 $d
+     /tmp/cc9zEwNP.s:57     .text._ZN8Elephant8setStateER13ElephantState:00000000 $t
+     /tmp/cc9zEwNP.s:63     .text._ZN8Elephant8setStateER13ElephantState:00000000 _ZN8Elephant8setStateER13ElephantState
+.ARM.exidx.text._ZN8Elephant8setStateER13ElephantState:00000000 $d
+     /tmp/cc9zEwNP.s:111    .text._ZN8ElephantC2Ev:00000000 $t
+     /tmp/cc9zEwNP.s:117    .text._ZN8ElephantC2Ev:00000000 _ZN8ElephantC2Ev
+ .ARM.exidx.text._ZN8ElephantC2Ev:00000000 $d
+     /tmp/cc9zEwNP.s:117    .text._ZN8ElephantC2Ev:00000000 _ZN8ElephantC1Ev
+
+UNDEFINED SYMBOLS
+__aeabi_unwind_cpp_pr1
+__aeabi_unwind_cpp_pr0
+_ZN15ElephLightSleep11getInstanceEv

@@ -65,10 +65,16 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
 
 
 CPP_SOURCES = \
+App/Src/concrete_elephant_states.cpp \
+App/Src/elephant.cpp \
 Core/Src/main.cpp \
 Intermediate/Src/audio.cpp \
 Intermediate/Src/concrete_interrupt_handlers.cpp \
+Intermediate/Src/gpioObject.cpp \
+Intermediate/Src/reset_cause.cpp \
+Intermediate/Src/rtcObject.cpp \
 Test/Src/audio_test.cpp \
+Test/Src/reset_test.cpp \
 Test/Src/sleep_test.cpp
 
 
@@ -123,12 +129,30 @@ AS_DEFS =
 
 # C defines
 C_DEFS =  \
+-DRTC_DATETIME \
+-DRTC_DAY=$(shell date +%-d) \
+-DRTC_HOUR=$(shell date +%-H) \
+-DRTC_MAGIC=$(shell date +%-s) \
+-DRTC_MINUTE=$(shell date +%-M) \
+-DRTC_MONTH=$(shell date +%-m) \
+-DRTC_SECOND=$(shell date +%-S) \
+-DRTC_WEEKDAY=$(shell date +%-u) \
+-DRTC_YEAR=$(shell date +%-y) \
 -DSTM32F401xC \
 -DUSE_HAL_DRIVER
 
 
 # CXX defines
 CXX_DEFS =  \
+-DRTC_DATETIME \
+-DRTC_DAY=$(shell date +%-d) \
+-DRTC_HOUR=$(shell date +%-H) \
+-DRTC_MAGIC=$(shell date +%-s) \
+-DRTC_MINUTE=$(shell date +%-M) \
+-DRTC_MONTH=$(shell date +%-m) \
+-DRTC_SECOND=$(shell date +%-S) \
+-DRTC_WEEKDAY=$(shell date +%-u) \
+-DRTC_YEAR=$(shell date +%-y) \
 -DSTM32F401xC \
 -DUSE_HAL_DRIVER
 

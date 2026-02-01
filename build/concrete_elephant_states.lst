@@ -1,0 +1,1571 @@
+ARM GAS  /tmp/ccfxnnos.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"concrete_elephant_states.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "App/Src/concrete_elephant_states.cpp"
+  20              		.section	.text._ZN15ElephLightSleep5enterEP8Elephant,"ax",%progbits
+  21              		.align	1
+  22              		.global	_ZN15ElephLightSleep5enterEP8Elephant
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN15ElephLightSleep5enterEP8Elephant:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB17:
+   1:App/Src/concrete_elephant_states.cpp **** #include "elephant_state.h"
+   2:App/Src/concrete_elephant_states.cpp **** #include "concrete_elephant_states.h"
+   3:App/Src/concrete_elephant_states.cpp **** 
+   4:App/Src/concrete_elephant_states.cpp **** /**
+   5:App/Src/concrete_elephant_states.cpp ****  * @brief Prepare the board for "light sleep."
+   6:App/Src/concrete_elephant_states.cpp ****  * 
+   7:App/Src/concrete_elephant_states.cpp ****  * Completes the power-saving tasks necessary for the board to 
+   8:App/Src/concrete_elephant_states.cpp ****  * enter a light sleep state.  In this state, the buck converter
+   9:App/Src/concrete_elephant_states.cpp ****  * remains active to allow the STM32 to wake up from the tilt switch.
+  10:App/Src/concrete_elephant_states.cpp ****  * 
+  11:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+  12:App/Src/concrete_elephant_states.cpp ****  */
+  13:App/Src/concrete_elephant_states.cpp **** void ElephLightSleep::enter(Elephant* elephant) {}
+  31              		.loc 1 13 49 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  36              		.loc 1 13 50 is_stmt 0 view .LVU1
+  37 0000 7047     		bx	lr
+  38              		.cfi_endproc
+  39              	.LFE17:
+  40              		.cantunwind
+  41              		.fnend
+  43              		.section	.text._ZN15ElephLightSleep4exitEP8Elephant,"ax",%progbits
+  44              		.align	1
+  45              		.global	_ZN15ElephLightSleep4exitEP8Elephant
+  46              		.syntax unified
+ARM GAS  /tmp/ccfxnnos.s 			page 2
+
+
+  47              		.thumb
+  48              		.thumb_func
+  50              	_ZN15ElephLightSleep4exitEP8Elephant:
+  51              		.fnstart
+  52              	.LVL1:
+  53              	.LFB19:
+  14:App/Src/concrete_elephant_states.cpp **** 
+  15:App/Src/concrete_elephant_states.cpp **** /**
+  16:App/Src/concrete_elephant_states.cpp ****  * @brief Trigger a transition from light sleep to playing a sound.
+  17:App/Src/concrete_elephant_states.cpp ****  * 
+  18:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+  19:App/Src/concrete_elephant_states.cpp ****  */
+  20:App/Src/concrete_elephant_states.cpp **** void ElephLightSleep::toggle(Elephant* elephant) {
+  21:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephPlaySound::getInstance());
+  22:App/Src/concrete_elephant_states.cpp **** }
+  23:App/Src/concrete_elephant_states.cpp **** 
+  24:App/Src/concrete_elephant_states.cpp **** /**
+  25:App/Src/concrete_elephant_states.cpp ****  * @brief Wake up the board from "light sleep."
+  26:App/Src/concrete_elephant_states.cpp ****  * 
+  27:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+  28:App/Src/concrete_elephant_states.cpp ****  */
+  29:App/Src/concrete_elephant_states.cpp **** void ElephLightSleep::exit(Elephant* elephant) {}
+  54              		.loc 1 29 48 is_stmt 1 view -0
+  55              		.cfi_startproc
+  56              		@ args = 0, pretend = 0, frame = 0
+  57              		@ frame_needed = 0, uses_anonymous_args = 0
+  58              		@ link register save eliminated.
+  59              		.loc 1 29 49 is_stmt 0 view .LVU3
+  60 0000 7047     		bx	lr
+  61              		.cfi_endproc
+  62              	.LFE19:
+  63              		.cantunwind
+  64              		.fnend
+  66              		.section	.text._ZN15ElephLightSleepD2Ev,"axG",%progbits,_ZN15ElephLightSleepD5Ev,comdat
+  67              		.align	1
+  68              		.weak	_ZN15ElephLightSleepD2Ev
+  69              		.syntax unified
+  70              		.thumb
+  71              		.thumb_func
+  73              	_ZN15ElephLightSleepD2Ev:
+  74              		.fnstart
+  75              	.LVL2:
+  76              	.LFB22:
+  77              		.file 2 "App/Inc/concrete_elephant_states.h"
+   1:App/Inc/concrete_elephant_states.h **** #pragma once
+   2:App/Inc/concrete_elephant_states.h **** #include "elephant_state.h"
+   3:App/Inc/concrete_elephant_states.h **** #include "elephant.h"
+   4:App/Inc/concrete_elephant_states.h **** 
+   5:App/Inc/concrete_elephant_states.h **** class ElephLightSleep : public ElephantState
+  78              		.loc 2 5 7 is_stmt 1 view -0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  83              	.LBB71:
+  84              		.loc 2 5 7 is_stmt 0 view .LVU5
+  85 0000 024A     		ldr	r2, .L4
+ARM GAS  /tmp/ccfxnnos.s 			page 3
+
+
+  86 0002 0260     		str	r2, [r0]
+  87              	.LVL3:
+  88              	.LBB72:
+  89              	.LBI72:
+  90              		.file 3 "App/Inc/elephant_state.h"
+   1:App/Inc/elephant_state.h **** #pragma once
+   2:App/Inc/elephant_state.h **** 
+   3:App/Inc/elephant_state.h **** class Elephant;
+   4:App/Inc/elephant_state.h **** 
+   5:App/Inc/elephant_state.h **** class ElephantState {
+   6:App/Inc/elephant_state.h **** public:
+   7:App/Inc/elephant_state.h ****     virtual void enter(Elephant* elephant) = 0;
+   8:App/Inc/elephant_state.h ****     virtual void toggle(Elephant* elephant) = 0;
+   9:App/Inc/elephant_state.h ****     virtual void exit(Elephant* elephant) = 0;
+  10:App/Inc/elephant_state.h ****     virtual ~ElephantState() {}
+  91              		.loc 3 10 13 is_stmt 1 view .LVU6
+  92              	.LBB73:
+  93              		.loc 3 10 30 is_stmt 0 view .LVU7
+  94 0004 024A     		ldr	r2, .L4+4
+  95 0006 0260     		str	r2, [r0]
+  96              	.LVL4:
+  97              		.loc 3 10 30 view .LVU8
+  98              	.LBE73:
+  99              	.LBE72:
+ 100              	.LBE71:
+ 101              		.loc 2 5 7 view .LVU9
+ 102 0008 7047     		bx	lr
+ 103              	.L5:
+ 104 000a 00BF     		.align	2
+ 105              	.L4:
+ 106 000c 08000000 		.word	_ZTV15ElephLightSleep+8
+ 107 0010 08000000 		.word	_ZTV13ElephantState+8
+ 108              		.cfi_endproc
+ 109              	.LFE22:
+ 110              		.cantunwind
+ 111              		.fnend
+ 113              		.weak	_ZN15ElephLightSleepD1Ev
+ 114              		.thumb_set _ZN15ElephLightSleepD1Ev,_ZN15ElephLightSleepD2Ev
+ 115              		.section	.text._ZN14ElephDeepSleep5enterEP8Elephant,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	_ZN14ElephDeepSleep5enterEP8Elephant
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	_ZN14ElephDeepSleep5enterEP8Elephant:
+ 123              		.fnstart
+ 124              	.LVL5:
+ 125              	.LFB28:
+  30:App/Src/concrete_elephant_states.cpp **** 
+  31:App/Src/concrete_elephant_states.cpp **** /**
+  32:App/Src/concrete_elephant_states.cpp ****  * @brief Get the static instance of the light sleep state.
+  33:App/Src/concrete_elephant_states.cpp ****  * 
+  34:App/Src/concrete_elephant_states.cpp ****  * @return ElephantState& Reference to the instance of the light sleep state. 
+  35:App/Src/concrete_elephant_states.cpp ****  */
+  36:App/Src/concrete_elephant_states.cpp **** ElephantState& ElephLightSleep::getInstance() {
+  37:App/Src/concrete_elephant_states.cpp ****     static ElephLightSleep singleton;
+  38:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ARM GAS  /tmp/ccfxnnos.s 			page 4
+
+
+  39:App/Src/concrete_elephant_states.cpp **** }
+  40:App/Src/concrete_elephant_states.cpp **** 
+  41:App/Src/concrete_elephant_states.cpp **** /**
+  42:App/Src/concrete_elephant_states.cpp ****  * @brief Construct a new Light Sleep object from another Light Sleep object.
+  43:App/Src/concrete_elephant_states.cpp ****  * 
+  44:App/Src/concrete_elephant_states.cpp ****  * @param other Another Light Sleep object.
+  45:App/Src/concrete_elephant_states.cpp ****  */
+  46:App/Src/concrete_elephant_states.cpp **** ElephLightSleep::ElephLightSleep(const ElephLightSleep& other) {}
+  47:App/Src/concrete_elephant_states.cpp **** 
+  48:App/Src/concrete_elephant_states.cpp **** /**
+  49:App/Src/concrete_elephant_states.cpp ****  * @brief Prepare the board for "deep sleep."
+  50:App/Src/concrete_elephant_states.cpp ****  * 
+  51:App/Src/concrete_elephant_states.cpp ****  * Completes the power-saving tasks necessary for the board to 
+  52:App/Src/concrete_elephant_states.cpp ****  * enter a deep sleep state.  In this state, the buck converter
+  53:App/Src/concrete_elephant_states.cpp ****  * turns off to reduce power consumption.
+  54:App/Src/concrete_elephant_states.cpp ****  * 
+  55:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+  56:App/Src/concrete_elephant_states.cpp ****  */
+  57:App/Src/concrete_elephant_states.cpp **** void ElephDeepSleep::enter(Elephant* elephant) {}
+ 126              		.loc 1 57 48 is_stmt 1 view -0
+ 127              		.cfi_startproc
+ 128              		@ args = 0, pretend = 0, frame = 0
+ 129              		@ frame_needed = 0, uses_anonymous_args = 0
+ 130              		@ link register save eliminated.
+ 131              		.loc 1 57 49 is_stmt 0 view .LVU11
+ 132 0000 7047     		bx	lr
+ 133              		.cfi_endproc
+ 134              	.LFE28:
+ 135              		.cantunwind
+ 136              		.fnend
+ 138              		.section	.text._ZN14ElephDeepSleep4exitEP8Elephant,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	_ZN14ElephDeepSleep4exitEP8Elephant
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	_ZN14ElephDeepSleep4exitEP8Elephant:
+ 146              		.fnstart
+ 147              	.LVL6:
+ 148              	.LFB30:
+  58:App/Src/concrete_elephant_states.cpp **** 
+  59:App/Src/concrete_elephant_states.cpp **** /**
+  60:App/Src/concrete_elephant_states.cpp ****  * @brief Trigger a transition from light sleep to deep sleep.
+  61:App/Src/concrete_elephant_states.cpp ****  * 
+  62:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+  63:App/Src/concrete_elephant_states.cpp ****  */
+  64:App/Src/concrete_elephant_states.cpp **** void ElephDeepSleep::toggle(Elephant* elephant) {
+  65:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephLightSleep::getInstance());
+  66:App/Src/concrete_elephant_states.cpp **** }
+  67:App/Src/concrete_elephant_states.cpp **** 
+  68:App/Src/concrete_elephant_states.cpp **** /**
+  69:App/Src/concrete_elephant_states.cpp ****  * @brief Wake up the board from "deep sleep."
+  70:App/Src/concrete_elephant_states.cpp ****  * 
+  71:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+  72:App/Src/concrete_elephant_states.cpp ****  */
+  73:App/Src/concrete_elephant_states.cpp **** void ElephDeepSleep::exit(Elephant* elephant) {}
+ 149              		.loc 1 73 47 is_stmt 1 view -0
+ARM GAS  /tmp/ccfxnnos.s 			page 5
+
+
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+ 154              		.loc 1 73 48 is_stmt 0 view .LVU13
+ 155 0000 7047     		bx	lr
+ 156              		.cfi_endproc
+ 157              	.LFE30:
+ 158              		.cantunwind
+ 159              		.fnend
+ 161              		.section	.text._ZN14ElephDeepSleepD2Ev,"axG",%progbits,_ZN14ElephDeepSleepD5Ev,comdat
+ 162              		.align	1
+ 163              		.weak	_ZN14ElephDeepSleepD2Ev
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 168              	_ZN14ElephDeepSleepD2Ev:
+ 169              		.fnstart
+ 170              	.LVL7:
+ 171              	.LFB33:
+   6:App/Inc/concrete_elephant_states.h **** {
+   7:App/Inc/concrete_elephant_states.h **** public:
+   8:App/Inc/concrete_elephant_states.h ****     void enter(Elephant* elephant);
+   9:App/Inc/concrete_elephant_states.h ****     void toggle(Elephant* elephant);
+  10:App/Inc/concrete_elephant_states.h ****     void exit(Elephant* elephant);
+  11:App/Inc/concrete_elephant_states.h ****     static ElephantState& getInstance();
+  12:App/Inc/concrete_elephant_states.h **** 
+  13:App/Inc/concrete_elephant_states.h **** private:
+  14:App/Inc/concrete_elephant_states.h ****     ElephLightSleep() {}
+  15:App/Inc/concrete_elephant_states.h ****     ElephLightSleep(const ElephLightSleep& other);
+  16:App/Inc/concrete_elephant_states.h ****     ElephLightSleep& operator=(const ElephLightSleep& other);
+  17:App/Inc/concrete_elephant_states.h **** };
+  18:App/Inc/concrete_elephant_states.h **** 
+  19:App/Inc/concrete_elephant_states.h **** 
+  20:App/Inc/concrete_elephant_states.h **** class ElephDeepSleep : public ElephantState
+ 172              		.loc 2 20 7 is_stmt 1 view -0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176              		@ link register save eliminated.
+ 177              	.LBB74:
+ 178              		.loc 2 20 7 is_stmt 0 view .LVU15
+ 179 0000 024A     		ldr	r2, .L9
+ 180 0002 0260     		str	r2, [r0]
+ 181              	.LVL8:
+ 182              	.LBB75:
+ 183              	.LBI75:
+ 184              		.loc 3 10 13 is_stmt 1 view .LVU16
+ 185              	.LBB76:
+ 186              		.loc 3 10 30 is_stmt 0 view .LVU17
+ 187 0004 024A     		ldr	r2, .L9+4
+ 188 0006 0260     		str	r2, [r0]
+ 189              	.LVL9:
+ 190              		.loc 3 10 30 view .LVU18
+ 191              	.LBE76:
+ 192              	.LBE75:
+ 193              	.LBE74:
+ARM GAS  /tmp/ccfxnnos.s 			page 6
+
+
+ 194              		.loc 2 20 7 view .LVU19
+ 195 0008 7047     		bx	lr
+ 196              	.L10:
+ 197 000a 00BF     		.align	2
+ 198              	.L9:
+ 199 000c 08000000 		.word	_ZTV14ElephDeepSleep+8
+ 200 0010 08000000 		.word	_ZTV13ElephantState+8
+ 201              		.cfi_endproc
+ 202              	.LFE33:
+ 203              		.cantunwind
+ 204              		.fnend
+ 206              		.weak	_ZN14ElephDeepSleepD1Ev
+ 207              		.thumb_set _ZN14ElephDeepSleepD1Ev,_ZN14ElephDeepSleepD2Ev
+ 208              		.section	.text._ZN14ElephPlaySound5enterEP8Elephant,"ax",%progbits
+ 209              		.align	1
+ 210              		.global	_ZN14ElephPlaySound5enterEP8Elephant
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 215              	_ZN14ElephPlaySound5enterEP8Elephant:
+ 216              		.fnstart
+ 217              	.LVL10:
+ 218              	.LFB39:
+  74:App/Src/concrete_elephant_states.cpp **** 
+  75:App/Src/concrete_elephant_states.cpp **** /**
+  76:App/Src/concrete_elephant_states.cpp ****  * @brief Get the static instance of the deep sleep instance.
+  77:App/Src/concrete_elephant_states.cpp ****  * 
+  78:App/Src/concrete_elephant_states.cpp ****  * @return ElephantState& Reference to the instance of the deep sleep state. 
+  79:App/Src/concrete_elephant_states.cpp ****  */
+  80:App/Src/concrete_elephant_states.cpp **** ElephantState& ElephDeepSleep::getInstance() {
+  81:App/Src/concrete_elephant_states.cpp ****     static ElephDeepSleep singleton;
+  82:App/Src/concrete_elephant_states.cpp ****     return singleton;
+  83:App/Src/concrete_elephant_states.cpp **** }
+  84:App/Src/concrete_elephant_states.cpp **** 
+  85:App/Src/concrete_elephant_states.cpp **** /**
+  86:App/Src/concrete_elephant_states.cpp ****  * @brief Construct a new Deep Sleep object from another Deep Sleep object.
+  87:App/Src/concrete_elephant_states.cpp ****  * 
+  88:App/Src/concrete_elephant_states.cpp ****  * @param other Another Deep Sleep object.
+  89:App/Src/concrete_elephant_states.cpp ****  */
+  90:App/Src/concrete_elephant_states.cpp **** ElephDeepSleep::ElephDeepSleep(const ElephDeepSleep& other) {}
+  91:App/Src/concrete_elephant_states.cpp **** 
+  92:App/Src/concrete_elephant_states.cpp **** /**
+  93:App/Src/concrete_elephant_states.cpp ****  * @brief Prepare to play a sound.
+  94:App/Src/concrete_elephant_states.cpp ****  * 
+  95:App/Src/concrete_elephant_states.cpp ****  * Turn on the audio IC and do the tasks necessary before playing a sound.
+  96:App/Src/concrete_elephant_states.cpp ****  * 
+  97:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+  98:App/Src/concrete_elephant_states.cpp ****  */
+  99:App/Src/concrete_elephant_states.cpp **** void ElephPlaySound::enter(Elephant* elephant) {}
+ 219              		.loc 1 99 48 is_stmt 1 view -0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 0
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		@ link register save eliminated.
+ 224              		.loc 1 99 49 is_stmt 0 view .LVU21
+ 225 0000 7047     		bx	lr
+ 226              		.cfi_endproc
+ARM GAS  /tmp/ccfxnnos.s 			page 7
+
+
+ 227              	.LFE39:
+ 228              		.cantunwind
+ 229              		.fnend
+ 231              		.section	.text._ZN14ElephPlaySound4exitEP8Elephant,"ax",%progbits
+ 232              		.align	1
+ 233              		.global	_ZN14ElephPlaySound4exitEP8Elephant
+ 234              		.syntax unified
+ 235              		.thumb
+ 236              		.thumb_func
+ 238              	_ZN14ElephPlaySound4exitEP8Elephant:
+ 239              		.fnstart
+ 240              	.LVL11:
+ 241              	.LFB41:
+ 100:App/Src/concrete_elephant_states.cpp **** 
+ 101:App/Src/concrete_elephant_states.cpp **** /**
+ 102:App/Src/concrete_elephant_states.cpp ****  * @brief Trigger a transition from playing a sound to deep sleep.
+ 103:App/Src/concrete_elephant_states.cpp ****  * 
+ 104:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+ 105:App/Src/concrete_elephant_states.cpp ****  */
+ 106:App/Src/concrete_elephant_states.cpp **** void ElephPlaySound::toggle(Elephant* elephant) {
+ 107:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephDeepSleep::getInstance());
+ 108:App/Src/concrete_elephant_states.cpp **** }
+ 109:App/Src/concrete_elephant_states.cpp **** 
+ 110:App/Src/concrete_elephant_states.cpp **** /**
+ 111:App/Src/concrete_elephant_states.cpp ****  * @brief Cease sound-playing operations.
+ 112:App/Src/concrete_elephant_states.cpp ****  *
+ 113:App/Src/concrete_elephant_states.cpp ****  * Prepare the audio IC for shut down, and shut down the audio IC.
+ 114:App/Src/concrete_elephant_states.cpp ****  * 
+ 115:App/Src/concrete_elephant_states.cpp ****  * @param elephant The persistent object representing the physical system.
+ 116:App/Src/concrete_elephant_states.cpp ****  */
+ 117:App/Src/concrete_elephant_states.cpp **** void ElephPlaySound::exit(Elephant* elephant) {}
+ 242              		.loc 1 117 47 is_stmt 1 view -0
+ 243              		.cfi_startproc
+ 244              		@ args = 0, pretend = 0, frame = 0
+ 245              		@ frame_needed = 0, uses_anonymous_args = 0
+ 246              		@ link register save eliminated.
+ 247              		.loc 1 117 48 is_stmt 0 view .LVU23
+ 248 0000 7047     		bx	lr
+ 249              		.cfi_endproc
+ 250              	.LFE41:
+ 251              		.cantunwind
+ 252              		.fnend
+ 254              		.section	.text._ZN14ElephPlaySoundD2Ev,"axG",%progbits,_ZN14ElephPlaySoundD5Ev,comdat
+ 255              		.align	1
+ 256              		.weak	_ZN14ElephPlaySoundD2Ev
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 261              	_ZN14ElephPlaySoundD2Ev:
+ 262              		.fnstart
+ 263              	.LVL12:
+ 264              	.LFB44:
+  21:App/Inc/concrete_elephant_states.h **** {
+  22:App/Inc/concrete_elephant_states.h **** public:
+  23:App/Inc/concrete_elephant_states.h ****     void enter(Elephant* elephant);
+  24:App/Inc/concrete_elephant_states.h ****     void toggle(Elephant* elephant);
+  25:App/Inc/concrete_elephant_states.h ****     void exit(Elephant* elephant);
+ARM GAS  /tmp/ccfxnnos.s 			page 8
+
+
+  26:App/Inc/concrete_elephant_states.h ****     static ElephantState& getInstance();
+  27:App/Inc/concrete_elephant_states.h **** 
+  28:App/Inc/concrete_elephant_states.h **** private:
+  29:App/Inc/concrete_elephant_states.h ****     ElephDeepSleep() {}
+  30:App/Inc/concrete_elephant_states.h ****     ElephDeepSleep(const ElephDeepSleep& other);
+  31:App/Inc/concrete_elephant_states.h ****     ElephDeepSleep& operator=(const ElephDeepSleep& other);
+  32:App/Inc/concrete_elephant_states.h **** };
+  33:App/Inc/concrete_elephant_states.h **** 
+  34:App/Inc/concrete_elephant_states.h **** class ElephPlaySound : public ElephantState
+ 265              		.loc 2 34 7 is_stmt 1 view -0
+ 266              		.cfi_startproc
+ 267              		@ args = 0, pretend = 0, frame = 0
+ 268              		@ frame_needed = 0, uses_anonymous_args = 0
+ 269              		@ link register save eliminated.
+ 270              	.LBB77:
+ 271              		.loc 2 34 7 is_stmt 0 view .LVU25
+ 272 0000 024A     		ldr	r2, .L14
+ 273 0002 0260     		str	r2, [r0]
+ 274              	.LVL13:
+ 275              	.LBB78:
+ 276              	.LBI78:
+ 277              		.loc 3 10 13 is_stmt 1 view .LVU26
+ 278              	.LBB79:
+ 279              		.loc 3 10 30 is_stmt 0 view .LVU27
+ 280 0004 024A     		ldr	r2, .L14+4
+ 281 0006 0260     		str	r2, [r0]
+ 282              	.LVL14:
+ 283              		.loc 3 10 30 view .LVU28
+ 284              	.LBE79:
+ 285              	.LBE78:
+ 286              	.LBE77:
+ 287              		.loc 2 34 7 view .LVU29
+ 288 0008 7047     		bx	lr
+ 289              	.L15:
+ 290 000a 00BF     		.align	2
+ 291              	.L14:
+ 292 000c 08000000 		.word	_ZTV14ElephPlaySound+8
+ 293 0010 08000000 		.word	_ZTV13ElephantState+8
+ 294              		.cfi_endproc
+ 295              	.LFE44:
+ 296              		.cantunwind
+ 297              		.fnend
+ 299              		.weak	_ZN14ElephPlaySoundD1Ev
+ 300              		.thumb_set _ZN14ElephPlaySoundD1Ev,_ZN14ElephPlaySoundD2Ev
+ 301              		.section	.text._ZN15ElephLightSleepD0Ev,"axG",%progbits,_ZN15ElephLightSleepD5Ev,comdat
+ 302              		.align	1
+ 303              		.weak	_ZN15ElephLightSleepD0Ev
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	_ZN15ElephLightSleepD0Ev:
+ 309              		.fnstart
+ 310              	.LVL15:
+ 311              	.LFB24:
+   5:App/Inc/concrete_elephant_states.h **** {
+ 312              		.loc 2 5 7 is_stmt 1 view -0
+ 313              		.cfi_startproc
+ARM GAS  /tmp/ccfxnnos.s 			page 9
+
+
+ 314              		@ args = 0, pretend = 0, frame = 0
+ 315              		@ frame_needed = 0, uses_anonymous_args = 0
+   5:App/Inc/concrete_elephant_states.h **** {
+ 316              		.loc 2 5 7 is_stmt 0 view .LVU31
+ 317 0000 10B5     		push	{r4, lr}
+ 318              		.cfi_def_cfa_offset 8
+ 319              		.cfi_offset 4, -8
+ 320              		.cfi_offset 14, -4
+ 321 0002 0446     		mov	r4, r0
+ 322              	.LVL16:
+ 323              	.LBB80:
+ 324              	.LBI80:
+   5:App/Inc/concrete_elephant_states.h **** {
+ 325              		.loc 2 5 7 is_stmt 1 view .LVU32
+ 326              	.LBB81:
+ 327 0004 044B     		ldr	r3, .L18
+ 328 0006 0360     		str	r3, [r0]
+ 329              	.LVL17:
+ 330              	.LBB82:
+ 331              	.LBI82:
+ 332              		.loc 3 10 13 view .LVU33
+ 333              	.LBB83:
+ 334              		.loc 3 10 30 is_stmt 0 view .LVU34
+ 335 0008 044B     		ldr	r3, .L18+4
+ 336 000a 0360     		str	r3, [r0]
+ 337              	.LVL18:
+ 338              		.loc 3 10 30 view .LVU35
+ 339              	.LBE83:
+ 340              	.LBE82:
+ 341              	.LBE81:
+ 342              	.LBE80:
+   5:App/Inc/concrete_elephant_states.h **** {
+ 343              		.loc 2 5 7 discriminator 1 view .LVU36
+ 344 000c 0421     		movs	r1, #4
+ 345 000e FFF7FEFF 		bl	_ZdlPvj
+ 346              	.LVL19:
+   5:App/Inc/concrete_elephant_states.h **** {
+ 347              		.loc 2 5 7 view .LVU37
+ 348 0012 2046     		mov	r0, r4
+ 349 0014 10BD     		pop	{r4, pc}
+ 350              	.LVL20:
+ 351              	.L19:
+   5:App/Inc/concrete_elephant_states.h **** {
+ 352              		.loc 2 5 7 view .LVU38
+ 353 0016 00BF     		.align	2
+ 354              	.L18:
+ 355 0018 08000000 		.word	_ZTV15ElephLightSleep+8
+ 356 001c 08000000 		.word	_ZTV13ElephantState+8
+ 357              		.cfi_endproc
+ 358              	.LFE24:
+ 359              		.cantunwind
+ 360              		.fnend
+ 362              		.section	.text._ZN14ElephDeepSleepD0Ev,"axG",%progbits,_ZN14ElephDeepSleepD5Ev,comdat
+ 363              		.align	1
+ 364              		.weak	_ZN14ElephDeepSleepD0Ev
+ 365              		.syntax unified
+ 366              		.thumb
+ARM GAS  /tmp/ccfxnnos.s 			page 10
+
+
+ 367              		.thumb_func
+ 369              	_ZN14ElephDeepSleepD0Ev:
+ 370              		.fnstart
+ 371              	.LVL21:
+ 372              	.LFB35:
+  20:App/Inc/concrete_elephant_states.h **** {
+ 373              		.loc 2 20 7 is_stmt 1 view -0
+ 374              		.cfi_startproc
+ 375              		@ args = 0, pretend = 0, frame = 0
+ 376              		@ frame_needed = 0, uses_anonymous_args = 0
+  20:App/Inc/concrete_elephant_states.h **** {
+ 377              		.loc 2 20 7 is_stmt 0 view .LVU40
+ 378 0000 10B5     		push	{r4, lr}
+ 379              		.cfi_def_cfa_offset 8
+ 380              		.cfi_offset 4, -8
+ 381              		.cfi_offset 14, -4
+ 382 0002 0446     		mov	r4, r0
+ 383              	.LVL22:
+ 384              	.LBB84:
+ 385              	.LBI84:
+  20:App/Inc/concrete_elephant_states.h **** {
+ 386              		.loc 2 20 7 is_stmt 1 view .LVU41
+ 387              	.LBB85:
+ 388 0004 044B     		ldr	r3, .L22
+ 389 0006 0360     		str	r3, [r0]
+ 390              	.LVL23:
+ 391              	.LBB86:
+ 392              	.LBI86:
+ 393              		.loc 3 10 13 view .LVU42
+ 394              	.LBB87:
+ 395              		.loc 3 10 30 is_stmt 0 view .LVU43
+ 396 0008 044B     		ldr	r3, .L22+4
+ 397 000a 0360     		str	r3, [r0]
+ 398              	.LVL24:
+ 399              		.loc 3 10 30 view .LVU44
+ 400              	.LBE87:
+ 401              	.LBE86:
+ 402              	.LBE85:
+ 403              	.LBE84:
+  20:App/Inc/concrete_elephant_states.h **** {
+ 404              		.loc 2 20 7 discriminator 1 view .LVU45
+ 405 000c 0421     		movs	r1, #4
+ 406 000e FFF7FEFF 		bl	_ZdlPvj
+ 407              	.LVL25:
+  20:App/Inc/concrete_elephant_states.h **** {
+ 408              		.loc 2 20 7 view .LVU46
+ 409 0012 2046     		mov	r0, r4
+ 410 0014 10BD     		pop	{r4, pc}
+ 411              	.LVL26:
+ 412              	.L23:
+  20:App/Inc/concrete_elephant_states.h **** {
+ 413              		.loc 2 20 7 view .LVU47
+ 414 0016 00BF     		.align	2
+ 415              	.L22:
+ 416 0018 08000000 		.word	_ZTV14ElephDeepSleep+8
+ 417 001c 08000000 		.word	_ZTV13ElephantState+8
+ 418              		.cfi_endproc
+ARM GAS  /tmp/ccfxnnos.s 			page 11
+
+
+ 419              	.LFE35:
+ 420              		.cantunwind
+ 421              		.fnend
+ 423              		.section	.text._ZN14ElephPlaySoundD0Ev,"axG",%progbits,_ZN14ElephPlaySoundD5Ev,comdat
+ 424              		.align	1
+ 425              		.weak	_ZN14ElephPlaySoundD0Ev
+ 426              		.syntax unified
+ 427              		.thumb
+ 428              		.thumb_func
+ 430              	_ZN14ElephPlaySoundD0Ev:
+ 431              		.fnstart
+ 432              	.LVL27:
+ 433              	.LFB46:
+ 434              		.loc 2 34 7 is_stmt 1 view -0
+ 435              		.cfi_startproc
+ 436              		@ args = 0, pretend = 0, frame = 0
+ 437              		@ frame_needed = 0, uses_anonymous_args = 0
+ 438              		.loc 2 34 7 is_stmt 0 view .LVU49
+ 439 0000 10B5     		push	{r4, lr}
+ 440              		.cfi_def_cfa_offset 8
+ 441              		.cfi_offset 4, -8
+ 442              		.cfi_offset 14, -4
+ 443 0002 0446     		mov	r4, r0
+ 444              	.LVL28:
+ 445              	.LBB88:
+ 446              	.LBI88:
+ 447              		.loc 2 34 7 is_stmt 1 view .LVU50
+ 448              	.LBB89:
+ 449 0004 044B     		ldr	r3, .L26
+ 450 0006 0360     		str	r3, [r0]
+ 451              	.LVL29:
+ 452              	.LBB90:
+ 453              	.LBI90:
+ 454              		.loc 3 10 13 view .LVU51
+ 455              	.LBB91:
+ 456              		.loc 3 10 30 is_stmt 0 view .LVU52
+ 457 0008 044B     		ldr	r3, .L26+4
+ 458 000a 0360     		str	r3, [r0]
+ 459              	.LVL30:
+ 460              		.loc 3 10 30 view .LVU53
+ 461              	.LBE91:
+ 462              	.LBE90:
+ 463              	.LBE89:
+ 464              	.LBE88:
+ 465              		.loc 2 34 7 discriminator 1 view .LVU54
+ 466 000c 0421     		movs	r1, #4
+ 467 000e FFF7FEFF 		bl	_ZdlPvj
+ 468              	.LVL31:
+ 469              		.loc 2 34 7 view .LVU55
+ 470 0012 2046     		mov	r0, r4
+ 471 0014 10BD     		pop	{r4, pc}
+ 472              	.LVL32:
+ 473              	.L27:
+ 474              		.loc 2 34 7 view .LVU56
+ 475 0016 00BF     		.align	2
+ 476              	.L26:
+ 477 0018 08000000 		.word	_ZTV14ElephPlaySound+8
+ARM GAS  /tmp/ccfxnnos.s 			page 12
+
+
+ 478 001c 08000000 		.word	_ZTV13ElephantState+8
+ 479              		.cfi_endproc
+ 480              	.LFE46:
+ 481              		.cantunwind
+ 482              		.fnend
+ 484              		.section	.text._ZN15ElephLightSleep11getInstanceEv,"ax",%progbits
+ 485              		.align	1
+ 486              		.global	_ZN15ElephLightSleep11getInstanceEv
+ 487              		.syntax unified
+ 488              		.thumb
+ 489              		.thumb_func
+ 491              	_ZN15ElephLightSleep11getInstanceEv:
+ 492              		.fnstart
+ 493              	.LFB20:
+  36:App/Src/concrete_elephant_states.cpp ****     static ElephLightSleep singleton;
+ 494              		.loc 1 36 47 is_stmt 1 view -0
+ 495              		.cfi_startproc
+ 496              		@ args = 0, pretend = 0, frame = 0
+ 497              		@ frame_needed = 0, uses_anonymous_args = 0
+ 498 0000 08B5     		push	{r3, lr}
+ 499              		.cfi_def_cfa_offset 8
+ 500              		.cfi_offset 3, -8
+ 501              		.cfi_offset 14, -4
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 502              		.loc 1 37 5 view .LVU58
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 503              		.loc 1 37 28 is_stmt 0 view .LVU59
+ 504 0002 0D4B     		ldr	r3, .L32
+ 505 0004 1B68     		ldr	r3, [r3]
+ 506 0006 BFF35B8F 		dmb	ish
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 507              		.loc 1 37 28 discriminator 1 view .LVU60
+ 508 000a 13F0010F 		tst	r3, #1
+ 509 000e 01D0     		beq	.L31
+ 510              	.L29:
+  38:App/Src/concrete_elephant_states.cpp **** }
+ 511              		.loc 1 38 5 is_stmt 1 view .LVU61
+  39:App/Src/concrete_elephant_states.cpp **** 
+ 512              		.loc 1 39 1 is_stmt 0 view .LVU62
+ 513 0010 0A48     		ldr	r0, .L32+4
+ 514 0012 08BD     		pop	{r3, pc}
+ 515              	.L31:
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 516              		.loc 1 37 28 discriminator 1 view .LVU63
+ 517 0014 0848     		ldr	r0, .L32
+ 518 0016 FFF7FEFF 		bl	__cxa_guard_acquire
+ 519              	.LVL33:
+ 520 001a 0028     		cmp	r0, #0
+ 521 001c F8D0     		beq	.L29
+ 522              	.LVL34:
+ 523              	.LBB92:
+ 524              	.LBI92:
+  14:App/Inc/concrete_elephant_states.h ****     ElephLightSleep(const ElephLightSleep& other);
+ 525              		.loc 2 14 5 is_stmt 1 view .LVU64
+ 526              	.LBB93:
+ 527              	.LBB94:
+ 528              	.LBB95:
+ARM GAS  /tmp/ccfxnnos.s 			page 13
+
+
+ 529              	.LBI95:
+   5:App/Inc/elephant_state.h **** public:
+ 530              		.loc 3 5 7 view .LVU65
+ 531              	.LBB96:
+ 532 001e 0748     		ldr	r0, .L32+4
+ 533 0020 074B     		ldr	r3, .L32+8
+ 534 0022 0360     		str	r3, [r0]
+ 535              	.LVL35:
+   5:App/Inc/elephant_state.h **** public:
+ 536              		.loc 3 5 7 is_stmt 0 view .LVU66
+ 537              	.LBE96:
+ 538              	.LBE95:
+  14:App/Inc/concrete_elephant_states.h ****     ElephLightSleep(const ElephLightSleep& other);
+ 539              		.loc 2 14 23 discriminator 1 view .LVU67
+ 540 0024 074B     		ldr	r3, .L32+12
+ 541 0026 0360     		str	r3, [r0]
+ 542              	.LVL36:
+  14:App/Inc/concrete_elephant_states.h ****     ElephLightSleep(const ElephLightSleep& other);
+ 543              		.loc 2 14 23 discriminator 1 view .LVU68
+ 544              	.LBE94:
+ 545              	.LBE93:
+ 546              	.LBE92:
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 547              		.loc 1 37 28 discriminator 1 view .LVU69
+ 548 0028 074A     		ldr	r2, .L32+16
+ 549 002a 0849     		ldr	r1, .L32+20
+ 550 002c FFF7FEFF 		bl	__aeabi_atexit
+ 551              	.LVL37:
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 552              		.loc 1 37 28 discriminator 2 view .LVU70
+ 553 0030 0148     		ldr	r0, .L32
+ 554 0032 FFF7FEFF 		bl	__cxa_guard_release
+ 555              	.LVL38:
+ 556 0036 EBE7     		b	.L29
+ 557              	.L33:
+ 558              		.align	2
+ 559              	.L32:
+ 560 0038 00000000 		.word	_ZGVZN15ElephLightSleep11getInstanceEvE9singleton
+ 561 003c 00000000 		.word	_ZZN15ElephLightSleep11getInstanceEvE9singleton
+ 562 0040 08000000 		.word	_ZTV13ElephantState+8
+ 563 0044 08000000 		.word	_ZTV15ElephLightSleep+8
+ 564 0048 00000000 		.word	__dso_handle
+ 565 004c 00000000 		.word	_ZN15ElephLightSleepD1Ev
+ 566              		.cfi_endproc
+ 567              	.LFE20:
+ 568              		.cantunwind
+ 569              		.fnend
+ 571              		.section	.text._ZN14ElephDeepSleep6toggleEP8Elephant,"ax",%progbits
+ 572              		.align	1
+ 573              		.global	_ZN14ElephDeepSleep6toggleEP8Elephant
+ 574              		.syntax unified
+ 575              		.thumb
+ 576              		.thumb_func
+ 578              	_ZN14ElephDeepSleep6toggleEP8Elephant:
+ 579              		.fnstart
+ 580              	.LVL39:
+ 581              	.LFB29:
+ARM GAS  /tmp/ccfxnnos.s 			page 14
+
+
+  64:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephLightSleep::getInstance());
+ 582              		.loc 1 64 49 is_stmt 1 view -0
+ 583              		.cfi_startproc
+ 584              		@ args = 0, pretend = 0, frame = 0
+ 585              		@ frame_needed = 0, uses_anonymous_args = 0
+  64:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephLightSleep::getInstance());
+ 586              		.loc 1 64 49 is_stmt 0 view .LVU72
+ 587 0000 10B5     		push	{r4, lr}
+ 588              		.save {r4, lr}
+ 589              		.cfi_def_cfa_offset 8
+ 590              		.cfi_offset 4, -8
+ 591              		.cfi_offset 14, -4
+ 592 0002 0C46     		mov	r4, r1
+  65:App/Src/concrete_elephant_states.cpp **** }
+ 593              		.loc 1 65 5 is_stmt 1 view .LVU73
+  65:App/Src/concrete_elephant_states.cpp **** }
+ 594              		.loc 1 65 23 is_stmt 0 view .LVU74
+ 595 0004 FFF7FEFF 		bl	_ZN15ElephLightSleep11getInstanceEv
+ 596              	.LVL40:
+  65:App/Src/concrete_elephant_states.cpp **** }
+ 597              		.loc 1 65 23 view .LVU75
+ 598 0008 0146     		mov	r1, r0
+  65:App/Src/concrete_elephant_states.cpp **** }
+ 599              		.loc 1 65 23 discriminator 1 view .LVU76
+ 600 000a 2046     		mov	r0, r4
+ 601 000c FFF7FEFF 		bl	_ZN8Elephant8setStateER13ElephantState
+ 602              	.LVL41:
+  66:App/Src/concrete_elephant_states.cpp **** 
+ 603              		.loc 1 66 1 view .LVU77
+ 604 0010 10BD     		pop	{r4, pc}
+  66:App/Src/concrete_elephant_states.cpp **** 
+ 605              		.loc 1 66 1 view .LVU78
+ 606              		.cfi_endproc
+ 607              	.LFE29:
+ 608              		.fnend
+ 610              		.section	.text._ZN15ElephLightSleepC2ERKS_,"ax",%progbits
+ 611              		.align	1
+ 612              		.global	_ZN15ElephLightSleepC2ERKS_
+ 613              		.syntax unified
+ 614              		.thumb
+ 615              		.thumb_func
+ 617              	_ZN15ElephLightSleepC2ERKS_:
+ 618              		.fnstart
+ 619              	.LVL42:
+ 620              	.LFB26:
+  46:App/Src/concrete_elephant_states.cpp **** 
+ 621              		.loc 1 46 1 is_stmt 1 view -0
+ 622              		.cfi_startproc
+ 623              		@ args = 0, pretend = 0, frame = 0
+ 624              		@ frame_needed = 0, uses_anonymous_args = 0
+ 625              		@ link register save eliminated.
+ 626              	.LBB97:
+ 627              	.LBB98:
+ 628              	.LBI98:
+   5:App/Inc/elephant_state.h **** public:
+ 629              		.loc 3 5 7 view .LVU80
+ 630              	.LBB99:
+ARM GAS  /tmp/ccfxnnos.s 			page 15
+
+
+ 631 0000 024A     		ldr	r2, .L37
+ 632 0002 0260     		str	r2, [r0]
+ 633              	.LVL43:
+   5:App/Inc/elephant_state.h **** public:
+ 634              		.loc 3 5 7 is_stmt 0 view .LVU81
+ 635              	.LBE99:
+ 636              	.LBE98:
+  46:App/Src/concrete_elephant_states.cpp **** 
+ 637              		.loc 1 46 62 discriminator 1 view .LVU82
+ 638 0004 024A     		ldr	r2, .L37+4
+ 639 0006 0260     		str	r2, [r0]
+ 640              	.LBE97:
+  46:App/Src/concrete_elephant_states.cpp **** 
+ 641              		.loc 1 46 65 view .LVU83
+ 642 0008 7047     		bx	lr
+ 643              	.L38:
+ 644 000a 00BF     		.align	2
+ 645              	.L37:
+ 646 000c 08000000 		.word	_ZTV13ElephantState+8
+ 647 0010 08000000 		.word	_ZTV15ElephLightSleep+8
+ 648              		.cfi_endproc
+ 649              	.LFE26:
+ 650              		.cantunwind
+ 651              		.fnend
+ 653              		.global	_ZN15ElephLightSleepC1ERKS_
+ 654              		.thumb_set _ZN15ElephLightSleepC1ERKS_,_ZN15ElephLightSleepC2ERKS_
+ 655              		.section	.text._ZN14ElephDeepSleep11getInstanceEv,"ax",%progbits
+ 656              		.align	1
+ 657              		.global	_ZN14ElephDeepSleep11getInstanceEv
+ 658              		.syntax unified
+ 659              		.thumb
+ 660              		.thumb_func
+ 662              	_ZN14ElephDeepSleep11getInstanceEv:
+ 663              		.fnstart
+ 664              	.LFB31:
+  80:App/Src/concrete_elephant_states.cpp ****     static ElephDeepSleep singleton;
+ 665              		.loc 1 80 46 is_stmt 1 view -0
+ 666              		.cfi_startproc
+ 667              		@ args = 0, pretend = 0, frame = 0
+ 668              		@ frame_needed = 0, uses_anonymous_args = 0
+ 669 0000 08B5     		push	{r3, lr}
+ 670              		.cfi_def_cfa_offset 8
+ 671              		.cfi_offset 3, -8
+ 672              		.cfi_offset 14, -4
+  81:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 673              		.loc 1 81 5 view .LVU85
+  81:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 674              		.loc 1 81 27 is_stmt 0 view .LVU86
+ 675 0002 0D4B     		ldr	r3, .L43
+ 676 0004 1B68     		ldr	r3, [r3]
+ 677 0006 BFF35B8F 		dmb	ish
+  81:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 678              		.loc 1 81 27 discriminator 1 view .LVU87
+ 679 000a 13F0010F 		tst	r3, #1
+ 680 000e 01D0     		beq	.L42
+ 681              	.L40:
+  82:App/Src/concrete_elephant_states.cpp **** }
+ARM GAS  /tmp/ccfxnnos.s 			page 16
+
+
+ 682              		.loc 1 82 5 is_stmt 1 view .LVU88
+  83:App/Src/concrete_elephant_states.cpp **** 
+ 683              		.loc 1 83 1 is_stmt 0 view .LVU89
+ 684 0010 0A48     		ldr	r0, .L43+4
+ 685 0012 08BD     		pop	{r3, pc}
+ 686              	.L42:
+  81:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 687              		.loc 1 81 27 discriminator 1 view .LVU90
+ 688 0014 0848     		ldr	r0, .L43
+ 689 0016 FFF7FEFF 		bl	__cxa_guard_acquire
+ 690              	.LVL44:
+ 691 001a 0028     		cmp	r0, #0
+ 692 001c F8D0     		beq	.L40
+ 693              	.LVL45:
+ 694              	.LBB100:
+ 695              	.LBI100:
+  29:App/Inc/concrete_elephant_states.h ****     ElephDeepSleep(const ElephDeepSleep& other);
+ 696              		.loc 2 29 5 is_stmt 1 view .LVU91
+ 697              	.LBB101:
+ 698              	.LBB102:
+ 699              	.LBB103:
+ 700              	.LBI103:
+   5:App/Inc/elephant_state.h **** public:
+ 701              		.loc 3 5 7 view .LVU92
+ 702              	.LBB104:
+ 703 001e 0748     		ldr	r0, .L43+4
+ 704 0020 074B     		ldr	r3, .L43+8
+ 705 0022 0360     		str	r3, [r0]
+ 706              	.LVL46:
+   5:App/Inc/elephant_state.h **** public:
+ 707              		.loc 3 5 7 is_stmt 0 view .LVU93
+ 708              	.LBE104:
+ 709              	.LBE103:
+  29:App/Inc/concrete_elephant_states.h ****     ElephDeepSleep(const ElephDeepSleep& other);
+ 710              		.loc 2 29 22 discriminator 1 view .LVU94
+ 711 0024 074B     		ldr	r3, .L43+12
+ 712 0026 0360     		str	r3, [r0]
+ 713              	.LVL47:
+  29:App/Inc/concrete_elephant_states.h ****     ElephDeepSleep(const ElephDeepSleep& other);
+ 714              		.loc 2 29 22 discriminator 1 view .LVU95
+ 715              	.LBE102:
+ 716              	.LBE101:
+ 717              	.LBE100:
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 718              		.loc 1 37 28 view .LVU96
+ 719 0028 074A     		ldr	r2, .L43+16
+ 720 002a 0849     		ldr	r1, .L43+20
+ 721 002c FFF7FEFF 		bl	__aeabi_atexit
+ 722              	.LVL48:
+  81:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 723              		.loc 1 81 27 discriminator 2 view .LVU97
+ 724 0030 0148     		ldr	r0, .L43
+ 725 0032 FFF7FEFF 		bl	__cxa_guard_release
+ 726              	.LVL49:
+ 727 0036 EBE7     		b	.L40
+ 728              	.L44:
+ 729              		.align	2
+ARM GAS  /tmp/ccfxnnos.s 			page 17
+
+
+ 730              	.L43:
+ 731 0038 00000000 		.word	_ZGVZN14ElephDeepSleep11getInstanceEvE9singleton
+ 732 003c 00000000 		.word	_ZZN14ElephDeepSleep11getInstanceEvE9singleton
+ 733 0040 08000000 		.word	_ZTV13ElephantState+8
+ 734 0044 08000000 		.word	_ZTV14ElephDeepSleep+8
+ 735 0048 00000000 		.word	__dso_handle
+ 736 004c 00000000 		.word	_ZN14ElephDeepSleepD1Ev
+ 737              		.cfi_endproc
+ 738              	.LFE31:
+ 739              		.cantunwind
+ 740              		.fnend
+ 742              		.section	.text._ZN14ElephPlaySound6toggleEP8Elephant,"ax",%progbits
+ 743              		.align	1
+ 744              		.global	_ZN14ElephPlaySound6toggleEP8Elephant
+ 745              		.syntax unified
+ 746              		.thumb
+ 747              		.thumb_func
+ 749              	_ZN14ElephPlaySound6toggleEP8Elephant:
+ 750              		.fnstart
+ 751              	.LVL50:
+ 752              	.LFB40:
+ 106:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephDeepSleep::getInstance());
+ 753              		.loc 1 106 49 is_stmt 1 view -0
+ 754              		.cfi_startproc
+ 755              		@ args = 0, pretend = 0, frame = 0
+ 756              		@ frame_needed = 0, uses_anonymous_args = 0
+ 106:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephDeepSleep::getInstance());
+ 757              		.loc 1 106 49 is_stmt 0 view .LVU99
+ 758 0000 10B5     		push	{r4, lr}
+ 759              		.save {r4, lr}
+ 760              		.cfi_def_cfa_offset 8
+ 761              		.cfi_offset 4, -8
+ 762              		.cfi_offset 14, -4
+ 763 0002 0C46     		mov	r4, r1
+ 107:App/Src/concrete_elephant_states.cpp **** }
+ 764              		.loc 1 107 5 is_stmt 1 view .LVU100
+ 107:App/Src/concrete_elephant_states.cpp **** }
+ 765              		.loc 1 107 23 is_stmt 0 view .LVU101
+ 766 0004 FFF7FEFF 		bl	_ZN14ElephDeepSleep11getInstanceEv
+ 767              	.LVL51:
+ 107:App/Src/concrete_elephant_states.cpp **** }
+ 768              		.loc 1 107 23 view .LVU102
+ 769 0008 0146     		mov	r1, r0
+ 107:App/Src/concrete_elephant_states.cpp **** }
+ 770              		.loc 1 107 23 discriminator 1 view .LVU103
+ 771 000a 2046     		mov	r0, r4
+ 772 000c FFF7FEFF 		bl	_ZN8Elephant8setStateER13ElephantState
+ 773              	.LVL52:
+ 108:App/Src/concrete_elephant_states.cpp **** 
+ 774              		.loc 1 108 1 view .LVU104
+ 775 0010 10BD     		pop	{r4, pc}
+ 108:App/Src/concrete_elephant_states.cpp **** 
+ 776              		.loc 1 108 1 view .LVU105
+ 777              		.cfi_endproc
+ 778              	.LFE40:
+ 779              		.fnend
+ 781              		.section	.text._ZN14ElephDeepSleepC2ERKS_,"ax",%progbits
+ARM GAS  /tmp/ccfxnnos.s 			page 18
+
+
+ 782              		.align	1
+ 783              		.global	_ZN14ElephDeepSleepC2ERKS_
+ 784              		.syntax unified
+ 785              		.thumb
+ 786              		.thumb_func
+ 788              	_ZN14ElephDeepSleepC2ERKS_:
+ 789              		.fnstart
+ 790              	.LVL53:
+ 791              	.LFB37:
+  90:App/Src/concrete_elephant_states.cpp **** 
+ 792              		.loc 1 90 1 is_stmt 1 view -0
+ 793              		.cfi_startproc
+ 794              		@ args = 0, pretend = 0, frame = 0
+ 795              		@ frame_needed = 0, uses_anonymous_args = 0
+ 796              		@ link register save eliminated.
+ 797              	.LBB105:
+ 798              	.LBB106:
+ 799              	.LBI106:
+   5:App/Inc/elephant_state.h **** public:
+ 800              		.loc 3 5 7 view .LVU107
+ 801              	.LBB107:
+ 802 0000 024A     		ldr	r2, .L48
+ 803 0002 0260     		str	r2, [r0]
+ 804              	.LVL54:
+   5:App/Inc/elephant_state.h **** public:
+ 805              		.loc 3 5 7 is_stmt 0 view .LVU108
+ 806              	.LBE107:
+ 807              	.LBE106:
+  90:App/Src/concrete_elephant_states.cpp **** 
+ 808              		.loc 1 90 59 discriminator 1 view .LVU109
+ 809 0004 024A     		ldr	r2, .L48+4
+ 810 0006 0260     		str	r2, [r0]
+ 811              	.LBE105:
+  90:App/Src/concrete_elephant_states.cpp **** 
+ 812              		.loc 1 90 62 view .LVU110
+ 813 0008 7047     		bx	lr
+ 814              	.L49:
+ 815 000a 00BF     		.align	2
+ 816              	.L48:
+ 817 000c 08000000 		.word	_ZTV13ElephantState+8
+ 818 0010 08000000 		.word	_ZTV14ElephDeepSleep+8
+ 819              		.cfi_endproc
+ 820              	.LFE37:
+ 821              		.cantunwind
+ 822              		.fnend
+ 824              		.global	_ZN14ElephDeepSleepC1ERKS_
+ 825              		.thumb_set _ZN14ElephDeepSleepC1ERKS_,_ZN14ElephDeepSleepC2ERKS_
+ 826              		.section	.text._ZN14ElephPlaySound11getInstanceEv,"ax",%progbits
+ 827              		.align	1
+ 828              		.global	_ZN14ElephPlaySound11getInstanceEv
+ 829              		.syntax unified
+ 830              		.thumb
+ 831              		.thumb_func
+ 833              	_ZN14ElephPlaySound11getInstanceEv:
+ 834              		.fnstart
+ 835              	.LFB42:
+ 118:App/Src/concrete_elephant_states.cpp **** 
+ARM GAS  /tmp/ccfxnnos.s 			page 19
+
+
+ 119:App/Src/concrete_elephant_states.cpp **** /**
+ 120:App/Src/concrete_elephant_states.cpp ****  * @brief Get the static instance of the play sound state.
+ 121:App/Src/concrete_elephant_states.cpp ****  * 
+ 122:App/Src/concrete_elephant_states.cpp ****  * @return ElephantState& Reference to the instance of the play sound state. 
+ 123:App/Src/concrete_elephant_states.cpp ****  */
+ 124:App/Src/concrete_elephant_states.cpp **** ElephantState& ElephPlaySound::getInstance() {
+ 836              		.loc 1 124 46 is_stmt 1 view -0
+ 837              		.cfi_startproc
+ 838              		@ args = 0, pretend = 0, frame = 0
+ 839              		@ frame_needed = 0, uses_anonymous_args = 0
+ 840 0000 08B5     		push	{r3, lr}
+ 841              		.cfi_def_cfa_offset 8
+ 842              		.cfi_offset 3, -8
+ 843              		.cfi_offset 14, -4
+ 125:App/Src/concrete_elephant_states.cpp ****     static ElephPlaySound singleton;
+ 844              		.loc 1 125 5 view .LVU112
+ 845              		.loc 1 125 27 is_stmt 0 view .LVU113
+ 846 0002 0D4B     		ldr	r3, .L54
+ 847 0004 1B68     		ldr	r3, [r3]
+ 848 0006 BFF35B8F 		dmb	ish
+ 849              		.loc 1 125 27 discriminator 1 view .LVU114
+ 850 000a 13F0010F 		tst	r3, #1
+ 851 000e 01D0     		beq	.L53
+ 852              	.L51:
+ 126:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 853              		.loc 1 126 5 is_stmt 1 view .LVU115
+ 127:App/Src/concrete_elephant_states.cpp **** }
+ 854              		.loc 1 127 1 is_stmt 0 view .LVU116
+ 855 0010 0A48     		ldr	r0, .L54+4
+ 856 0012 08BD     		pop	{r3, pc}
+ 857              	.L53:
+ 125:App/Src/concrete_elephant_states.cpp ****     static ElephPlaySound singleton;
+ 858              		.loc 1 125 27 discriminator 1 view .LVU117
+ 859 0014 0848     		ldr	r0, .L54
+ 860 0016 FFF7FEFF 		bl	__cxa_guard_acquire
+ 861              	.LVL55:
+ 862 001a 0028     		cmp	r0, #0
+ 863 001c F8D0     		beq	.L51
+ 864              	.LVL56:
+ 865              	.LBB108:
+ 866              	.LBI108:
+  35:App/Inc/concrete_elephant_states.h **** {
+  36:App/Inc/concrete_elephant_states.h **** public:
+  37:App/Inc/concrete_elephant_states.h ****     void enter(Elephant* elephant);
+  38:App/Inc/concrete_elephant_states.h ****     void toggle(Elephant* elephant);
+  39:App/Inc/concrete_elephant_states.h ****     void exit(Elephant* elephant);
+  40:App/Inc/concrete_elephant_states.h ****     static ElephantState& getInstance();
+  41:App/Inc/concrete_elephant_states.h **** 
+  42:App/Inc/concrete_elephant_states.h **** private:
+  43:App/Inc/concrete_elephant_states.h ****     ElephPlaySound() {}
+ 867              		.loc 2 43 5 is_stmt 1 view .LVU118
+ 868              	.LBB109:
+ 869              	.LBB110:
+ 870              	.LBB111:
+ 871              	.LBI111:
+   5:App/Inc/elephant_state.h **** public:
+ 872              		.loc 3 5 7 view .LVU119
+ARM GAS  /tmp/ccfxnnos.s 			page 20
+
+
+ 873              	.LBB112:
+ 874 001e 0748     		ldr	r0, .L54+4
+ 875 0020 074B     		ldr	r3, .L54+8
+ 876 0022 0360     		str	r3, [r0]
+ 877              	.LVL57:
+   5:App/Inc/elephant_state.h **** public:
+ 878              		.loc 3 5 7 is_stmt 0 view .LVU120
+ 879              	.LBE112:
+ 880              	.LBE111:
+ 881              		.loc 2 43 22 discriminator 1 view .LVU121
+ 882 0024 074B     		ldr	r3, .L54+12
+ 883 0026 0360     		str	r3, [r0]
+ 884              	.LVL58:
+ 885              		.loc 2 43 22 discriminator 1 view .LVU122
+ 886              	.LBE110:
+ 887              	.LBE109:
+ 888              	.LBE108:
+  37:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 889              		.loc 1 37 28 view .LVU123
+ 890 0028 074A     		ldr	r2, .L54+16
+ 891 002a 0849     		ldr	r1, .L54+20
+ 892 002c FFF7FEFF 		bl	__aeabi_atexit
+ 893              	.LVL59:
+ 125:App/Src/concrete_elephant_states.cpp ****     return singleton;
+ 894              		.loc 1 125 27 discriminator 2 view .LVU124
+ 895 0030 0148     		ldr	r0, .L54
+ 896 0032 FFF7FEFF 		bl	__cxa_guard_release
+ 897              	.LVL60:
+ 898 0036 EBE7     		b	.L51
+ 899              	.L55:
+ 900              		.align	2
+ 901              	.L54:
+ 902 0038 00000000 		.word	_ZGVZN14ElephPlaySound11getInstanceEvE9singleton
+ 903 003c 00000000 		.word	_ZZN14ElephPlaySound11getInstanceEvE9singleton
+ 904 0040 08000000 		.word	_ZTV13ElephantState+8
+ 905 0044 08000000 		.word	_ZTV14ElephPlaySound+8
+ 906 0048 00000000 		.word	__dso_handle
+ 907 004c 00000000 		.word	_ZN14ElephPlaySoundD1Ev
+ 908              		.cfi_endproc
+ 909              	.LFE42:
+ 910              		.cantunwind
+ 911              		.fnend
+ 913              		.section	.text._ZN15ElephLightSleep6toggleEP8Elephant,"ax",%progbits
+ 914              		.align	1
+ 915              		.global	_ZN15ElephLightSleep6toggleEP8Elephant
+ 916              		.syntax unified
+ 917              		.thumb
+ 918              		.thumb_func
+ 920              	_ZN15ElephLightSleep6toggleEP8Elephant:
+ 921              		.fnstart
+ 922              	.LVL61:
+ 923              	.LFB18:
+  20:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephPlaySound::getInstance());
+ 924              		.loc 1 20 50 is_stmt 1 view -0
+ 925              		.cfi_startproc
+ 926              		@ args = 0, pretend = 0, frame = 0
+ 927              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccfxnnos.s 			page 21
+
+
+  20:App/Src/concrete_elephant_states.cpp ****     elephant->setState(ElephPlaySound::getInstance());
+ 928              		.loc 1 20 50 is_stmt 0 view .LVU126
+ 929 0000 10B5     		push	{r4, lr}
+ 930              		.save {r4, lr}
+ 931              		.cfi_def_cfa_offset 8
+ 932              		.cfi_offset 4, -8
+ 933              		.cfi_offset 14, -4
+ 934 0002 0C46     		mov	r4, r1
+  21:App/Src/concrete_elephant_states.cpp **** }
+ 935              		.loc 1 21 5 is_stmt 1 view .LVU127
+  21:App/Src/concrete_elephant_states.cpp **** }
+ 936              		.loc 1 21 23 is_stmt 0 view .LVU128
+ 937 0004 FFF7FEFF 		bl	_ZN14ElephPlaySound11getInstanceEv
+ 938              	.LVL62:
+  21:App/Src/concrete_elephant_states.cpp **** }
+ 939              		.loc 1 21 23 view .LVU129
+ 940 0008 0146     		mov	r1, r0
+  21:App/Src/concrete_elephant_states.cpp **** }
+ 941              		.loc 1 21 23 discriminator 1 view .LVU130
+ 942 000a 2046     		mov	r0, r4
+ 943 000c FFF7FEFF 		bl	_ZN8Elephant8setStateER13ElephantState
+ 944              	.LVL63:
+  22:App/Src/concrete_elephant_states.cpp **** 
+ 945              		.loc 1 22 1 view .LVU131
+ 946 0010 10BD     		pop	{r4, pc}
+  22:App/Src/concrete_elephant_states.cpp **** 
+ 947              		.loc 1 22 1 view .LVU132
+ 948              		.cfi_endproc
+ 949              	.LFE18:
+ 950              		.fnend
+ 952              		.section	.text._ZN14ElephPlaySoundC2ERKS_,"ax",%progbits
+ 953              		.align	1
+ 954              		.global	_ZN14ElephPlaySoundC2ERKS_
+ 955              		.syntax unified
+ 956              		.thumb
+ 957              		.thumb_func
+ 959              	_ZN14ElephPlaySoundC2ERKS_:
+ 960              		.fnstart
+ 961              	.LVL64:
+ 962              	.LFB48:
+ 128:App/Src/concrete_elephant_states.cpp **** 
+ 129:App/Src/concrete_elephant_states.cpp **** /**
+ 130:App/Src/concrete_elephant_states.cpp ****  * @brief Construct a new Play Sound object from another Play Sound object.
+ 131:App/Src/concrete_elephant_states.cpp ****  * 
+ 132:App/Src/concrete_elephant_states.cpp ****  * @param other Another Play Sound object.
+ 133:App/Src/concrete_elephant_states.cpp ****  */
+ 134:App/Src/concrete_elephant_states.cpp **** ElephPlaySound::ElephPlaySound(const ElephPlaySound& other) {}...
+ 963              		.loc 1 134 1 is_stmt 1 view -0
+ 964              		.cfi_startproc
+ 965              		@ args = 0, pretend = 0, frame = 0
+ 966              		@ frame_needed = 0, uses_anonymous_args = 0
+ 967              		@ link register save eliminated.
+ 968              	.LBB113:
+ 969              	.LBB114:
+ 970              	.LBI114:
+   5:App/Inc/elephant_state.h **** public:
+ 971              		.loc 3 5 7 view .LVU134
+ARM GAS  /tmp/ccfxnnos.s 			page 22
+
+
+ 972              	.LBB115:
+ 973 0000 024A     		ldr	r2, .L59
+ 974 0002 0260     		str	r2, [r0]
+ 975              	.LVL65:
+   5:App/Inc/elephant_state.h **** public:
+ 976              		.loc 3 5 7 is_stmt 0 view .LVU135
+ 977              	.LBE115:
+ 978              	.LBE114:
+ 979              		.loc 1 134 59 discriminator 1 view .LVU136
+ 980 0004 024A     		ldr	r2, .L59+4
+ 981 0006 0260     		str	r2, [r0]
+ 982              	.LBE113:
+ 983              		.loc 1 134 62 view .LVU137
+ 984 0008 7047     		bx	lr
+ 985              	.L60:
+ 986 000a 00BF     		.align	2
+ 987              	.L59:
+ 988 000c 08000000 		.word	_ZTV13ElephantState+8
+ 989 0010 08000000 		.word	_ZTV14ElephPlaySound+8
+ 990              		.cfi_endproc
+ 991              	.LFE48:
+ 992              		.cantunwind
+ 993              		.fnend
+ 995              		.global	_ZN14ElephPlaySoundC1ERKS_
+ 996              		.thumb_set _ZN14ElephPlaySoundC1ERKS_,_ZN14ElephPlaySoundC2ERKS_
+ 997              		.weak	_ZTS13ElephantState
+ 998              		.section	.rodata._ZTS13ElephantState,"aG",%progbits,_ZTS13ElephantState,comdat
+ 999              		.align	2
+ 1002              	_ZTS13ElephantState:
+ 1003 0000 3133456C 		.ascii	"13ElephantState\000"
+ 1003      65706861 
+ 1003      6E745374 
+ 1003      61746500 
+ 1004              		.weak	_ZTI13ElephantState
+ 1005              		.section	.rodata._ZTI13ElephantState,"aG",%progbits,_ZTI13ElephantState,comdat
+ 1006              		.align	2
+ 1009              	_ZTI13ElephantState:
+ 1010 0000 08000000 		.word	_ZTVN10__cxxabiv117__class_type_infoE+8
+ 1011 0004 00000000 		.word	_ZTS13ElephantState
+ 1012              		.global	_ZTS15ElephLightSleep
+ 1013              		.section	.rodata._ZTS15ElephLightSleep,"a"
+ 1014              		.align	2
+ 1017              	_ZTS15ElephLightSleep:
+ 1018 0000 3135456C 		.ascii	"15ElephLightSleep\000"
+ 1018      6570684C 
+ 1018      69676874 
+ 1018      536C6565 
+ 1018      7000
+ 1019              		.global	_ZTI15ElephLightSleep
+ 1020              		.section	.rodata._ZTI15ElephLightSleep,"a"
+ 1021              		.align	2
+ 1024              	_ZTI15ElephLightSleep:
+ 1025 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 1026 0004 00000000 		.word	_ZTS15ElephLightSleep
+ 1027 0008 00000000 		.word	_ZTI13ElephantState
+ 1028              		.global	_ZTS14ElephDeepSleep
+ 1029              		.section	.rodata._ZTS14ElephDeepSleep,"a"
+ARM GAS  /tmp/ccfxnnos.s 			page 23
+
+
+ 1030              		.align	2
+ 1033              	_ZTS14ElephDeepSleep:
+ 1034 0000 3134456C 		.ascii	"14ElephDeepSleep\000"
+ 1034      65706844 
+ 1034      65657053 
+ 1034      6C656570 
+ 1034      00
+ 1035              		.global	_ZTI14ElephDeepSleep
+ 1036              		.section	.rodata._ZTI14ElephDeepSleep,"a"
+ 1037              		.align	2
+ 1040              	_ZTI14ElephDeepSleep:
+ 1041 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 1042 0004 00000000 		.word	_ZTS14ElephDeepSleep
+ 1043 0008 00000000 		.word	_ZTI13ElephantState
+ 1044              		.global	_ZTS14ElephPlaySound
+ 1045              		.section	.rodata._ZTS14ElephPlaySound,"a"
+ 1046              		.align	2
+ 1049              	_ZTS14ElephPlaySound:
+ 1050 0000 3134456C 		.ascii	"14ElephPlaySound\000"
+ 1050      65706850 
+ 1050      6C617953 
+ 1050      6F756E64 
+ 1050      00
+ 1051              		.global	_ZTI14ElephPlaySound
+ 1052              		.section	.rodata._ZTI14ElephPlaySound,"a"
+ 1053              		.align	2
+ 1056              	_ZTI14ElephPlaySound:
+ 1057 0000 08000000 		.word	_ZTVN10__cxxabiv120__si_class_type_infoE+8
+ 1058 0004 00000000 		.word	_ZTS14ElephPlaySound
+ 1059 0008 00000000 		.word	_ZTI13ElephantState
+ 1060              		.weak	_ZTV13ElephantState
+ 1061              		.section	.rodata._ZTV13ElephantState,"aG",%progbits,_ZTV13ElephantState,comdat
+ 1062              		.align	2
+ 1065              	_ZTV13ElephantState:
+ 1066 0000 00000000 		.word	0
+ 1067 0004 00000000 		.word	_ZTI13ElephantState
+ 1068 0008 00000000 		.word	__cxa_pure_virtual
+ 1069 000c 00000000 		.word	__cxa_pure_virtual
+ 1070 0010 00000000 		.word	__cxa_pure_virtual
+ 1071 0014 00000000 		.word	0
+ 1072 0018 00000000 		.word	0
+ 1073              		.global	_ZTV15ElephLightSleep
+ 1074              		.section	.rodata._ZTV15ElephLightSleep,"a"
+ 1075              		.align	2
+ 1078              	_ZTV15ElephLightSleep:
+ 1079 0000 00000000 		.word	0
+ 1080 0004 00000000 		.word	_ZTI15ElephLightSleep
+ 1081 0008 00000000 		.word	_ZN15ElephLightSleep5enterEP8Elephant
+ 1082 000c 00000000 		.word	_ZN15ElephLightSleep6toggleEP8Elephant
+ 1083 0010 00000000 		.word	_ZN15ElephLightSleep4exitEP8Elephant
+ 1084 0014 00000000 		.word	_ZN15ElephLightSleepD1Ev
+ 1085 0018 00000000 		.word	_ZN15ElephLightSleepD0Ev
+ 1086              		.global	_ZTV14ElephDeepSleep
+ 1087              		.section	.rodata._ZTV14ElephDeepSleep,"a"
+ 1088              		.align	2
+ 1091              	_ZTV14ElephDeepSleep:
+ 1092 0000 00000000 		.word	0
+ARM GAS  /tmp/ccfxnnos.s 			page 24
+
+
+ 1093 0004 00000000 		.word	_ZTI14ElephDeepSleep
+ 1094 0008 00000000 		.word	_ZN14ElephDeepSleep5enterEP8Elephant
+ 1095 000c 00000000 		.word	_ZN14ElephDeepSleep6toggleEP8Elephant
+ 1096 0010 00000000 		.word	_ZN14ElephDeepSleep4exitEP8Elephant
+ 1097 0014 00000000 		.word	_ZN14ElephDeepSleepD1Ev
+ 1098 0018 00000000 		.word	_ZN14ElephDeepSleepD0Ev
+ 1099              		.global	_ZTV14ElephPlaySound
+ 1100              		.section	.rodata._ZTV14ElephPlaySound,"a"
+ 1101              		.align	2
+ 1104              	_ZTV14ElephPlaySound:
+ 1105 0000 00000000 		.word	0
+ 1106 0004 00000000 		.word	_ZTI14ElephPlaySound
+ 1107 0008 00000000 		.word	_ZN14ElephPlaySound5enterEP8Elephant
+ 1108 000c 00000000 		.word	_ZN14ElephPlaySound6toggleEP8Elephant
+ 1109 0010 00000000 		.word	_ZN14ElephPlaySound4exitEP8Elephant
+ 1110 0014 00000000 		.word	_ZN14ElephPlaySoundD1Ev
+ 1111 0018 00000000 		.word	_ZN14ElephPlaySoundD0Ev
+ 1112              		.section	.bss._ZGVZN14ElephPlaySound11getInstanceEvE9singleton,"aw",%nobits
+ 1113              		.align	2
+ 1116              	_ZGVZN14ElephPlaySound11getInstanceEvE9singleton:
+ 1117 0000 00000000 		.space	4
+ 1118              		.section	.bss._ZZN14ElephPlaySound11getInstanceEvE9singleton,"aw",%nobits
+ 1119              		.align	2
+ 1122              	_ZZN14ElephPlaySound11getInstanceEvE9singleton:
+ 1123 0000 00000000 		.space	4
+ 1124              		.section	.bss._ZGVZN14ElephDeepSleep11getInstanceEvE9singleton,"aw",%nobits
+ 1125              		.align	2
+ 1128              	_ZGVZN14ElephDeepSleep11getInstanceEvE9singleton:
+ 1129 0000 00000000 		.space	4
+ 1130              		.section	.bss._ZZN14ElephDeepSleep11getInstanceEvE9singleton,"aw",%nobits
+ 1131              		.align	2
+ 1134              	_ZZN14ElephDeepSleep11getInstanceEvE9singleton:
+ 1135 0000 00000000 		.space	4
+ 1136              		.section	.bss._ZGVZN15ElephLightSleep11getInstanceEvE9singleton,"aw",%nobits
+ 1137              		.align	2
+ 1140              	_ZGVZN15ElephLightSleep11getInstanceEvE9singleton:
+ 1141 0000 00000000 		.space	4
+ 1142              		.section	.bss._ZZN15ElephLightSleep11getInstanceEvE9singleton,"aw",%nobits
+ 1143              		.align	2
+ 1146              	_ZZN15ElephLightSleep11getInstanceEvE9singleton:
+ 1147 0000 00000000 		.space	4
+ 1148              		.weak	__cxa_pure_virtual
+ 1149              		.text
+ 1150              	.Letext0:
+ 1151              		.file 4 "App/Inc/elephant.h"
+ARM GAS  /tmp/ccfxnnos.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 concrete_elephant_states.cpp
+     /tmp/ccfxnnos.s:21     .text._ZN15ElephLightSleep5enterEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:27     .text._ZN15ElephLightSleep5enterEP8Elephant:00000000 _ZN15ElephLightSleep5enterEP8Elephant
+.ARM.exidx.text._ZN15ElephLightSleep5enterEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:44     .text._ZN15ElephLightSleep4exitEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:50     .text._ZN15ElephLightSleep4exitEP8Elephant:00000000 _ZN15ElephLightSleep4exitEP8Elephant
+.ARM.exidx.text._ZN15ElephLightSleep4exitEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:67     .text._ZN15ElephLightSleepD2Ev:00000000 $t
+     /tmp/ccfxnnos.s:73     .text._ZN15ElephLightSleepD2Ev:00000000 _ZN15ElephLightSleepD2Ev
+     /tmp/ccfxnnos.s:106    .text._ZN15ElephLightSleepD2Ev:0000000c $d
+     /tmp/ccfxnnos.s:1078   .rodata._ZTV15ElephLightSleep:00000000 _ZTV15ElephLightSleep
+     /tmp/ccfxnnos.s:1065   .rodata._ZTV13ElephantState:00000000 _ZTV13ElephantState
+.ARM.exidx.text._ZN15ElephLightSleepD2Ev:00000000 $d
+     /tmp/ccfxnnos.s:73     .text._ZN15ElephLightSleepD2Ev:00000000 _ZN15ElephLightSleepD1Ev
+     /tmp/ccfxnnos.s:116    .text._ZN14ElephDeepSleep5enterEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:122    .text._ZN14ElephDeepSleep5enterEP8Elephant:00000000 _ZN14ElephDeepSleep5enterEP8Elephant
+.ARM.exidx.text._ZN14ElephDeepSleep5enterEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:139    .text._ZN14ElephDeepSleep4exitEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:145    .text._ZN14ElephDeepSleep4exitEP8Elephant:00000000 _ZN14ElephDeepSleep4exitEP8Elephant
+.ARM.exidx.text._ZN14ElephDeepSleep4exitEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:162    .text._ZN14ElephDeepSleepD2Ev:00000000 $t
+     /tmp/ccfxnnos.s:168    .text._ZN14ElephDeepSleepD2Ev:00000000 _ZN14ElephDeepSleepD2Ev
+     /tmp/ccfxnnos.s:199    .text._ZN14ElephDeepSleepD2Ev:0000000c $d
+     /tmp/ccfxnnos.s:1091   .rodata._ZTV14ElephDeepSleep:00000000 _ZTV14ElephDeepSleep
+.ARM.exidx.text._ZN14ElephDeepSleepD2Ev:00000000 $d
+     /tmp/ccfxnnos.s:168    .text._ZN14ElephDeepSleepD2Ev:00000000 _ZN14ElephDeepSleepD1Ev
+     /tmp/ccfxnnos.s:209    .text._ZN14ElephPlaySound5enterEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:215    .text._ZN14ElephPlaySound5enterEP8Elephant:00000000 _ZN14ElephPlaySound5enterEP8Elephant
+.ARM.exidx.text._ZN14ElephPlaySound5enterEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:232    .text._ZN14ElephPlaySound4exitEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:238    .text._ZN14ElephPlaySound4exitEP8Elephant:00000000 _ZN14ElephPlaySound4exitEP8Elephant
+.ARM.exidx.text._ZN14ElephPlaySound4exitEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:255    .text._ZN14ElephPlaySoundD2Ev:00000000 $t
+     /tmp/ccfxnnos.s:261    .text._ZN14ElephPlaySoundD2Ev:00000000 _ZN14ElephPlaySoundD2Ev
+     /tmp/ccfxnnos.s:292    .text._ZN14ElephPlaySoundD2Ev:0000000c $d
+     /tmp/ccfxnnos.s:1104   .rodata._ZTV14ElephPlaySound:00000000 _ZTV14ElephPlaySound
+.ARM.exidx.text._ZN14ElephPlaySoundD2Ev:00000000 $d
+     /tmp/ccfxnnos.s:261    .text._ZN14ElephPlaySoundD2Ev:00000000 _ZN14ElephPlaySoundD1Ev
+     /tmp/ccfxnnos.s:302    .text._ZN15ElephLightSleepD0Ev:00000000 $t
+     /tmp/ccfxnnos.s:308    .text._ZN15ElephLightSleepD0Ev:00000000 _ZN15ElephLightSleepD0Ev
+     /tmp/ccfxnnos.s:355    .text._ZN15ElephLightSleepD0Ev:00000018 $d
+.ARM.exidx.text._ZN15ElephLightSleepD0Ev:00000000 $d
+     /tmp/ccfxnnos.s:363    .text._ZN14ElephDeepSleepD0Ev:00000000 $t
+     /tmp/ccfxnnos.s:369    .text._ZN14ElephDeepSleepD0Ev:00000000 _ZN14ElephDeepSleepD0Ev
+     /tmp/ccfxnnos.s:416    .text._ZN14ElephDeepSleepD0Ev:00000018 $d
+.ARM.exidx.text._ZN14ElephDeepSleepD0Ev:00000000 $d
+     /tmp/ccfxnnos.s:424    .text._ZN14ElephPlaySoundD0Ev:00000000 $t
+     /tmp/ccfxnnos.s:430    .text._ZN14ElephPlaySoundD0Ev:00000000 _ZN14ElephPlaySoundD0Ev
+     /tmp/ccfxnnos.s:477    .text._ZN14ElephPlaySoundD0Ev:00000018 $d
+.ARM.exidx.text._ZN14ElephPlaySoundD0Ev:00000000 $d
+     /tmp/ccfxnnos.s:485    .text._ZN15ElephLightSleep11getInstanceEv:00000000 $t
+     /tmp/ccfxnnos.s:491    .text._ZN15ElephLightSleep11getInstanceEv:00000000 _ZN15ElephLightSleep11getInstanceEv
+     /tmp/ccfxnnos.s:560    .text._ZN15ElephLightSleep11getInstanceEv:00000038 $d
+     /tmp/ccfxnnos.s:1140   .bss._ZGVZN15ElephLightSleep11getInstanceEvE9singleton:00000000 _ZGVZN15ElephLightSleep11getInstanceEvE9singleton
+     /tmp/ccfxnnos.s:1146   .bss._ZZN15ElephLightSleep11getInstanceEvE9singleton:00000000 _ZZN15ElephLightSleep11getInstanceEvE9singleton
+.ARM.exidx.text._ZN15ElephLightSleep11getInstanceEv:00000000 $d
+ARM GAS  /tmp/ccfxnnos.s 			page 26
+
+
+     /tmp/ccfxnnos.s:572    .text._ZN14ElephDeepSleep6toggleEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:578    .text._ZN14ElephDeepSleep6toggleEP8Elephant:00000000 _ZN14ElephDeepSleep6toggleEP8Elephant
+.ARM.exidx.text._ZN14ElephDeepSleep6toggleEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:611    .text._ZN15ElephLightSleepC2ERKS_:00000000 $t
+     /tmp/ccfxnnos.s:617    .text._ZN15ElephLightSleepC2ERKS_:00000000 _ZN15ElephLightSleepC2ERKS_
+     /tmp/ccfxnnos.s:646    .text._ZN15ElephLightSleepC2ERKS_:0000000c $d
+.ARM.exidx.text._ZN15ElephLightSleepC2ERKS_:00000000 $d
+     /tmp/ccfxnnos.s:617    .text._ZN15ElephLightSleepC2ERKS_:00000000 _ZN15ElephLightSleepC1ERKS_
+     /tmp/ccfxnnos.s:656    .text._ZN14ElephDeepSleep11getInstanceEv:00000000 $t
+     /tmp/ccfxnnos.s:662    .text._ZN14ElephDeepSleep11getInstanceEv:00000000 _ZN14ElephDeepSleep11getInstanceEv
+     /tmp/ccfxnnos.s:731    .text._ZN14ElephDeepSleep11getInstanceEv:00000038 $d
+     /tmp/ccfxnnos.s:1128   .bss._ZGVZN14ElephDeepSleep11getInstanceEvE9singleton:00000000 _ZGVZN14ElephDeepSleep11getInstanceEvE9singleton
+     /tmp/ccfxnnos.s:1134   .bss._ZZN14ElephDeepSleep11getInstanceEvE9singleton:00000000 _ZZN14ElephDeepSleep11getInstanceEvE9singleton
+.ARM.exidx.text._ZN14ElephDeepSleep11getInstanceEv:00000000 $d
+     /tmp/ccfxnnos.s:743    .text._ZN14ElephPlaySound6toggleEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:749    .text._ZN14ElephPlaySound6toggleEP8Elephant:00000000 _ZN14ElephPlaySound6toggleEP8Elephant
+.ARM.exidx.text._ZN14ElephPlaySound6toggleEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:782    .text._ZN14ElephDeepSleepC2ERKS_:00000000 $t
+     /tmp/ccfxnnos.s:788    .text._ZN14ElephDeepSleepC2ERKS_:00000000 _ZN14ElephDeepSleepC2ERKS_
+     /tmp/ccfxnnos.s:817    .text._ZN14ElephDeepSleepC2ERKS_:0000000c $d
+.ARM.exidx.text._ZN14ElephDeepSleepC2ERKS_:00000000 $d
+     /tmp/ccfxnnos.s:788    .text._ZN14ElephDeepSleepC2ERKS_:00000000 _ZN14ElephDeepSleepC1ERKS_
+     /tmp/ccfxnnos.s:827    .text._ZN14ElephPlaySound11getInstanceEv:00000000 $t
+     /tmp/ccfxnnos.s:833    .text._ZN14ElephPlaySound11getInstanceEv:00000000 _ZN14ElephPlaySound11getInstanceEv
+     /tmp/ccfxnnos.s:902    .text._ZN14ElephPlaySound11getInstanceEv:00000038 $d
+     /tmp/ccfxnnos.s:1116   .bss._ZGVZN14ElephPlaySound11getInstanceEvE9singleton:00000000 _ZGVZN14ElephPlaySound11getInstanceEvE9singleton
+     /tmp/ccfxnnos.s:1122   .bss._ZZN14ElephPlaySound11getInstanceEvE9singleton:00000000 _ZZN14ElephPlaySound11getInstanceEvE9singleton
+.ARM.exidx.text._ZN14ElephPlaySound11getInstanceEv:00000000 $d
+     /tmp/ccfxnnos.s:914    .text._ZN15ElephLightSleep6toggleEP8Elephant:00000000 $t
+     /tmp/ccfxnnos.s:920    .text._ZN15ElephLightSleep6toggleEP8Elephant:00000000 _ZN15ElephLightSleep6toggleEP8Elephant
+.ARM.exidx.text._ZN15ElephLightSleep6toggleEP8Elephant:00000000 $d
+     /tmp/ccfxnnos.s:953    .text._ZN14ElephPlaySoundC2ERKS_:00000000 $t
+     /tmp/ccfxnnos.s:959    .text._ZN14ElephPlaySoundC2ERKS_:00000000 _ZN14ElephPlaySoundC2ERKS_
+     /tmp/ccfxnnos.s:988    .text._ZN14ElephPlaySoundC2ERKS_:0000000c $d
+.ARM.exidx.text._ZN14ElephPlaySoundC2ERKS_:00000000 $d
+     /tmp/ccfxnnos.s:959    .text._ZN14ElephPlaySoundC2ERKS_:00000000 _ZN14ElephPlaySoundC1ERKS_
+     /tmp/ccfxnnos.s:1002   .rodata._ZTS13ElephantState:00000000 _ZTS13ElephantState
+     /tmp/ccfxnnos.s:999    .rodata._ZTS13ElephantState:00000000 $d
+     /tmp/ccfxnnos.s:1009   .rodata._ZTI13ElephantState:00000000 _ZTI13ElephantState
+     /tmp/ccfxnnos.s:1006   .rodata._ZTI13ElephantState:00000000 $d
+     /tmp/ccfxnnos.s:1017   .rodata._ZTS15ElephLightSleep:00000000 _ZTS15ElephLightSleep
+     /tmp/ccfxnnos.s:1014   .rodata._ZTS15ElephLightSleep:00000000 $d
+     /tmp/ccfxnnos.s:1024   .rodata._ZTI15ElephLightSleep:00000000 _ZTI15ElephLightSleep
+     /tmp/ccfxnnos.s:1021   .rodata._ZTI15ElephLightSleep:00000000 $d
+     /tmp/ccfxnnos.s:1033   .rodata._ZTS14ElephDeepSleep:00000000 _ZTS14ElephDeepSleep
+     /tmp/ccfxnnos.s:1030   .rodata._ZTS14ElephDeepSleep:00000000 $d
+     /tmp/ccfxnnos.s:1040   .rodata._ZTI14ElephDeepSleep:00000000 _ZTI14ElephDeepSleep
+     /tmp/ccfxnnos.s:1037   .rodata._ZTI14ElephDeepSleep:00000000 $d
+     /tmp/ccfxnnos.s:1049   .rodata._ZTS14ElephPlaySound:00000000 _ZTS14ElephPlaySound
+     /tmp/ccfxnnos.s:1046   .rodata._ZTS14ElephPlaySound:00000000 $d
+     /tmp/ccfxnnos.s:1056   .rodata._ZTI14ElephPlaySound:00000000 _ZTI14ElephPlaySound
+     /tmp/ccfxnnos.s:1053   .rodata._ZTI14ElephPlaySound:00000000 $d
+     /tmp/ccfxnnos.s:1062   .rodata._ZTV13ElephantState:00000000 $d
+     /tmp/ccfxnnos.s:1075   .rodata._ZTV15ElephLightSleep:00000000 $d
+     /tmp/ccfxnnos.s:1088   .rodata._ZTV14ElephDeepSleep:00000000 $d
+     /tmp/ccfxnnos.s:1101   .rodata._ZTV14ElephPlaySound:00000000 $d
+     /tmp/ccfxnnos.s:1113   .bss._ZGVZN14ElephPlaySound11getInstanceEvE9singleton:00000000 $d
+ARM GAS  /tmp/ccfxnnos.s 			page 27
+
+
+     /tmp/ccfxnnos.s:1119   .bss._ZZN14ElephPlaySound11getInstanceEvE9singleton:00000000 $d
+     /tmp/ccfxnnos.s:1125   .bss._ZGVZN14ElephDeepSleep11getInstanceEvE9singleton:00000000 $d
+     /tmp/ccfxnnos.s:1131   .bss._ZZN14ElephDeepSleep11getInstanceEvE9singleton:00000000 $d
+     /tmp/ccfxnnos.s:1137   .bss._ZGVZN15ElephLightSleep11getInstanceEvE9singleton:00000000 $d
+     /tmp/ccfxnnos.s:1143   .bss._ZZN15ElephLightSleep11getInstanceEvE9singleton:00000000 $d
+                           .group:00000000 _ZN15ElephLightSleepD5Ev
+                           .group:00000000 _ZN14ElephDeepSleepD5Ev
+                           .group:00000000 _ZN14ElephPlaySoundD5Ev
+
+UNDEFINED SYMBOLS
+_ZdlPvj
+__cxa_guard_acquire
+__aeabi_atexit
+__cxa_guard_release
+__dso_handle
+_ZN8Elephant8setStateER13ElephantState
+__aeabi_unwind_cpp_pr0
+_ZTVN10__cxxabiv117__class_type_infoE
+_ZTVN10__cxxabiv120__si_class_type_infoE
+__cxa_pure_virtual

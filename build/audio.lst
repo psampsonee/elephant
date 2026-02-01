@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccvE2qPc.s 			page 1
+ARM GAS  /tmp/ccPeEJih.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -29,7 +29,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   27              	_ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:
   28              		.fnstart
   29              	.LVL0:
-  30              	.LFB595:
+  30              	.LFB600:
    1:Intermediate/Src/audio.cpp **** #include "audio.h"
    2:Intermediate/Src/audio.cpp **** 
    3:Intermediate/Src/audio.cpp **** 
@@ -53,12 +53,12 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   45              		.loc 1 6 14 view .LVU4
   46 0010 7047     		bx	lr
   47              		.cfi_endproc
-  48              	.LFE595:
+  48              	.LFE600:
   49              		.cantunwind
   50              		.fnend
   52              		.global	_ZN5AudioC1ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
   53              		.thumb_set _ZN5AudioC1ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject,_ZN5AudioC2ER17I2C_Ha
-ARM GAS  /tmp/ccvE2qPc.s 			page 2
+ARM GAS  /tmp/ccPeEJih.s 			page 2
 
 
   54              		.section	.text._ZN5AudioC2Ev,"ax",%progbits
@@ -70,7 +70,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   61              	_ZN5AudioC2Ev:
   62              		.fnstart
   63              	.LVL1:
-  64              	.LFB598:
+  64              	.LFB603:
    7:Intermediate/Src/audio.cpp **** 
    8:Intermediate/Src/audio.cpp **** Audio::Audio() : hi2c(nullptr), hdma_spi_tx(nullptr), i2sObj(nullptr)
   65              		.loc 1 8 1 is_stmt 1 view -0
@@ -92,7 +92,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   80              		.loc 1 9 14 view .LVU9
   81 000c 7047     		bx	lr
   82              		.cfi_endproc
-  83              	.LFE598:
+  83              	.LFE603:
   84              		.cantunwind
   85              		.fnend
   87              		.global	_ZN5AudioC1Ev
@@ -106,7 +106,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   96              	_ZN5AudioC2ERKS_:
   97              		.fnstart
   98              	.LVL2:
-  99              	.LFB601:
+  99              	.LFB606:
   10:Intermediate/Src/audio.cpp **** 
   11:Intermediate/Src/audio.cpp **** Audio::Audio(const Audio& other) :
  100              		.loc 1 11 1 is_stmt 1 view -0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   12:Intermediate/Src/audio.cpp ****             hi2c(other.hi2c), hdma_spi_tx(other.hdma_spi_tx), i2sObj(other.i2sObj)
  106              		.loc 1 12 76 is_stmt 0 view .LVU11
  107 0000 01F50041 		add	r1, r1, #32768
-ARM GAS  /tmp/ccvE2qPc.s 			page 3
+ARM GAS  /tmp/ccPeEJih.s 			page 3
 
 
  108              	.LVL3:
@@ -140,7 +140,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  123              		.loc 1 13 14 view .LVU18
  124 0014 7047     		bx	lr
  125              		.cfi_endproc
- 126              	.LFE601:
+ 126              	.LFE606:
  127              		.cantunwind
  128              		.fnend
  130              		.global	_ZN5AudioC1ERKS_
@@ -154,7 +154,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  139              	_ZN5AudioaSERKS_:
  140              		.fnstart
  141              	.LVL4:
- 142              	.LFB603:
+ 142              	.LFB608:
   14:Intermediate/Src/audio.cpp **** 
   15:Intermediate/Src/audio.cpp **** Audio& Audio::operator=(const Audio& other) {
  143              		.loc 1 15 45 is_stmt 1 view -0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   17:Intermediate/Src/audio.cpp ****     this->hdma_spi_tx = other.hdma_spi_tx;
  160              		.loc 1 17 5 is_stmt 1 view .LVU25
  161              		.loc 1 17 31 is_stmt 0 view .LVU26
-ARM GAS  /tmp/ccvE2qPc.s 			page 4
+ARM GAS  /tmp/ccPeEJih.s 			page 4
 
 
  162 000c 4B68     		ldr	r3, [r1, #4]
@@ -192,7 +192,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  169 0012 0360     		str	r3, [r0]
  170 0014 FFDE     		.inst	0xdeff
  171              		.cfi_endproc
- 172              	.LFE603:
+ 172              	.LFE608:
  173              		.cantunwind
  174              		.fnend
  176              		.section	.text._ZN5Audio4playEv,"ax",%progbits
@@ -204,7 +204,7 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  183              	_ZN5Audio4playEv:
  184              		.fnstart
  185              	.LVL7:
- 186              	.LFB604:
+ 186              	.LFB609:
   19:Intermediate/Src/audio.cpp **** }
   20:Intermediate/Src/audio.cpp **** 
   21:Intermediate/Src/audio.cpp **** void Audio::play() {
@@ -231,40 +231,45 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  206              	.LBB19:
  207              	.LBI19:
  208              		.file 2 "Intermediate/Inc/interrupt_handler.h"
-   1:Intermediate/Inc/interrupt_handler.h **** // Minimal virtual interrupt handler
-   2:Intermediate/Inc/interrupt_handler.h **** class InterruptHandler {
-   3:Intermediate/Inc/interrupt_handler.h ****     public:
-   4:Intermediate/Inc/interrupt_handler.h ****     virtual void irq() = 0;
-   5:Intermediate/Inc/interrupt_handler.h **** };
-   6:Intermediate/Inc/interrupt_handler.h **** 
-   7:Intermediate/Inc/interrupt_handler.h **** // Interrupt handler object with added bells and whistles that make it usable
-ARM GAS  /tmp/ccvE2qPc.s 			page 5
+   1:Intermediate/Inc/interrupt_handler.h **** #pragma once
+   2:Intermediate/Inc/interrupt_handler.h **** // Minimal virtual interrupt handler
+   3:Intermediate/Inc/interrupt_handler.h **** class InterruptHandler {
+   4:Intermediate/Inc/interrupt_handler.h ****     public:
+   5:Intermediate/Inc/interrupt_handler.h ****     virtual void irq() = 0;
+   6:Intermediate/Inc/interrupt_handler.h **** };
+   7:Intermediate/Inc/interrupt_handler.h **** 
+ARM GAS  /tmp/ccPeEJih.s 			page 5
 
 
-   8:Intermediate/Inc/interrupt_handler.h **** template <typename T>
-   9:Intermediate/Inc/interrupt_handler.h **** class InterruptObject : public InterruptHandler {
-  10:Intermediate/Inc/interrupt_handler.h **** public:
-  11:Intermediate/Inc/interrupt_handler.h **** 
-  12:Intermediate/Inc/interrupt_handler.h ****     // Constructors
-  13:Intermediate/Inc/interrupt_handler.h ****     InterruptObject() : _interruptFlag(false) {}
-  14:Intermediate/Inc/interrupt_handler.h ****     InterruptObject(T& resource) : _interruptFlag(false), _resource(&resource) {}
-  15:Intermediate/Inc/interrupt_handler.h **** 
-  16:Intermediate/Inc/interrupt_handler.h ****     // "Default" irq behavior is simply to set the flag boolean to true.
-  17:Intermediate/Inc/interrupt_handler.h ****     void irq() { setFlag(); }
-  18:Intermediate/Inc/interrupt_handler.h **** 
-  19:Intermediate/Inc/interrupt_handler.h ****     // IRQ flag boolean management
-  20:Intermediate/Inc/interrupt_handler.h ****     inline bool isInterruptFired() { return this->_interruptFlag; }
-  21:Intermediate/Inc/interrupt_handler.h ****     void resetFlag() { this->_interruptFlag = false; }
-  22:Intermediate/Inc/interrupt_handler.h **** 
-  23:Intermediate/Inc/interrupt_handler.h ****     // Resource management
-  24:Intermediate/Inc/interrupt_handler.h ****     void setResouce(T& resource) { this->_resource = &resource; }
-  25:Intermediate/Inc/interrupt_handler.h ****     T& getResource() { return (*(this->_resource)); }
- 209              		.loc 2 25 8 is_stmt 1 view .LVU37
+   8:Intermediate/Inc/interrupt_handler.h **** // Interrupt handler object with added bells and whistles that make it usable
+   9:Intermediate/Inc/interrupt_handler.h **** template <typename T>
+  10:Intermediate/Inc/interrupt_handler.h **** class InterruptObject : public InterruptHandler {
+  11:Intermediate/Inc/interrupt_handler.h **** public:
+  12:Intermediate/Inc/interrupt_handler.h **** 
+  13:Intermediate/Inc/interrupt_handler.h ****     // Constructors
+  14:Intermediate/Inc/interrupt_handler.h ****     InterruptObject() : _interruptFlag(false), _myErrorHandler(&defaultErrorHandler) {}
+  15:Intermediate/Inc/interrupt_handler.h ****     InterruptObject(T& resource) : 
+  16:Intermediate/Inc/interrupt_handler.h ****         _interruptFlag(false), _resource(&resource),
+  17:Intermediate/Inc/interrupt_handler.h ****         _myErrorHandler(&(defaultErrorHandler)) {}
+  18:Intermediate/Inc/interrupt_handler.h ****     InterruptObject(T& resource, void (*errorHandler)) : 
+  19:Intermediate/Inc/interrupt_handler.h ****         _interruptFlag(false), _resource(&resource), _myErrorHandler(&errorHandler)  {}
+  20:Intermediate/Inc/interrupt_handler.h **** 
+  21:Intermediate/Inc/interrupt_handler.h ****     // "Default" irq behavior is simply to set the flag boolean to true.
+  22:Intermediate/Inc/interrupt_handler.h ****     void irq() { setFlag(); }
+  23:Intermediate/Inc/interrupt_handler.h **** 
+  24:Intermediate/Inc/interrupt_handler.h ****     // IRQ flag boolean management
+  25:Intermediate/Inc/interrupt_handler.h ****     inline bool isInterruptFired() { return this->_interruptFlag; }
+  26:Intermediate/Inc/interrupt_handler.h ****     void resetFlag() { this->_interruptFlag = false; }
+  27:Intermediate/Inc/interrupt_handler.h **** 
+  28:Intermediate/Inc/interrupt_handler.h ****     // Resource management
+  29:Intermediate/Inc/interrupt_handler.h ****     void setResouce(T& resource) { this->_resource = &resource; }
+  30:Intermediate/Inc/interrupt_handler.h ****     T& getResource() { return (*(this->_resource)); }
+ 209              		.loc 2 30 8 is_stmt 1 view .LVU37
  210              	.LBB20:
- 211              		.loc 2 25 50 is_stmt 0 view .LVU38
- 212 000a 9868     		ldr	r0, [r3, #8]
+ 211              		.loc 2 30 50 is_stmt 0 view .LVU38
+ 212 000a D868     		ldr	r0, [r3, #12]
  213              	.LVL10:
- 214              		.loc 2 25 50 view .LVU39
+ 214              		.loc 2 30 50 view .LVU39
  215              	.LBE20:
  216              	.LBE19:
  217              		.loc 1 22 34 discriminator 1 view .LVU40
@@ -293,14 +298,14 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   13:/usr/arm-none-eabi/include/c++/14.1.0/array **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   14:/usr/arm-none-eabi/include/c++/14.1.0/array **** // GNU General Public License for more details.
   15:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ARM GAS  /tmp/ccPeEJih.s 			page 6
+
+
   16:/usr/arm-none-eabi/include/c++/14.1.0/array **** // Under Section 7 of GPL version 3, you are granted additional
   17:/usr/arm-none-eabi/include/c++/14.1.0/array **** // permissions described in the GCC Runtime Library Exception, version
   18:/usr/arm-none-eabi/include/c++/14.1.0/array **** // 3.1, as published by the Free Software Foundation.
   19:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
   20:/usr/arm-none-eabi/include/c++/14.1.0/array **** // You should have received a copy of the GNU General Public License and
-ARM GAS  /tmp/ccvE2qPc.s 			page 6
-
-
   21:/usr/arm-none-eabi/include/c++/14.1.0/array **** // a copy of the GCC Runtime Library Exception along with this program;
   22:/usr/arm-none-eabi/include/c++/14.1.0/array **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
   23:/usr/arm-none-eabi/include/c++/14.1.0/array **** // <http://www.gnu.org/licenses/>.
@@ -353,14 +358,14 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
   70:/usr/arm-none-eabi/include/c++/14.1.0/array ****      struct _Type
   71:/usr/arm-none-eabi/include/c++/14.1.0/array ****      {
   72:/usr/arm-none-eabi/include/c++/14.1.0/array ****        // Indexing is undefined.
+ARM GAS  /tmp/ccPeEJih.s 			page 7
+
+
   73:/usr/arm-none-eabi/include/c++/14.1.0/array ****        __attribute__((__always_inline__,__noreturn__))
   74:/usr/arm-none-eabi/include/c++/14.1.0/array ****        _Tp& operator[](size_t) const noexcept { __builtin_trap(); }
   75:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
   76:/usr/arm-none-eabi/include/c++/14.1.0/array ****        // Conversion to a pointer produces a null pointer.
   77:/usr/arm-none-eabi/include/c++/14.1.0/array ****        __attribute__((__always_inline__))
-ARM GAS  /tmp/ccvE2qPc.s 			page 7
-
-
   78:/usr/arm-none-eabi/include/c++/14.1.0/array ****        constexpr explicit operator _Tp*() const noexcept { return nullptr; }
   79:/usr/arm-none-eabi/include/c++/14.1.0/array ****      };
   80:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
@@ -413,14 +418,14 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  127:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { std::swap_ranges(begin(), end(), __other.begin()); }
  128:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
  129:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // Iterators.
+ARM GAS  /tmp/ccPeEJih.s 			page 8
+
+
  130:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__gnu__::__const__, __nodiscard__]]
  131:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR iterator
  132:/usr/arm-none-eabi/include/c++/14.1.0/array ****       begin() noexcept
  133:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return iterator(data()); }
  134:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
-ARM GAS  /tmp/ccvE2qPc.s 			page 8
-
-
  135:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
  136:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
  137:/usr/arm-none-eabi/include/c++/14.1.0/array ****       begin() const noexcept
@@ -473,14 +478,14 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  184:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
  185:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
  186:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ARM GAS  /tmp/ccPeEJih.s 			page 9
+
+
  187:/usr/arm-none-eabi/include/c++/14.1.0/array ****       crend() const noexcept
  188:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_reverse_iterator(begin()); }
  189:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
  190:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // Capacity.
  191:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
-ARM GAS  /tmp/ccvE2qPc.s 			page 9
-
-
  192:/usr/arm-none-eabi/include/c++/14.1.0/array ****       constexpr size_type
  193:/usr/arm-none-eabi/include/c++/14.1.0/array ****       size() const noexcept { return _Nm; }
  194:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
@@ -533,14 +538,14 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  241:/usr/arm-none-eabi/include/c++/14.1.0/array **** 	     _M_elems[__n]);
  242:/usr/arm-none-eabi/include/c++/14.1.0/array ****       }
  243:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ARM GAS  /tmp/ccPeEJih.s 			page 10
+
+
  244:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
  245:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR reference
  246:/usr/arm-none-eabi/include/c++/14.1.0/array ****       front() noexcept
  247:/usr/arm-none-eabi/include/c++/14.1.0/array ****       {
  248:/usr/arm-none-eabi/include/c++/14.1.0/array **** 	__glibcxx_requires_nonempty();
-ARM GAS  /tmp/ccvE2qPc.s 			page 10
-
-
  249:/usr/arm-none-eabi/include/c++/14.1.0/array **** 	return _M_elems[(size_type)0];
  250:/usr/arm-none-eabi/include/c++/14.1.0/array ****       }
  251:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
@@ -583,113 +588,125 @@ ARM GAS  /tmp/ccvE2qPc.s 			page 1
  232 0018 2146     		mov	r1, r4
  233 001a FFF7FEFF 		bl	HAL_I2S_Transmit_DMA
  234              	.LVL12:
+ 235              		.loc 1 23 2 view .LVU46
+ 236 001e 28B9     		cbnz	r0, .L9
+ 237              	.L7:
   24:Intermediate/Src/audio.cpp ****         (uint16_t) sampleBuffer.size()) != HAL_OK) {
-  25:Intermediate/Src/audio.cpp **** 		//Error_Handler();
-  26:Intermediate/Src/audio.cpp **** 	}
+  25:Intermediate/Src/audio.cpp ****             Error_Handler();
+  26:Intermediate/Src/audio.cpp ****         }
   27:Intermediate/Src/audio.cpp ****     i2sObj->resetFlag();
- 235              		.loc 1 27 5 is_stmt 1 view .LVU46
- 236 001e 04F50044 		add	r4, r4, #32768
- 237              	.LVL13:
- 238              		.loc 1 27 5 is_stmt 0 view .LVU47
- 239 0022 2368     		ldr	r3, [r4]
- 240              	.LVL14:
- 241              	.LBB22:
- 242              	.LBI22:
-  21:Intermediate/Inc/interrupt_handler.h **** 
- 243              		.loc 2 21 10 is_stmt 1 view .LVU48
- 244              	.LBB23:
-ARM GAS  /tmp/ccvE2qPc.s 			page 11
+ 238              		.loc 1 27 5 is_stmt 1 view .LVU47
+ 239 0020 04F50044 		add	r4, r4, #32768
+ 240              	.LVL13:
+ARM GAS  /tmp/ccPeEJih.s 			page 11
 
 
-  21:Intermediate/Inc/interrupt_handler.h **** 
- 245              		.loc 2 21 45 is_stmt 0 view .LVU49
- 246 0024 0022     		movs	r2, #0
- 247 0026 1A71     		strb	r2, [r3, #4]
- 248              	.LVL15:
-  21:Intermediate/Inc/interrupt_handler.h **** 
- 249              		.loc 2 21 45 view .LVU50
- 250              	.LBE23:
- 251              	.LBE22:
+ 241              		.loc 1 27 5 is_stmt 0 view .LVU48
+ 242 0024 2368     		ldr	r3, [r4]
+ 243              	.LVL14:
+ 244              	.LBB22:
+ 245              	.LBI22:
+  26:Intermediate/Inc/interrupt_handler.h **** 
+ 246              		.loc 2 26 10 is_stmt 1 view .LVU49
+ 247              	.LBB23:
+  26:Intermediate/Inc/interrupt_handler.h **** 
+ 248              		.loc 2 26 45 is_stmt 0 view .LVU50
+ 249 0026 0022     		movs	r2, #0
+ 250 0028 1A71     		strb	r2, [r3, #4]
+ 251              	.LVL15:
+  26:Intermediate/Inc/interrupt_handler.h **** 
+ 252              		.loc 2 26 45 view .LVU51
+ 253              	.LBE23:
+ 254              	.LBE22:
   28:Intermediate/Src/audio.cpp **** }
- 252              		.loc 1 28 1 view .LVU51
- 253 0028 10BD     		pop	{r4, pc}
- 254              		.loc 1 28 1 view .LVU52
- 255              		.cfi_endproc
- 256              	.LFE604:
- 257              		.fnend
- 259              		.section	.text._ZN5Audio17getBufferInstanceEv,"ax",%progbits
- 260              		.align	1
- 261              		.global	_ZN5Audio17getBufferInstanceEv
- 262              		.syntax unified
- 263              		.thumb
- 264              		.thumb_func
- 266              	_ZN5Audio17getBufferInstanceEv:
- 267              		.fnstart
- 268              	.LVL16:
- 269              	.LFB605:
+ 255              		.loc 1 28 1 view .LVU52
+ 256 002a 10BD     		pop	{r4, pc}
+ 257              	.LVL16:
+ 258              	.L9:
+  25:Intermediate/Src/audio.cpp ****         }
+ 259              		.loc 1 25 13 is_stmt 1 view .LVU53
+  25:Intermediate/Src/audio.cpp ****         }
+ 260              		.loc 1 25 26 is_stmt 0 view .LVU54
+ 261 002c FFF7FEFF 		bl	_Z13Error_Handlerv
+ 262              	.LVL17:
+ 263 0030 F6E7     		b	.L7
+ 264              		.cfi_endproc
+ 265              	.LFE609:
+ 266              		.fnend
+ 268              		.section	.text._ZN5Audio17getBufferInstanceEv,"ax",%progbits
+ 269              		.align	1
+ 270              		.global	_ZN5Audio17getBufferInstanceEv
+ 271              		.syntax unified
+ 272              		.thumb
+ 273              		.thumb_func
+ 275              	_ZN5Audio17getBufferInstanceEv:
+ 276              		.fnstart
+ 277              	.LVL18:
+ 278              	.LFB610:
   29:Intermediate/Src/audio.cpp **** 
   30:Intermediate/Src/audio.cpp **** std::array<int16_t,audio_buffer_size*nSpeakers()>& Audio::getBufferInstance() {
- 270              		.loc 1 30 79 is_stmt 1 view -0
- 271              		.cfi_startproc
- 272              		@ args = 0, pretend = 0, frame = 0
- 273              		@ frame_needed = 0, uses_anonymous_args = 0
- 274              		@ link register save eliminated.
+ 279              		.loc 1 30 79 is_stmt 1 view -0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
   31:Intermediate/Src/audio.cpp ****     return sampleBuffer;
- 275              		.loc 1 31 5 view .LVU54
+ 284              		.loc 1 31 5 view .LVU56
   32:Intermediate/Src/audio.cpp **** }
- 276              		.loc 1 32 1 is_stmt 0 view .LVU55
- 277 0000 7047     		bx	lr
- 278              		.cfi_endproc
- 279              	.LFE605:
- 280              		.cantunwind
- 281              		.fnend
- 283              		.text
- 284              	.Letext0:
- 285              		.file 4 "/usr/arm-none-eabi/include/c++/14.1.0/type_traits"
- 286              		.file 5 "/usr/arm-none-eabi/include/c++/14.1.0/debug/debug.h"
- 287              		.file 6 "/usr/arm-none-eabi/include/c++/14.1.0/cstdint"
- 288              		.file 7 "/usr/arm-none-eabi/include/c++/14.1.0/arm-none-eabi/thumb/v7e-m+fp/hard/bits/c++config.h"
- 289              		.file 8 "/usr/arm-none-eabi/include/c++/14.1.0/bits/predefined_ops.h"
- 290              		.file 9 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 291              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 292              		.file 11 "/usr/arm-none-eabi/include/stdint.h"
- 293              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
- 294              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 295              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 296              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 297              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
-ARM GAS  /tmp/ccvE2qPc.s 			page 12
+ 285              		.loc 1 32 1 is_stmt 0 view .LVU57
+ 286 0000 7047     		bx	lr
+ 287              		.cfi_endproc
+ 288              	.LFE610:
+ 289              		.cantunwind
+ARM GAS  /tmp/ccPeEJih.s 			page 12
 
 
- 298              		.file 17 "Core/Inc/sys_const.h"
- 299              		.file 18 "Intermediate/Inc/audio.h"
-ARM GAS  /tmp/ccvE2qPc.s 			page 13
+ 290              		.fnend
+ 292              		.text
+ 293              	.Letext0:
+ 294              		.file 4 "/usr/arm-none-eabi/include/c++/14.1.0/type_traits"
+ 295              		.file 5 "/usr/arm-none-eabi/include/c++/14.1.0/debug/debug.h"
+ 296              		.file 6 "/usr/arm-none-eabi/include/c++/14.1.0/cstdint"
+ 297              		.file 7 "/usr/arm-none-eabi/include/c++/14.1.0/arm-none-eabi/thumb/v7e-m+fp/hard/bits/c++config.h"
+ 298              		.file 8 "/usr/arm-none-eabi/include/c++/14.1.0/bits/predefined_ops.h"
+ 299              		.file 9 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 300              		.file 10 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 301              		.file 11 "/usr/arm-none-eabi/include/stdint.h"
+ 302              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ 303              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 304              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 305              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 306              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
+ 307              		.file 17 "Core/Inc/sys_const.h"
+ 308              		.file 18 "Intermediate/Inc/audio.h"
+ARM GAS  /tmp/ccPeEJih.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 audio.cpp
-     /tmp/ccvE2qPc.s:21     .text._ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $t
-     /tmp/ccvE2qPc.s:27     .text._ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
+     /tmp/ccPeEJih.s:21     .text._ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $t
+     /tmp/ccPeEJih.s:27     .text._ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
 .ARM.exidx.text._ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $d
-     /tmp/ccvE2qPc.s:27     .text._ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN5AudioC1ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
-     /tmp/ccvE2qPc.s:55     .text._ZN5AudioC2Ev:00000000 $t
-     /tmp/ccvE2qPc.s:61     .text._ZN5AudioC2Ev:00000000 _ZN5AudioC2Ev
+     /tmp/ccPeEJih.s:27     .text._ZN5AudioC2ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN5AudioC1ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
+     /tmp/ccPeEJih.s:55     .text._ZN5AudioC2Ev:00000000 $t
+     /tmp/ccPeEJih.s:61     .text._ZN5AudioC2Ev:00000000 _ZN5AudioC2Ev
     .ARM.exidx.text._ZN5AudioC2Ev:00000000 $d
-     /tmp/ccvE2qPc.s:61     .text._ZN5AudioC2Ev:00000000 _ZN5AudioC1Ev
-     /tmp/ccvE2qPc.s:90     .text._ZN5AudioC2ERKS_:00000000 $t
-     /tmp/ccvE2qPc.s:96     .text._ZN5AudioC2ERKS_:00000000 _ZN5AudioC2ERKS_
+     /tmp/ccPeEJih.s:61     .text._ZN5AudioC2Ev:00000000 _ZN5AudioC1Ev
+     /tmp/ccPeEJih.s:90     .text._ZN5AudioC2ERKS_:00000000 $t
+     /tmp/ccPeEJih.s:96     .text._ZN5AudioC2ERKS_:00000000 _ZN5AudioC2ERKS_
  .ARM.exidx.text._ZN5AudioC2ERKS_:00000000 $d
-     /tmp/ccvE2qPc.s:96     .text._ZN5AudioC2ERKS_:00000000 _ZN5AudioC1ERKS_
-     /tmp/ccvE2qPc.s:133    .text._ZN5AudioaSERKS_:00000000 $t
-     /tmp/ccvE2qPc.s:139    .text._ZN5AudioaSERKS_:00000000 _ZN5AudioaSERKS_
+     /tmp/ccPeEJih.s:96     .text._ZN5AudioC2ERKS_:00000000 _ZN5AudioC1ERKS_
+     /tmp/ccPeEJih.s:133    .text._ZN5AudioaSERKS_:00000000 $t
+     /tmp/ccPeEJih.s:139    .text._ZN5AudioaSERKS_:00000000 _ZN5AudioaSERKS_
  .ARM.exidx.text._ZN5AudioaSERKS_:00000000 $d
-     /tmp/ccvE2qPc.s:177    .text._ZN5Audio4playEv:00000000 $t
-     /tmp/ccvE2qPc.s:183    .text._ZN5Audio4playEv:00000000 _ZN5Audio4playEv
+     /tmp/ccPeEJih.s:177    .text._ZN5Audio4playEv:00000000 $t
+     /tmp/ccPeEJih.s:183    .text._ZN5Audio4playEv:00000000 _ZN5Audio4playEv
  .ARM.exidx.text._ZN5Audio4playEv:00000000 $d
-     /tmp/ccvE2qPc.s:260    .text._ZN5Audio17getBufferInstanceEv:00000000 $t
-     /tmp/ccvE2qPc.s:266    .text._ZN5Audio17getBufferInstanceEv:00000000 _ZN5Audio17getBufferInstanceEv
+     /tmp/ccPeEJih.s:269    .text._ZN5Audio17getBufferInstanceEv:00000000 $t
+     /tmp/ccPeEJih.s:275    .text._ZN5Audio17getBufferInstanceEv:00000000 _ZN5Audio17getBufferInstanceEv
 .ARM.exidx.text._ZN5Audio17getBufferInstanceEv:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_I2S_Transmit_DMA
+_Z13Error_Handlerv
 __aeabi_unwind_cpp_pr0

@@ -22,8 +22,8 @@ void Audio::play() {
     while (i2sObj->getResource().State != HAL_I2S_STATE_READY) {}
 	if (HAL_I2S_Transmit_DMA(&i2sObj->getResource(), (uint16_t*) sampleBuffer.data(),
         (uint16_t) sampleBuffer.size()) != HAL_OK) {
-		//Error_Handler();
-	}
+            Error_Handler();
+        }
     i2sObj->resetFlag();
 }
 

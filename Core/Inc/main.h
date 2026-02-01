@@ -31,6 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdint.h>
+#include "sys_preproc.h"
 
 /* USER CODE END Includes */
 
@@ -61,6 +63,9 @@ extern volatile uint8_t state_alrm;
 #define sw_tilt_GPIO_Port GPIOA
 #define ld_heartbeat_Pin GPIO_PIN_1
 #define ld_heartbeat_GPIO_Port GPIOA
+#define wakeup_Pin GPIO_PIN_2
+#define wakeup_GPIO_Port GPIOA
+#define wakeup_EXTI_IRQn EXTI2_IRQn
 #define pwr_eeprom_Pin GPIO_PIN_3
 #define pwr_eeprom_GPIO_Port GPIOA
 #define write_eeprom_Pin GPIO_PIN_4

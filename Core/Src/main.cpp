@@ -25,6 +25,7 @@
 /* USER CODE BEGIN Includes */
 #include "audio_test.h"
 #include "sleep_test.h"
+#include "reset_test.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -38,6 +39,7 @@ const int n_interrupts = 2;
 
 const int spi_txcplt_irqn = 0;
 const int alarm_wakeup_irqn = 1;
+const int gpio_wakeup_irqn = 1;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -60,9 +62,12 @@ UART_HandleTypeDef huart1;
 /* USER CODE BEGIN PV */
 
 i2sObject i2sObj(hi2s2);
-alarmObject alarmObj(hrtc);
+rtcObject rtcObj(hrtc);
+gpioObject gpioObj(GPIOA);
 
-static InterruptHandler *Handlers[n_interrupts];
+InterruptHandler* Handlers[n_interrupts];
+
+resetCause latestResetCause;
 
 /* USER CODE END PV */
 
@@ -101,7 +106,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -120,19 +125,19 @@ int main(void)
   MX_USART1_UART_Init();
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
-  register_handler(spi_txcplt_irqn, &i2sObj);
-  register_handler(alarm_wakeup_irqn, &alarmObj);
+  //register_handler(spi_txcplt_irqn, &i2sObj);
   //audio_test::runTest(hi2c1, hdma_spi2_tx, i2sObj);
-  sleep_test::runTest(hrtc);
-
+  //sleep_test::runTest(hrtc);
+  //reset_test::runTest(rtcObj,gpioObj);
   /* USER CODE END 2 */
  
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    gpioObj.setPin(8);
+    gpioObj.resetPin(8);
     /* USER CODE END WHILE */
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -265,7 +270,7 @@ static void MX_RTC_Init(void)
 {
 
   /* USER CODE BEGIN RTC_Init 0 */
-
+  uint32_t backupMagic;
   /* USER CODE END RTC_Init 0 */
 
   RTC_TimeTypeDef sTime = {0};
@@ -273,7 +278,7 @@ static void MX_RTC_Init(void)
   RTC_AlarmTypeDef sAlarm = {0};
 
   /* USER CODE BEGIN RTC_Init 1 */
-
+  
   /* USER CODE END RTC_Init 1 */
 
   /** Initialize RTC Only
@@ -292,23 +297,33 @@ static void MX_RTC_Init(void)
 
   /* USER CODE BEGIN Check_RTC_BKUP */
 
+    // Retrieve the RTC magic number stored in the last RTC backup register.
+  // RTC magic number: corresponds to UNIX seconds timestamp.
+  backupMagic = HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR10);
+  
+  // If the backup magic number is the same as the predefined magic number,
+  // then don't do anything to the RTC time or alarms (End RTC Initialization).
+  if (backupMagic == RTC_MAGIC) {
+    return;
+  }
+
   /* USER CODE END Check_RTC_BKUP */
 
   /** Initialize RTC and set the Time and Date
   */
-  sTime.Hours = 0x0;
-  sTime.Minutes = 0x0;
-  sTime.Seconds = 0x0;
+  sTime.Hours = RTC_HOUR;
+  sTime.Minutes = RTC_MINUTE;
+  sTime.Seconds = RTC_SECOND;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
   if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
   {
     Error_Handler();
   }
-  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-  sDate.Month = RTC_MONTH_JANUARY;
-  sDate.Date = 0x1;
-  sDate.Year = 0x0;
+  sDate.WeekDay = RTC_WEEKDAY;
+  sDate.Month = RTC_MONTH;
+  sDate.Date = RTC_DAY;
+  sDate.Year = RTC_YEAR;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
   {
@@ -334,6 +349,13 @@ static void MX_RTC_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN RTC_Init 2 */
+
+  //write the predefined magic number to the backup register and
+  // set the RTC time to the predefined time values.
+  HAL_PWR_EnableBkUpAccess();
+  HAL_Delay(10);
+  HAL_RTCEx_BKUPWrite(&hrtc, RTC_BKP_DR10, RTC_MAGIC);
+  HAL_PWR_DisableBkUpAccess();
 
   /* USER CODE END RTC_Init 2 */
 
@@ -456,6 +478,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : wakeup_Pin */
+  GPIO_InitStruct.Pin = wakeup_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(wakeup_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pins : hold_eeprom_Pin pwr_aud_Pin */
   GPIO_InitStruct.Pin = hold_eeprom_Pin|pwr_aud_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -471,6 +499,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
 }
@@ -481,8 +514,7 @@ extern "C" void HAL_I2S_TxCpltCallback(I2S_HandleTypeDef *hi2s) {
   Handlers[spi_txcplt_irqn]->irq();
 }                      
 
-extern "C" void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
-  Handlers[alarm_wakeup_irqn]->irq();
+extern "C" void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 }
 
 void register_handler(int irq_n, InterruptHandler* handler) {

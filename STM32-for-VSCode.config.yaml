@@ -20,8 +20,26 @@ floatAbi: -mfloat-abi=hard
 ldscript: STM32F401CCUx_FLASH.ld # linker script
 
 # Compiler definitions. The -D prefix for the compiler will be automatically added.
-cDefinitions: []
-cxxDefinitions: []
+cDefinitions: [
+  RTC_DATETIME,
+  RTC_YEAR=$(shell date +%-y),
+  RTC_MONTH=$(shell date +%-m),
+  RTC_DAY=$(shell date +%-d), 
+  RTC_HOUR=$(shell date +%-H),
+  RTC_MINUTE=$(shell date +%-M),
+  RTC_SECOND=$(shell date +%-S),
+  RTC_WEEKDAY=$(shell date +%-u),
+  RTC_MAGIC=$(shell date +%-s)]
+cxxDefinitions: [
+  RTC_DATETIME,
+  RTC_YEAR=$(shell date +%-y),
+  RTC_MONTH=$(shell date +%-m),
+  RTC_DAY=$(shell date +%-d), 
+  RTC_HOUR=$(shell date +%-H),
+  RTC_MINUTE=$(shell date +%-M),
+  RTC_SECOND=$(shell date +%-S),
+  RTC_WEEKDAY=$(shell date +%-u),
+  RTC_MAGIC=$(shell date +%-s)]
 asDefinitions: []
 
 # Compiler definition files. you can add a single files or an array of files for different definitions.
@@ -75,6 +93,9 @@ includeDirectories:
   - Src/**
   - Core/Src/**
   - Core/Lib/**
+  - App/Inc/**
+  - Intermediate/Inc/**
+  - Test/Inc/**
 
 
 # Files that should be included in the compilation.
@@ -86,6 +107,9 @@ sourceFiles:
   - Src/**
   - Core/Src/**
   - Core/Lib/**
+  - App/Src/**
+  - Intermediate/Src/**
+  - Test/Src/**
 
 
 # When no makefile is present it will show a warning pop-up.

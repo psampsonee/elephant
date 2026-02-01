@@ -1,0 +1,213 @@
+ARM GAS  /tmp/ccBS1axk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gpioObject.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Intermediate/Src/gpioObject.cpp"
+  20              		.section	.text._ZN10gpioObject6setPinEt,"ax",%progbits
+  21              		.align	1
+  22              		.global	_ZN10gpioObject6setPinEt
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN10gpioObject6setPinEt:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB149:
+   1:Intermediate/Src/gpioObject.cpp **** #include "gpioObject.h"
+   2:Intermediate/Src/gpioObject.cpp **** 
+   3:Intermediate/Src/gpioObject.cpp **** void gpioObject::setPin(uint16_t pin) {  
+  31              		.loc 1 3 39 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 3 39 is_stmt 0 view .LVU1
+  36 0000 08B5     		push	{r3, lr}
+  37              		.save {r3, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 3, -8
+  40              		.cfi_offset 14, -4
+   4:Intermediate/Src/gpioObject.cpp ****     HAL_GPIO_WritePin(this->_resource, pin, GPIO_PIN_SET);
+  41              		.loc 1 4 5 is_stmt 1 view .LVU2
+  42              		.loc 1 4 22 is_stmt 0 view .LVU3
+  43 0002 0122     		movs	r2, #1
+  44 0004 C068     		ldr	r0, [r0, #12]
+  45              	.LVL1:
+  46              		.loc 1 4 22 view .LVU4
+  47 0006 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  48              	.LVL2:
+   5:Intermediate/Src/gpioObject.cpp **** }
+  49              		.loc 1 5 1 view .LVU5
+  50 000a 08BD     		pop	{r3, pc}
+  51              		.cfi_endproc
+  52              	.LFE149:
+  53              		.fnend
+ARM GAS  /tmp/ccBS1axk.s 			page 2
+
+
+  55              		.section	.text._ZN10gpioObject8resetPinEt,"ax",%progbits
+  56              		.align	1
+  57              		.global	_ZN10gpioObject8resetPinEt
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  62              	_ZN10gpioObject8resetPinEt:
+  63              		.fnstart
+  64              	.LVL3:
+  65              	.LFB150:
+   6:Intermediate/Src/gpioObject.cpp **** 
+   7:Intermediate/Src/gpioObject.cpp **** void gpioObject::resetPin(uint16_t pin) {  
+  66              		.loc 1 7 41 is_stmt 1 view -0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              		.loc 1 7 41 is_stmt 0 view .LVU7
+  71 0000 08B5     		push	{r3, lr}
+  72              		.save {r3, lr}
+  73              		.cfi_def_cfa_offset 8
+  74              		.cfi_offset 3, -8
+  75              		.cfi_offset 14, -4
+   8:Intermediate/Src/gpioObject.cpp ****     HAL_GPIO_WritePin(this->_resource, pin, GPIO_PIN_RESET);
+  76              		.loc 1 8 5 is_stmt 1 view .LVU8
+  77              		.loc 1 8 22 is_stmt 0 view .LVU9
+  78 0002 0022     		movs	r2, #0
+  79 0004 C068     		ldr	r0, [r0, #12]
+  80              	.LVL4:
+  81              		.loc 1 8 22 view .LVU10
+  82 0006 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  83              	.LVL5:
+   9:Intermediate/Src/gpioObject.cpp **** }
+  84              		.loc 1 9 1 view .LVU11
+  85 000a 08BD     		pop	{r3, pc}
+  86              		.cfi_endproc
+  87              	.LFE150:
+  88              		.fnend
+  90              		.section	.text._ZN10gpioObject9togglePinEt,"ax",%progbits
+  91              		.align	1
+  92              		.global	_ZN10gpioObject9togglePinEt
+  93              		.syntax unified
+  94              		.thumb
+  95              		.thumb_func
+  97              	_ZN10gpioObject9togglePinEt:
+  98              		.fnstart
+  99              	.LVL6:
+ 100              	.LFB151:
+  10:Intermediate/Src/gpioObject.cpp **** 
+  11:Intermediate/Src/gpioObject.cpp **** void gpioObject::togglePin(uint16_t pin) {
+ 101              		.loc 1 11 42 is_stmt 1 view -0
+ 102              		.cfi_startproc
+ 103              		@ args = 0, pretend = 0, frame = 0
+ 104              		@ frame_needed = 0, uses_anonymous_args = 0
+ 105              		.loc 1 11 42 is_stmt 0 view .LVU13
+ 106 0000 08B5     		push	{r3, lr}
+ 107              		.save {r3, lr}
+ 108              		.cfi_def_cfa_offset 8
+ARM GAS  /tmp/ccBS1axk.s 			page 3
+
+
+ 109              		.cfi_offset 3, -8
+ 110              		.cfi_offset 14, -4
+  12:Intermediate/Src/gpioObject.cpp ****     HAL_GPIO_TogglePin(this->_resource, pin);
+ 111              		.loc 1 12 5 is_stmt 1 view .LVU14
+ 112              		.loc 1 12 23 is_stmt 0 view .LVU15
+ 113 0002 C068     		ldr	r0, [r0, #12]
+ 114              	.LVL7:
+ 115              		.loc 1 12 23 view .LVU16
+ 116 0004 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 117              	.LVL8:
+  13:Intermediate/Src/gpioObject.cpp **** }
+ 118              		.loc 1 13 1 view .LVU17
+ 119 0008 08BD     		pop	{r3, pc}
+ 120              		.cfi_endproc
+ 121              	.LFE151:
+ 122              		.fnend
+ 124              		.section	.text._ZN10gpioObject6getPinEt,"ax",%progbits
+ 125              		.align	1
+ 126              		.global	_ZN10gpioObject6getPinEt
+ 127              		.syntax unified
+ 128              		.thumb
+ 129              		.thumb_func
+ 131              	_ZN10gpioObject6getPinEt:
+ 132              		.fnstart
+ 133              	.LVL9:
+ 134              	.LFB152:
+  14:Intermediate/Src/gpioObject.cpp **** 
+  15:Intermediate/Src/gpioObject.cpp **** GPIO_PinState gpioObject::getPin(uint16_t pin) {
+ 135              		.loc 1 15 48 is_stmt 1 view -0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 0, uses_anonymous_args = 0
+ 139              		.loc 1 15 48 is_stmt 0 view .LVU19
+ 140 0000 08B5     		push	{r3, lr}
+ 141              		.save {r3, lr}
+ 142              		.cfi_def_cfa_offset 8
+ 143              		.cfi_offset 3, -8
+ 144              		.cfi_offset 14, -4
+  16:Intermediate/Src/gpioObject.cpp ****     return HAL_GPIO_ReadPin(this->_resource,pin);
+ 145              		.loc 1 16 5 is_stmt 1 view .LVU20
+ 146              		.loc 1 16 28 is_stmt 0 view .LVU21
+ 147 0002 C068     		ldr	r0, [r0, #12]
+ 148              	.LVL10:
+ 149              		.loc 1 16 28 view .LVU22
+ 150 0004 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 151              	.LVL11:
+  17:Intermediate/Src/gpioObject.cpp **** }...
+ 152              		.loc 1 17 1 view .LVU23
+ 153 0008 08BD     		pop	{r3, pc}
+ 154              		.cfi_endproc
+ 155              	.LFE152:
+ 156              		.fnend
+ 158              		.text
+ 159              	.Letext0:
+ 160              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 161              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 162              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ARM GAS  /tmp/ccBS1axk.s 			page 4
+
+
+ 163              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 164              		.file 6 "Intermediate/Inc/gpioObject.h"
+ 165              		.file 7 "Intermediate/Inc/interrupt_handler.h"
+ARM GAS  /tmp/ccBS1axk.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gpioObject.cpp
+     /tmp/ccBS1axk.s:21     .text._ZN10gpioObject6setPinEt:00000000 $t
+     /tmp/ccBS1axk.s:27     .text._ZN10gpioObject6setPinEt:00000000 _ZN10gpioObject6setPinEt
+.ARM.extab.text._ZN10gpioObject6setPinEt:00000000 $d
+.ARM.exidx.text._ZN10gpioObject6setPinEt:00000000 $d
+     /tmp/ccBS1axk.s:56     .text._ZN10gpioObject8resetPinEt:00000000 $t
+     /tmp/ccBS1axk.s:62     .text._ZN10gpioObject8resetPinEt:00000000 _ZN10gpioObject8resetPinEt
+.ARM.extab.text._ZN10gpioObject8resetPinEt:00000000 $d
+.ARM.exidx.text._ZN10gpioObject8resetPinEt:00000000 $d
+     /tmp/ccBS1axk.s:91     .text._ZN10gpioObject9togglePinEt:00000000 $t
+     /tmp/ccBS1axk.s:97     .text._ZN10gpioObject9togglePinEt:00000000 _ZN10gpioObject9togglePinEt
+.ARM.extab.text._ZN10gpioObject9togglePinEt:00000000 $d
+.ARM.exidx.text._ZN10gpioObject9togglePinEt:00000000 $d
+     /tmp/ccBS1axk.s:125    .text._ZN10gpioObject6getPinEt:00000000 $t
+     /tmp/ccBS1axk.s:131    .text._ZN10gpioObject6getPinEt:00000000 _ZN10gpioObject6getPinEt
+.ARM.extab.text._ZN10gpioObject6getPinEt:00000000 $d
+.ARM.exidx.text._ZN10gpioObject6getPinEt:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+__aeabi_unwind_cpp_pr1
+HAL_GPIO_TogglePin
+HAL_GPIO_ReadPin

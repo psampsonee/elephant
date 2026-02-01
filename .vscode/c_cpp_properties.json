@@ -27,6 +27,15 @@
         "Test/Inc"
       ],
       "defines": [
+        "RTC_DATETIME",
+        "RTC_DAY=$(shell date +%-d)",
+        "RTC_HOUR=$(shell date +%-H)",
+        "RTC_MAGIC=$(shell date +%-s)",
+        "RTC_MINUTE=$(shell date +%-M)",
+        "RTC_MONTH=$(shell date +%-m)",
+        "RTC_SECOND=$(shell date +%-S)",
+        "RTC_WEEKDAY=$(shell date +%-u)",
+        "RTC_YEAR=$(shell date +%-y)",
         "STM32F401xC",
         "USE_HAL_DRIVER"
       ],

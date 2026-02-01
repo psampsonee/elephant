@@ -5,5 +5,5 @@
 namespace sleep_test {
     void runTest(RTC_HandleTypeDef& hrtc);
     void enterStop(RTC_HandleTypeDef& hrtc);
-    void leaveStop();
+    void leaveStop(RTC_HandleTypeDef& hrtc);
 }

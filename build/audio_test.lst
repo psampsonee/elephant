@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccWqoTLz.s 			page 1
+ARM GAS  /tmp/ccgJk7o5.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -29,7 +29,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
   27              	_ZN10audio_test9genBufferER5Audiof:
   28              		.fnstart
   29              	.LVL0:
-  30              	.LFB1178:
+  30              	.LFB1183:
    1:Test/Src/audio_test.cpp **** #include "math.h"
    2:Test/Src/audio_test.cpp **** #include "audio_test.h"
    3:Test/Src/audio_test.cpp **** 
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
   49              		.loc 1 7 88 view .LVU4
   50 0008 8046     		mov	r8, r0
   51              	.LVL2:
-ARM GAS  /tmp/ccWqoTLz.s 			page 2
+ARM GAS  /tmp/ccgJk7o5.s 			page 2
 
 
    8:Test/Src/audio_test.cpp ****         for(int i = 0; i < audio_buffer_size; i++) {
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
   11:/usr/arm-none-eabi/include/c++/14.1.0/array **** // This library is distributed in the hope that it will be useful,
   12:/usr/arm-none-eabi/include/c++/14.1.0/array **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
   13:/usr/arm-none-eabi/include/c++/14.1.0/array **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-ARM GAS  /tmp/ccWqoTLz.s 			page 3
+ARM GAS  /tmp/ccgJk7o5.s 			page 3
 
 
   14:/usr/arm-none-eabi/include/c++/14.1.0/array **** // GNU General Public License for more details.
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
   68:/usr/arm-none-eabi/include/c++/14.1.0/array ****    {
   69:/usr/arm-none-eabi/include/c++/14.1.0/array ****      // Empty type used instead of _Tp[0] for std::array<_Tp, 0>.
   70:/usr/arm-none-eabi/include/c++/14.1.0/array ****      struct _Type
-ARM GAS  /tmp/ccWqoTLz.s 			page 4
+ARM GAS  /tmp/ccgJk7o5.s 			page 4
 
 
   71:/usr/arm-none-eabi/include/c++/14.1.0/array ****      {
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  125:/usr/arm-none-eabi/include/c++/14.1.0/array ****       swap(array& __other)
  126:/usr/arm-none-eabi/include/c++/14.1.0/array ****       noexcept(__array_traits<_Tp, _Nm>::_Is_nothrow_swappable::value)
  127:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { std::swap_ranges(begin(), end(), __other.begin()); }
-ARM GAS  /tmp/ccWqoTLz.s 			page 5
+ARM GAS  /tmp/ccgJk7o5.s 			page 5
 
 
  128:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  182:/usr/arm-none-eabi/include/c++/14.1.0/array ****       crbegin() const noexcept
  183:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_reverse_iterator(end()); }
  184:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
-ARM GAS  /tmp/ccWqoTLz.s 			page 6
+ARM GAS  /tmp/ccgJk7o5.s 			page 6
 
 
  185:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  125 0076 0135     		adds	r5, r5, #1
  126              	.LVL16:
  127              	.LBB11:
-ARM GAS  /tmp/ccWqoTLz.s 			page 7
+ARM GAS  /tmp/ccgJk7o5.s 			page 7
 
 
  128              	.LBI11:
@@ -393,7 +393,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  153 0098 5E385529 		.word	693450846
  154 009c 7A6A4F40 		.word	1078946426
  155              		.cfi_endproc
- 156              	.LFE1178:
+ 156              	.LFE1183:
  157              		.fnend
  159              		.section	.text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject,"ax",
  160              		.align	1
@@ -404,7 +404,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  166              	_ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:
  167              		.fnstart
  168              	.LVL19:
- 169              	.LFB1179:
+ 169              	.LFB1184:
   13:Test/Src/audio_test.cpp **** 
   14:Test/Src/audio_test.cpp ****     void runTest(I2C_HandleTypeDef& hi2c, DMA_HandleTypeDef& hdma_spi_tx, i2sObject& i2sObj) {
  170              		.loc 1 14 94 is_stmt 1 view -0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  178              		.cfi_offset 4, -12
  179              		.cfi_offset 5, -8
  180              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccWqoTLz.s 			page 8
+ARM GAS  /tmp/ccgJk7o5.s 			page 8
 
 
  181              		.pad #32768
@@ -460,35 +460,40 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  212              	.LBB12:
  213              	.LBI12:
  214              		.file 3 "Intermediate/Inc/interrupt_handler.h"
-   1:Intermediate/Inc/interrupt_handler.h **** // Minimal virtual interrupt handler
-   2:Intermediate/Inc/interrupt_handler.h **** class InterruptHandler {
-   3:Intermediate/Inc/interrupt_handler.h ****     public:
-   4:Intermediate/Inc/interrupt_handler.h ****     virtual void irq() = 0;
-   5:Intermediate/Inc/interrupt_handler.h **** };
-   6:Intermediate/Inc/interrupt_handler.h **** 
-   7:Intermediate/Inc/interrupt_handler.h **** // Interrupt handler object with added bells and whistles that make it usable
-   8:Intermediate/Inc/interrupt_handler.h **** template <typename T>
-   9:Intermediate/Inc/interrupt_handler.h **** class InterruptObject : public InterruptHandler {
-  10:Intermediate/Inc/interrupt_handler.h **** public:
-  11:Intermediate/Inc/interrupt_handler.h **** 
-  12:Intermediate/Inc/interrupt_handler.h ****     // Constructors
-  13:Intermediate/Inc/interrupt_handler.h ****     InterruptObject() : _interruptFlag(false) {}
-  14:Intermediate/Inc/interrupt_handler.h ****     InterruptObject(T& resource) : _interruptFlag(false), _resource(&resource) {}
-  15:Intermediate/Inc/interrupt_handler.h **** 
-  16:Intermediate/Inc/interrupt_handler.h ****     // "Default" irq behavior is simply to set the flag boolean to true.
-  17:Intermediate/Inc/interrupt_handler.h ****     void irq() { setFlag(); }
-  18:Intermediate/Inc/interrupt_handler.h **** 
-ARM GAS  /tmp/ccWqoTLz.s 			page 9
+   1:Intermediate/Inc/interrupt_handler.h **** #pragma once
+   2:Intermediate/Inc/interrupt_handler.h **** // Minimal virtual interrupt handler
+   3:Intermediate/Inc/interrupt_handler.h **** class InterruptHandler {
+   4:Intermediate/Inc/interrupt_handler.h ****     public:
+   5:Intermediate/Inc/interrupt_handler.h ****     virtual void irq() = 0;
+   6:Intermediate/Inc/interrupt_handler.h **** };
+   7:Intermediate/Inc/interrupt_handler.h **** 
+   8:Intermediate/Inc/interrupt_handler.h **** // Interrupt handler object with added bells and whistles that make it usable
+   9:Intermediate/Inc/interrupt_handler.h **** template <typename T>
+  10:Intermediate/Inc/interrupt_handler.h **** class InterruptObject : public InterruptHandler {
+  11:Intermediate/Inc/interrupt_handler.h **** public:
+  12:Intermediate/Inc/interrupt_handler.h **** 
+  13:Intermediate/Inc/interrupt_handler.h ****     // Constructors
+  14:Intermediate/Inc/interrupt_handler.h ****     InterruptObject() : _interruptFlag(false), _myErrorHandler(&defaultErrorHandler) {}
+  15:Intermediate/Inc/interrupt_handler.h ****     InterruptObject(T& resource) : 
+  16:Intermediate/Inc/interrupt_handler.h ****         _interruptFlag(false), _resource(&resource),
+  17:Intermediate/Inc/interrupt_handler.h ****         _myErrorHandler(&(defaultErrorHandler)) {}
+  18:Intermediate/Inc/interrupt_handler.h ****     InterruptObject(T& resource, void (*errorHandler)) : 
+ARM GAS  /tmp/ccgJk7o5.s 			page 9
 
 
-  19:Intermediate/Inc/interrupt_handler.h ****     // IRQ flag boolean management
-  20:Intermediate/Inc/interrupt_handler.h ****     inline bool isInterruptFired() { return this->_interruptFlag; }
- 215              		.loc 3 20 17 view .LVU41
+  19:Intermediate/Inc/interrupt_handler.h ****         _interruptFlag(false), _resource(&resource), _myErrorHandler(&errorHandler)  {}
+  20:Intermediate/Inc/interrupt_handler.h **** 
+  21:Intermediate/Inc/interrupt_handler.h ****     // "Default" irq behavior is simply to set the flag boolean to true.
+  22:Intermediate/Inc/interrupt_handler.h ****     void irq() { setFlag(); }
+  23:Intermediate/Inc/interrupt_handler.h **** 
+  24:Intermediate/Inc/interrupt_handler.h ****     // IRQ flag boolean management
+  25:Intermediate/Inc/interrupt_handler.h ****     inline bool isInterruptFired() { return this->_interruptFlag; }
+ 215              		.loc 3 25 17 view .LVU41
  216              	.LBB13:
- 217              		.loc 3 20 51 is_stmt 0 view .LVU42
+ 217              		.loc 3 25 51 is_stmt 0 view .LVU42
  218 0022 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
  219              	.LVL25:
- 220              		.loc 3 20 51 view .LVU43
+ 220              		.loc 3 25 51 view .LVU43
  221              	.LBE13:
  222              	.LBE12:
  223              		.loc 1 19 13 discriminator 1 view .LVU44
@@ -507,7 +512,7 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  234              	.L11:
  235 0030 0000C843 		.word	1137180672
  236              		.cfi_endproc
- 237              	.LFE1179:
+ 237              	.LFE1184:
  238              		.fnend
  240              		.text
  241              	.Letext0:
@@ -531,18 +536,18 @@ ARM GAS  /tmp/ccWqoTLz.s 			page 1
  259              		.file 21 "Core/Inc/sys_const.h"
  260              		.file 22 "Intermediate/Inc/audio.h"
  261              		.file 23 "Test/Inc/audio_test.h"
-ARM GAS  /tmp/ccWqoTLz.s 			page 10
+ARM GAS  /tmp/ccgJk7o5.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 audio_test.cpp
-     /tmp/ccWqoTLz.s:21     .text._ZN10audio_test9genBufferER5Audiof:00000000 $t
-     /tmp/ccWqoTLz.s:27     .text._ZN10audio_test9genBufferER5Audiof:00000000 _ZN10audio_test9genBufferER5Audiof
-     /tmp/ccWqoTLz.s:149    .text._ZN10audio_test9genBufferER5Audiof:00000088 $d
+     /tmp/ccgJk7o5.s:21     .text._ZN10audio_test9genBufferER5Audiof:00000000 $t
+     /tmp/ccgJk7o5.s:27     .text._ZN10audio_test9genBufferER5Audiof:00000000 _ZN10audio_test9genBufferER5Audiof
+     /tmp/ccgJk7o5.s:149    .text._ZN10audio_test9genBufferER5Audiof:00000088 $d
 .ARM.exidx.text._ZN10audio_test9genBufferER5Audiof:00000000 $d
-     /tmp/ccWqoTLz.s:160    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $t
-     /tmp/ccWqoTLz.s:166    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
-     /tmp/ccWqoTLz.s:235    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000030 $d
+     /tmp/ccgJk7o5.s:160    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $t
+     /tmp/ccgJk7o5.s:166    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
+     /tmp/ccgJk7o5.s:235    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000030 $d
 .ARM.extab.text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $d
 .ARM.exidx.text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $d
 

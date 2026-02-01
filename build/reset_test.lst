@@ -1,0 +1,78 @@
+ARM GAS  /tmp/ccXotuXk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"reset_test.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Test/Src/reset_test.cpp"
+  20              		.section	.text._ZN10reset_test7runTestER9rtcObjectR10gpioObject,"ax",%progbits
+  21              		.align	1
+  22              		.global	_ZN10reset_test7runTestER9rtcObjectR10gpioObject
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN10reset_test7runTestER9rtcObjectR10gpioObject:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB609:
+   1:Test/Src/reset_test.cpp **** #include "reset_test.h"
+   2:Test/Src/reset_test.cpp **** 
+   3:Test/Src/reset_test.cpp **** namespace reset_test {
+   4:Test/Src/reset_test.cpp ****     void runTest(rtcObject& rtcObj, gpioObject& gpioObj) {
+  31              		.loc 1 4 58 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+   5:Test/Src/reset_test.cpp ****         //setAlarm(rtcObj, 10);
+   6:Test/Src/reset_test.cpp ****     }   
+  36              		.loc 1 6 5 is_stmt 0 view .LVU1
+  37 0000 7047     		bx	lr
+  38              		.cfi_endproc
+  39              	.LFE609:
+  40              		.cantunwind
+  41              		.fnend
+  43              		.text
+  44              	.Letext0:
+  45              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+  46              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+  47              		.file 4 "/usr/arm-none-eabi/include/stdint.h"
+  48              		.file 5 "/usr/arm-none-eabi/include/c++/14.1.0/cstdint"
+  49              		.file 6 "/usr/arm-none-eabi/include/c++/14.1.0/type_traits"
+  50              		.file 7 "/usr/arm-none-eabi/include/c++/14.1.0/debug/debug.h"
+  51              		.file 8 "Core/Inc/sys_const.h"
+  52              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+  53              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ARM GAS  /tmp/ccXotuXk.s 			page 2
+
+
+  54              		.file 11 "/usr/arm-none-eabi/include/c++/14.1.0/bits/predefined_ops.h"
+  55              		.file 12 "/usr/arm-none-eabi/include/c++/14.1.0/arm-none-eabi/thumb/v7e-m+fp/hard/bits/c++config.h
+  56              		.file 13 "Intermediate/Inc/gpioObject.h"
+  57              		.file 14 "Intermediate/Inc/interrupt_handler.h"
+  58              		.file 15 "Test/Inc/reset_test.h"
+ARM GAS  /tmp/ccXotuXk.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 reset_test.cpp
+     /tmp/ccXotuXk.s:21     .text._ZN10reset_test7runTestER9rtcObjectR10gpioObject:00000000 $t
+     /tmp/ccXotuXk.s:27     .text._ZN10reset_test7runTestER9rtcObjectR10gpioObject:00000000 _ZN10reset_test7runTestER9rtcObjectR10gpioObject
+.ARM.exidx.text._ZN10reset_test7runTestER9rtcObjectR10gpioObject:00000000 $d
+
+NO UNDEFINED SYMBOLS
