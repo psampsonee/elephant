@@ -65,7 +65,8 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c \
 Core/Src/system_stm32f4xx.c \
 Intermediate/Src/audio.cpp \
 Intermediate/Src/concrete_interrupt_handlers.cpp \
-Core/Src/audio_test.cpp \
+Test/Src/audio_test.cpp \
+Test/Src/sleep_test.cpp
 
 # ASM sources
 ASM_SOURCES =  \
@@ -128,7 +129,8 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Device/ST/STM32F4xx/Include \
 -IDrivers/CMSIS/Include \
 -IIntermediate/Inc \
--IApp/Inc
+-IApp/Inc \
+-ITest/Inc
 
 
 # compile gcc flags

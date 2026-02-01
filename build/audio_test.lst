@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccm8pwXn.s 			page 1
+ARM GAS  /tmp/ccWqoTLz.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -19,508 +19,541 @@ ARM GAS  /tmp/ccm8pwXn.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.file 1 "Core/Src/audio_test.cpp"
-  20              		.global	__aeabi_i2d
-  21              		.global	__aeabi_dmul
-  22              		.global	__aeabi_ddiv
-  23              		.global	__aeabi_d2iz
-  24              		.section	.text._ZN10audio_test9genBufferER5Audiof,"ax",%progbits
-  25              		.align	1
-  26              		.global	_ZN10audio_test9genBufferER5Audiof
-  27              		.syntax unified
-  28              		.thumb
-  29              		.thumb_func
-  31              	_ZN10audio_test9genBufferER5Audiof:
-  32              		.fnstart
-  33              	.LVL0:
-  34              	.LFB1151:
-   1:Core/Src/audio_test.cpp **** #include "math.h"
-   2:Core/Src/audio_test.cpp **** #include "audio_test.h"
-   3:Core/Src/audio_test.cpp **** 
-   4:Core/Src/audio_test.cpp **** namespace audio_test {
-   5:Core/Src/audio_test.cpp ****     void genBuffer(Audio& audioSystem, float sineFreq) {
-  35              		.loc 1 5 56 view -0
-  36              		.cfi_startproc
-  37              		@ args = 0, pretend = 0, frame = 0
-  38              		@ frame_needed = 0, uses_anonymous_args = 0
-  39              		.loc 1 5 56 is_stmt 0 view .LVU1
-  40 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-  41              		.save {r4, r5, r6, r7, r8, lr}
-  42              		.cfi_def_cfa_offset 24
-  43              		.cfi_offset 4, -24
-  44              		.cfi_offset 5, -20
-  45              		.cfi_offset 6, -16
-  46              		.cfi_offset 7, -12
-  47              		.cfi_offset 8, -8
-  48              		.cfi_offset 14, -4
-   6:Core/Src/audio_test.cpp ****         // Generate a sine wave with some discrete frequency
-   7:Core/Src/audio_test.cpp ****         std::array<int16_t,audio_buffer_size*2>& buffer = audioSystem.getBufferInstance();
-  49              		.loc 1 7 9 is_stmt 1 view .LVU2
-  50              		.loc 1 7 88 is_stmt 0 view .LVU3
-  51 0004 FFF7FEFF 		bl	_ZN5Audio17getBufferInstanceEv
-ARM GAS  /tmp/ccm8pwXn.s 			page 2
+  19              		.file 1 "Test/Src/audio_test.cpp"
+  20              		.section	.text._ZN10audio_test9genBufferER5Audiof,"ax",%progbits
+  21              		.align	1
+  22              		.global	_ZN10audio_test9genBufferER5Audiof
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN10audio_test9genBufferER5Audiof:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB1178:
+   1:Test/Src/audio_test.cpp **** #include "math.h"
+   2:Test/Src/audio_test.cpp **** #include "audio_test.h"
+   3:Test/Src/audio_test.cpp **** 
+   4:Test/Src/audio_test.cpp **** namespace audio_test {
+   5:Test/Src/audio_test.cpp ****     void genBuffer(Audio& audioSystem, float sineFreq) {
+  31              		.loc 1 5 56 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 5 56 is_stmt 0 view .LVU1
+  36 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  37              		.save {r4, r5, r6, r7, r8, lr}
+  38              		.cfi_def_cfa_offset 24
+  39              		.cfi_offset 4, -24
+  40              		.cfi_offset 5, -20
+  41              		.cfi_offset 6, -16
+  42              		.cfi_offset 7, -12
+  43              		.cfi_offset 8, -8
+  44              		.cfi_offset 14, -4
+   6:Test/Src/audio_test.cpp ****         // Generate a sine wave with some frequency
+   7:Test/Src/audio_test.cpp ****         std::array<int16_t,audio_buffer_size*2>& buffer = audioSystem.getBufferInstance();
+  45              		.loc 1 7 9 is_stmt 1 view .LVU2
+  46              		.loc 1 7 88 is_stmt 0 view .LVU3
+  47 0004 FFF7FEFF 		bl	_ZN5Audio17getBufferInstanceEv
+  48              	.LVL1:
+  49              		.loc 1 7 88 view .LVU4
+  50 0008 8046     		mov	r8, r0
+  51              	.LVL2:
+ARM GAS  /tmp/ccWqoTLz.s 			page 2
 
 
-  52              	.LVL1:
-  53              		.loc 1 7 88 view .LVU4
-  54 0008 8046     		mov	r8, r0
-  55              	.LVL2:
-   8:Core/Src/audio_test.cpp ****         for(int i = 0; i < audio_buffer_size; i++) {
-  56              		.loc 1 8 9 is_stmt 1 view .LVU5
-  57              	.LBB7:
-  58              		.loc 1 8 17 is_stmt 0 view .LVU6
-  59 000a 0024     		movs	r4, #0
-  60              		.loc 1 8 9 view .LVU7
-  61 000c 37E0     		b	.L2
-  62              	.LVL3:
-  63              	.L3:
-   9:Core/Src/audio_test.cpp ****             buffer[i * 2] = (int16_t) (sin(2. * M_PI * 10. * i / 2000.) * 500);
-  64              		.loc 1 9 13 is_stmt 1 view .LVU8
-  65              		.loc 1 9 60 is_stmt 0 view .LVU9
-  66 000e 2046     		mov	r0, r4
-  67 0010 FFF7FEFF 		bl	__aeabi_i2d
-  68              	.LVL4:
-  69 0014 0646     		mov	r6, r0
-  70 0016 0F46     		mov	r7, r1
-  71 0018 1FA3     		adr	r3, .L5+16
-  72 001a D3E90023 		ldrd	r2, [r3]
-  73 001e FFF7FEFF 		bl	__aeabi_dmul
-  74              	.LVL5:
-  75              		.loc 1 9 43 view .LVU10
-  76 0022 0022     		movs	r2, #0
-  77 0024 1A4B     		ldr	r3, .L5+8
-  78 0026 FFF7FEFF 		bl	__aeabi_ddiv
-  79              	.LVL6:
-  80 002a 41EC100B 		vmov	d0, r0, r1
-  81 002e FFF7FEFF 		bl	sin
-  82              	.LVL7:
-  83 0032 51EC100B 		vmov	r0, r1, d0
-  84              		.loc 1 9 73 discriminator 1 view .LVU11
-  85 0036 0022     		movs	r2, #0
-  86 0038 164B     		ldr	r3, .L5+12
-  87 003a FFF7FEFF 		bl	__aeabi_dmul
-  88              	.LVL8:
-  89              		.loc 1 9 29 discriminator 1 view .LVU12
-  90 003e FFF7FEFF 		bl	__aeabi_d2iz
-  91              	.LVL9:
-  92              		.loc 1 9 22 discriminator 1 view .LVU13
-  93 0042 6500     		lsls	r5, r4, #1
-  94              	.LVL10:
-  95              	.LBB8:
-  96              	.LBI8:
-  97              		.file 2 "/usr/arm-none-eabi/include/c++/13.2.0/array"
-   1:/usr/arm-none-eabi/include/c++/13.2.0/array **** // <array> -*- C++ -*-
-   2:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-   3:/usr/arm-none-eabi/include/c++/13.2.0/array **** // Copyright (C) 2007-2023 Free Software Foundation, Inc.
-   4:/usr/arm-none-eabi/include/c++/13.2.0/array **** //
-   5:/usr/arm-none-eabi/include/c++/13.2.0/array **** // This file is part of the GNU ISO C++ Library.  This library is free
-   6:/usr/arm-none-eabi/include/c++/13.2.0/array **** // software; you can redistribute it and/or modify it under the
-   7:/usr/arm-none-eabi/include/c++/13.2.0/array **** // terms of the GNU General Public License as published by the
-   8:/usr/arm-none-eabi/include/c++/13.2.0/array **** // Free Software Foundation; either version 3, or (at your option)
-   9:/usr/arm-none-eabi/include/c++/13.2.0/array **** // any later version.
-ARM GAS  /tmp/ccm8pwXn.s 			page 3
+   8:Test/Src/audio_test.cpp ****         for(int i = 0; i < audio_buffer_size; i++) {
+  52              		.loc 1 8 9 is_stmt 1 view .LVU5
+  53              	.LBB9:
+  54              		.loc 1 8 17 is_stmt 0 view .LVU6
+  55 000a 0024     		movs	r4, #0
+  56              		.loc 1 8 9 view .LVU7
+  57 000c 37E0     		b	.L2
+  58              	.LVL3:
+  59              	.L3:
+   9:Test/Src/audio_test.cpp ****             buffer[i * 2] = (int16_t) (sin(2. * M_PI * 10. * i / 2000.) * 500);
+  60              		.loc 1 9 13 is_stmt 1 view .LVU8
+  61              		.loc 1 9 60 is_stmt 0 view .LVU9
+  62 000e 2046     		mov	r0, r4
+  63 0010 FFF7FEFF 		bl	__aeabi_i2d
+  64              	.LVL4:
+  65 0014 0646     		mov	r6, r0
+  66 0016 0F46     		mov	r7, r1
+  67 0018 1FA3     		adr	r3, .L5+16
+  68 001a D3E90023 		ldrd	r2, [r3]
+  69 001e FFF7FEFF 		bl	__aeabi_dmul
+  70              	.LVL5:
+  71              		.loc 1 9 43 view .LVU10
+  72 0022 0022     		movs	r2, #0
+  73 0024 1A4B     		ldr	r3, .L5+8
+  74 0026 FFF7FEFF 		bl	__aeabi_ddiv
+  75              	.LVL6:
+  76 002a 41EC100B 		vmov	d0, r0, r1
+  77 002e FFF7FEFF 		bl	sin
+  78              	.LVL7:
+  79 0032 51EC100B 		vmov	r0, r1, d0
+  80              		.loc 1 9 73 discriminator 1 view .LVU11
+  81 0036 0022     		movs	r2, #0
+  82 0038 164B     		ldr	r3, .L5+12
+  83 003a FFF7FEFF 		bl	__aeabi_dmul
+  84              	.LVL8:
+  85              		.loc 1 9 29 discriminator 1 view .LVU12
+  86 003e FFF7FEFF 		bl	__aeabi_d2iz
+  87              	.LVL9:
+  88              		.loc 1 9 22 discriminator 1 view .LVU13
+  89 0042 6500     		lsls	r5, r4, #1
+  90              	.LVL10:
+  91              	.LBB10:
+  92              	.LBI10:
+  93              		.file 2 "/usr/arm-none-eabi/include/c++/14.1.0/array"
+   1:/usr/arm-none-eabi/include/c++/14.1.0/array **** // <array> -*- C++ -*-
+   2:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+   3:/usr/arm-none-eabi/include/c++/14.1.0/array **** // Copyright (C) 2007-2024 Free Software Foundation, Inc.
+   4:/usr/arm-none-eabi/include/c++/14.1.0/array **** //
+   5:/usr/arm-none-eabi/include/c++/14.1.0/array **** // This file is part of the GNU ISO C++ Library.  This library is free
+   6:/usr/arm-none-eabi/include/c++/14.1.0/array **** // software; you can redistribute it and/or modify it under the
+   7:/usr/arm-none-eabi/include/c++/14.1.0/array **** // terms of the GNU General Public License as published by the
+   8:/usr/arm-none-eabi/include/c++/14.1.0/array **** // Free Software Foundation; either version 3, or (at your option)
+   9:/usr/arm-none-eabi/include/c++/14.1.0/array **** // any later version.
+  10:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  11:/usr/arm-none-eabi/include/c++/14.1.0/array **** // This library is distributed in the hope that it will be useful,
+  12:/usr/arm-none-eabi/include/c++/14.1.0/array **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
+  13:/usr/arm-none-eabi/include/c++/14.1.0/array **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ARM GAS  /tmp/ccWqoTLz.s 			page 3
 
 
-  10:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  11:/usr/arm-none-eabi/include/c++/13.2.0/array **** // This library is distributed in the hope that it will be useful,
-  12:/usr/arm-none-eabi/include/c++/13.2.0/array **** // but WITHOUT ANY WARRANTY; without even the implied warranty of
-  13:/usr/arm-none-eabi/include/c++/13.2.0/array **** // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  14:/usr/arm-none-eabi/include/c++/13.2.0/array **** // GNU General Public License for more details.
-  15:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  16:/usr/arm-none-eabi/include/c++/13.2.0/array **** // Under Section 7 of GPL version 3, you are granted additional
-  17:/usr/arm-none-eabi/include/c++/13.2.0/array **** // permissions described in the GCC Runtime Library Exception, version
-  18:/usr/arm-none-eabi/include/c++/13.2.0/array **** // 3.1, as published by the Free Software Foundation.
-  19:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  20:/usr/arm-none-eabi/include/c++/13.2.0/array **** // You should have received a copy of the GNU General Public License and
-  21:/usr/arm-none-eabi/include/c++/13.2.0/array **** // a copy of the GCC Runtime Library Exception along with this program;
-  22:/usr/arm-none-eabi/include/c++/13.2.0/array **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
-  23:/usr/arm-none-eabi/include/c++/13.2.0/array **** // <http://www.gnu.org/licenses/>.
-  24:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  25:/usr/arm-none-eabi/include/c++/13.2.0/array **** /** @file include/array
-  26:/usr/arm-none-eabi/include/c++/13.2.0/array ****  *  This is a Standard C++ Library header.
-  27:/usr/arm-none-eabi/include/c++/13.2.0/array ****  */
-  28:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  29:/usr/arm-none-eabi/include/c++/13.2.0/array **** #ifndef _GLIBCXX_ARRAY
-  30:/usr/arm-none-eabi/include/c++/13.2.0/array **** #define _GLIBCXX_ARRAY 1
-  31:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  32:/usr/arm-none-eabi/include/c++/13.2.0/array **** #pragma GCC system_header
-  33:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  34:/usr/arm-none-eabi/include/c++/13.2.0/array **** #if __cplusplus < 201103L
-  35:/usr/arm-none-eabi/include/c++/13.2.0/array **** # include <bits/c++0x_warning.h>
-  36:/usr/arm-none-eabi/include/c++/13.2.0/array **** #else
-  37:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  38:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <compare>
-  39:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <initializer_list>
-  40:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  41:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <type_traits>
-  42:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <bits/functexcept.h>
-  43:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <bits/stl_algobase.h>
-  44:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <bits/range_access.h> // std::begin, std::end etc.
-  45:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <bits/utility.h>      // std::index_sequence, std::tuple_size
-  46:/usr/arm-none-eabi/include/c++/13.2.0/array **** #include <debug/assertions.h>
-  47:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  48:/usr/arm-none-eabi/include/c++/13.2.0/array **** namespace std _GLIBCXX_VISIBILITY(default)
-  49:/usr/arm-none-eabi/include/c++/13.2.0/array **** {
-  50:/usr/arm-none-eabi/include/c++/13.2.0/array **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
-  51:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  52:/usr/arm-none-eabi/include/c++/13.2.0/array ****   template<typename _Tp, size_t _Nm>
-  53:/usr/arm-none-eabi/include/c++/13.2.0/array ****     struct __array_traits
-  54:/usr/arm-none-eabi/include/c++/13.2.0/array ****     {
-  55:/usr/arm-none-eabi/include/c++/13.2.0/array ****       using _Type = _Tp[_Nm];
-  56:/usr/arm-none-eabi/include/c++/13.2.0/array ****       using _Is_swappable = __is_swappable<_Tp>;
-  57:/usr/arm-none-eabi/include/c++/13.2.0/array ****       using _Is_nothrow_swappable = __is_nothrow_swappable<_Tp>;
-  58:/usr/arm-none-eabi/include/c++/13.2.0/array ****     };
-  59:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  60:/usr/arm-none-eabi/include/c++/13.2.0/array ****  template<typename _Tp>
-  61:/usr/arm-none-eabi/include/c++/13.2.0/array ****    struct __array_traits<_Tp, 0>
-  62:/usr/arm-none-eabi/include/c++/13.2.0/array ****    {
-  63:/usr/arm-none-eabi/include/c++/13.2.0/array ****      // Empty type used instead of _Tp[0] for std::array<_Tp, 0>.
-  64:/usr/arm-none-eabi/include/c++/13.2.0/array ****      struct _Type
-  65:/usr/arm-none-eabi/include/c++/13.2.0/array ****      {
-  66:/usr/arm-none-eabi/include/c++/13.2.0/array ****        // Indexing is undefined.
-ARM GAS  /tmp/ccm8pwXn.s 			page 4
+  14:/usr/arm-none-eabi/include/c++/14.1.0/array **** // GNU General Public License for more details.
+  15:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  16:/usr/arm-none-eabi/include/c++/14.1.0/array **** // Under Section 7 of GPL version 3, you are granted additional
+  17:/usr/arm-none-eabi/include/c++/14.1.0/array **** // permissions described in the GCC Runtime Library Exception, version
+  18:/usr/arm-none-eabi/include/c++/14.1.0/array **** // 3.1, as published by the Free Software Foundation.
+  19:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  20:/usr/arm-none-eabi/include/c++/14.1.0/array **** // You should have received a copy of the GNU General Public License and
+  21:/usr/arm-none-eabi/include/c++/14.1.0/array **** // a copy of the GCC Runtime Library Exception along with this program;
+  22:/usr/arm-none-eabi/include/c++/14.1.0/array **** // see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+  23:/usr/arm-none-eabi/include/c++/14.1.0/array **** // <http://www.gnu.org/licenses/>.
+  24:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  25:/usr/arm-none-eabi/include/c++/14.1.0/array **** /** @file include/array
+  26:/usr/arm-none-eabi/include/c++/14.1.0/array ****  *  This is a Standard C++ Library header.
+  27:/usr/arm-none-eabi/include/c++/14.1.0/array ****  */
+  28:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  29:/usr/arm-none-eabi/include/c++/14.1.0/array **** #ifndef _GLIBCXX_ARRAY
+  30:/usr/arm-none-eabi/include/c++/14.1.0/array **** #define _GLIBCXX_ARRAY 1
+  31:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  32:/usr/arm-none-eabi/include/c++/14.1.0/array **** #pragma GCC system_header
+  33:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  34:/usr/arm-none-eabi/include/c++/14.1.0/array **** #if __cplusplus < 201103L
+  35:/usr/arm-none-eabi/include/c++/14.1.0/array **** # include <bits/c++0x_warning.h>
+  36:/usr/arm-none-eabi/include/c++/14.1.0/array **** #else
+  37:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  38:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <compare>
+  39:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <initializer_list>
+  40:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  41:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <type_traits>
+  42:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <bits/functexcept.h>
+  43:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <bits/stl_algobase.h>
+  44:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <bits/range_access.h> // std::begin, std::end etc.
+  45:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <bits/utility.h>      // std::index_sequence, std::tuple_size
+  46:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <debug/assertions.h>
+  47:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  48:/usr/arm-none-eabi/include/c++/14.1.0/array **** #define __glibcxx_want_array_constexpr
+  49:/usr/arm-none-eabi/include/c++/14.1.0/array **** #define __glibcxx_want_freestanding_array
+  50:/usr/arm-none-eabi/include/c++/14.1.0/array **** #define __glibcxx_want_nonmember_container_access
+  51:/usr/arm-none-eabi/include/c++/14.1.0/array **** #define __glibcxx_want_to_array
+  52:/usr/arm-none-eabi/include/c++/14.1.0/array **** #include <bits/version.h>
+  53:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  54:/usr/arm-none-eabi/include/c++/14.1.0/array **** namespace std _GLIBCXX_VISIBILITY(default)
+  55:/usr/arm-none-eabi/include/c++/14.1.0/array **** {
+  56:/usr/arm-none-eabi/include/c++/14.1.0/array **** _GLIBCXX_BEGIN_NAMESPACE_VERSION
+  57:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  58:/usr/arm-none-eabi/include/c++/14.1.0/array ****   template<typename _Tp, size_t _Nm>
+  59:/usr/arm-none-eabi/include/c++/14.1.0/array ****     struct __array_traits
+  60:/usr/arm-none-eabi/include/c++/14.1.0/array ****     {
+  61:/usr/arm-none-eabi/include/c++/14.1.0/array ****       using _Type = _Tp[_Nm];
+  62:/usr/arm-none-eabi/include/c++/14.1.0/array ****       using _Is_swappable = __is_swappable<_Tp>;
+  63:/usr/arm-none-eabi/include/c++/14.1.0/array ****       using _Is_nothrow_swappable = __is_nothrow_swappable<_Tp>;
+  64:/usr/arm-none-eabi/include/c++/14.1.0/array ****     };
+  65:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  66:/usr/arm-none-eabi/include/c++/14.1.0/array ****  template<typename _Tp>
+  67:/usr/arm-none-eabi/include/c++/14.1.0/array ****    struct __array_traits<_Tp, 0>
+  68:/usr/arm-none-eabi/include/c++/14.1.0/array ****    {
+  69:/usr/arm-none-eabi/include/c++/14.1.0/array ****      // Empty type used instead of _Tp[0] for std::array<_Tp, 0>.
+  70:/usr/arm-none-eabi/include/c++/14.1.0/array ****      struct _Type
+ARM GAS  /tmp/ccWqoTLz.s 			page 4
 
 
-  67:/usr/arm-none-eabi/include/c++/13.2.0/array ****        __attribute__((__always_inline__,__noreturn__))
-  68:/usr/arm-none-eabi/include/c++/13.2.0/array ****        _Tp& operator[](size_t) const noexcept { __builtin_trap(); }
-  69:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  70:/usr/arm-none-eabi/include/c++/13.2.0/array ****        // Conversion to a pointer produces a null pointer.
-  71:/usr/arm-none-eabi/include/c++/13.2.0/array ****        __attribute__((__always_inline__))
-  72:/usr/arm-none-eabi/include/c++/13.2.0/array ****        constexpr explicit operator _Tp*() const noexcept { return nullptr; }
-  73:/usr/arm-none-eabi/include/c++/13.2.0/array ****      };
-  74:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  75:/usr/arm-none-eabi/include/c++/13.2.0/array ****      using _Is_swappable = true_type;
-  76:/usr/arm-none-eabi/include/c++/13.2.0/array ****      using _Is_nothrow_swappable = true_type;
-  77:/usr/arm-none-eabi/include/c++/13.2.0/array ****    };
-  78:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
-  79:/usr/arm-none-eabi/include/c++/13.2.0/array ****   /**
-  80:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  @brief A standard container for storing a fixed size sequence of elements.
-  81:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *
-  82:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  @ingroup sequences
-  83:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *
-  84:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  Meets the requirements of a <a href="tables.html#65">container</a>, a
-  85:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  <a href="tables.html#66">reversible container</a>, and a
-  86:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  <a href="tables.html#67">sequence</a>.
-  87:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *
-  88:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  Sets support random access iterators.
-  89:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *
-  90:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  @tparam  Tp  Type of element. Required to be a complete type.
-  91:/usr/arm-none-eabi/include/c++/13.2.0/array ****    *  @tparam  Nm  Number of elements.
-  92:/usr/arm-none-eabi/include/c++/13.2.0/array ****   */
-  93:/usr/arm-none-eabi/include/c++/13.2.0/array ****   template<typename _Tp, std::size_t _Nm>
-  94:/usr/arm-none-eabi/include/c++/13.2.0/array ****     struct array
-  95:/usr/arm-none-eabi/include/c++/13.2.0/array ****     {
-  96:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef _Tp 	    			      value_type;
-  97:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef value_type*			      pointer;
-  98:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef const value_type*                       const_pointer;
-  99:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef value_type&                   	      reference;
- 100:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef const value_type&             	      const_reference;
- 101:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef value_type*          		      iterator;
- 102:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef const value_type*			      const_iterator;
- 103:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef std::size_t                    	      size_type;
- 104:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef std::ptrdiff_t                   	      difference_type;
- 105:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef std::reverse_iterator<iterator>	      reverse_iterator;
- 106:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typedef std::reverse_iterator<const_iterator>   const_reverse_iterator;
- 107:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 108:/usr/arm-none-eabi/include/c++/13.2.0/array ****       // Support for zero-sized arrays mandatory.
- 109:/usr/arm-none-eabi/include/c++/13.2.0/array ****       typename __array_traits<_Tp, _Nm>::_Type        _M_elems;
- 110:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 111:/usr/arm-none-eabi/include/c++/13.2.0/array ****       // No explicit construct/copy/destroy for aggregate type.
- 112:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 113:/usr/arm-none-eabi/include/c++/13.2.0/array ****       // DR 776.
- 114:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX20_CONSTEXPR void
- 115:/usr/arm-none-eabi/include/c++/13.2.0/array ****       fill(const value_type& __u)
- 116:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { std::fill_n(begin(), size(), __u); }
- 117:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 118:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX20_CONSTEXPR void
- 119:/usr/arm-none-eabi/include/c++/13.2.0/array ****       swap(array& __other)
- 120:/usr/arm-none-eabi/include/c++/13.2.0/array ****       noexcept(__array_traits<_Tp, _Nm>::_Is_nothrow_swappable::value)
- 121:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { std::swap_ranges(begin(), end(), __other.begin()); }
- 122:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 123:/usr/arm-none-eabi/include/c++/13.2.0/array ****       // Iterators.
-ARM GAS  /tmp/ccm8pwXn.s 			page 5
+  71:/usr/arm-none-eabi/include/c++/14.1.0/array ****      {
+  72:/usr/arm-none-eabi/include/c++/14.1.0/array ****        // Indexing is undefined.
+  73:/usr/arm-none-eabi/include/c++/14.1.0/array ****        __attribute__((__always_inline__,__noreturn__))
+  74:/usr/arm-none-eabi/include/c++/14.1.0/array ****        _Tp& operator[](size_t) const noexcept { __builtin_trap(); }
+  75:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  76:/usr/arm-none-eabi/include/c++/14.1.0/array ****        // Conversion to a pointer produces a null pointer.
+  77:/usr/arm-none-eabi/include/c++/14.1.0/array ****        __attribute__((__always_inline__))
+  78:/usr/arm-none-eabi/include/c++/14.1.0/array ****        constexpr explicit operator _Tp*() const noexcept { return nullptr; }
+  79:/usr/arm-none-eabi/include/c++/14.1.0/array ****      };
+  80:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  81:/usr/arm-none-eabi/include/c++/14.1.0/array ****      using _Is_swappable = true_type;
+  82:/usr/arm-none-eabi/include/c++/14.1.0/array ****      using _Is_nothrow_swappable = true_type;
+  83:/usr/arm-none-eabi/include/c++/14.1.0/array ****    };
+  84:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+  85:/usr/arm-none-eabi/include/c++/14.1.0/array ****   /**
+  86:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  @brief A standard container for storing a fixed size sequence of elements.
+  87:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *
+  88:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  @ingroup sequences
+  89:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *
+  90:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  Meets the requirements of a <a href="tables.html#65">container</a>, a
+  91:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  <a href="tables.html#66">reversible container</a>, and a
+  92:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  <a href="tables.html#67">sequence</a>.
+  93:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *
+  94:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  Sets support random access iterators.
+  95:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *
+  96:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  @tparam  Tp  Type of element. Required to be a complete type.
+  97:/usr/arm-none-eabi/include/c++/14.1.0/array ****    *  @tparam  Nm  Number of elements.
+  98:/usr/arm-none-eabi/include/c++/14.1.0/array ****   */
+  99:/usr/arm-none-eabi/include/c++/14.1.0/array ****   template<typename _Tp, std::size_t _Nm>
+ 100:/usr/arm-none-eabi/include/c++/14.1.0/array ****     struct array
+ 101:/usr/arm-none-eabi/include/c++/14.1.0/array ****     {
+ 102:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef _Tp 	    			      value_type;
+ 103:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef value_type*			      pointer;
+ 104:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef const value_type*                       const_pointer;
+ 105:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef value_type&                   	      reference;
+ 106:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef const value_type&             	      const_reference;
+ 107:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef value_type*          		      iterator;
+ 108:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef const value_type*			      const_iterator;
+ 109:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef std::size_t                    	      size_type;
+ 110:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef std::ptrdiff_t                   	      difference_type;
+ 111:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef std::reverse_iterator<iterator>	      reverse_iterator;
+ 112:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typedef std::reverse_iterator<const_iterator>   const_reverse_iterator;
+ 113:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 114:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // Support for zero-sized arrays mandatory.
+ 115:/usr/arm-none-eabi/include/c++/14.1.0/array ****       typename __array_traits<_Tp, _Nm>::_Type        _M_elems;
+ 116:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 117:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // No explicit construct/copy/destroy for aggregate type.
+ 118:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 119:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // DR 776.
+ 120:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX20_CONSTEXPR void
+ 121:/usr/arm-none-eabi/include/c++/14.1.0/array ****       fill(const value_type& __u)
+ 122:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { std::fill_n(begin(), size(), __u); }
+ 123:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 124:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX20_CONSTEXPR void
+ 125:/usr/arm-none-eabi/include/c++/14.1.0/array ****       swap(array& __other)
+ 126:/usr/arm-none-eabi/include/c++/14.1.0/array ****       noexcept(__array_traits<_Tp, _Nm>::_Is_nothrow_swappable::value)
+ 127:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { std::swap_ranges(begin(), end(), __other.begin()); }
+ARM GAS  /tmp/ccWqoTLz.s 			page 5
 
 
- 124:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__gnu__::__const__, __nodiscard__]]
- 125:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR iterator
- 126:/usr/arm-none-eabi/include/c++/13.2.0/array ****       begin() noexcept
- 127:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return iterator(data()); }
- 128:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 129:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 130:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
- 131:/usr/arm-none-eabi/include/c++/13.2.0/array ****       begin() const noexcept
- 132:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_iterator(data()); }
- 133:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 134:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__gnu__::__const__, __nodiscard__]]
- 135:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR iterator
- 136:/usr/arm-none-eabi/include/c++/13.2.0/array ****       end() noexcept
- 137:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return iterator(data() + _Nm); }
- 138:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 139:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 140:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
- 141:/usr/arm-none-eabi/include/c++/13.2.0/array ****       end() const noexcept
- 142:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_iterator(data() + _Nm); }
- 143:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 144:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__gnu__::__const__, __nodiscard__]]
- 145:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR reverse_iterator
- 146:/usr/arm-none-eabi/include/c++/13.2.0/array ****       rbegin() noexcept
- 147:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return reverse_iterator(end()); }
- 148:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 149:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 150:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
- 151:/usr/arm-none-eabi/include/c++/13.2.0/array ****       rbegin() const noexcept
- 152:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_reverse_iterator(end()); }
- 153:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 154:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__gnu__::__const__, __nodiscard__]]
- 155:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR reverse_iterator
- 156:/usr/arm-none-eabi/include/c++/13.2.0/array ****       rend() noexcept
- 157:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return reverse_iterator(begin()); }
- 158:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 159:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 160:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
- 161:/usr/arm-none-eabi/include/c++/13.2.0/array ****       rend() const noexcept
- 162:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_reverse_iterator(begin()); }
- 163:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 164:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 165:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
- 166:/usr/arm-none-eabi/include/c++/13.2.0/array ****       cbegin() const noexcept
- 167:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_iterator(data()); }
- 168:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 169:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 170:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
- 171:/usr/arm-none-eabi/include/c++/13.2.0/array ****       cend() const noexcept
- 172:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_iterator(data() + _Nm); }
- 173:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 174:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 175:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
- 176:/usr/arm-none-eabi/include/c++/13.2.0/array ****       crbegin() const noexcept
- 177:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_reverse_iterator(end()); }
- 178:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 179:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 180:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
-ARM GAS  /tmp/ccm8pwXn.s 			page 6
+ 128:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 129:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // Iterators.
+ 130:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__gnu__::__const__, __nodiscard__]]
+ 131:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR iterator
+ 132:/usr/arm-none-eabi/include/c++/14.1.0/array ****       begin() noexcept
+ 133:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return iterator(data()); }
+ 134:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 135:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 136:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 137:/usr/arm-none-eabi/include/c++/14.1.0/array ****       begin() const noexcept
+ 138:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_iterator(data()); }
+ 139:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 140:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__gnu__::__const__, __nodiscard__]]
+ 141:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR iterator
+ 142:/usr/arm-none-eabi/include/c++/14.1.0/array ****       end() noexcept
+ 143:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return iterator(data() + _Nm); }
+ 144:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 145:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 146:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 147:/usr/arm-none-eabi/include/c++/14.1.0/array ****       end() const noexcept
+ 148:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_iterator(data() + _Nm); }
+ 149:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 150:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__gnu__::__const__, __nodiscard__]]
+ 151:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR reverse_iterator
+ 152:/usr/arm-none-eabi/include/c++/14.1.0/array ****       rbegin() noexcept
+ 153:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return reverse_iterator(end()); }
+ 154:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 155:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 156:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 157:/usr/arm-none-eabi/include/c++/14.1.0/array ****       rbegin() const noexcept
+ 158:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_reverse_iterator(end()); }
+ 159:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 160:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__gnu__::__const__, __nodiscard__]]
+ 161:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR reverse_iterator
+ 162:/usr/arm-none-eabi/include/c++/14.1.0/array ****       rend() noexcept
+ 163:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return reverse_iterator(begin()); }
+ 164:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 165:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 166:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 167:/usr/arm-none-eabi/include/c++/14.1.0/array ****       rend() const noexcept
+ 168:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_reverse_iterator(begin()); }
+ 169:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 170:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 171:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 172:/usr/arm-none-eabi/include/c++/14.1.0/array ****       cbegin() const noexcept
+ 173:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_iterator(data()); }
+ 174:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 175:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 176:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_iterator
+ 177:/usr/arm-none-eabi/include/c++/14.1.0/array ****       cend() const noexcept
+ 178:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_iterator(data() + _Nm); }
+ 179:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 180:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 181:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 182:/usr/arm-none-eabi/include/c++/14.1.0/array ****       crbegin() const noexcept
+ 183:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_reverse_iterator(end()); }
+ 184:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ARM GAS  /tmp/ccWqoTLz.s 			page 6
 
 
- 181:/usr/arm-none-eabi/include/c++/13.2.0/array ****       crend() const noexcept
- 182:/usr/arm-none-eabi/include/c++/13.2.0/array ****       { return const_reverse_iterator(begin()); }
- 183:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 184:/usr/arm-none-eabi/include/c++/13.2.0/array ****       // Capacity.
- 185:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
- 186:/usr/arm-none-eabi/include/c++/13.2.0/array ****       constexpr size_type
- 187:/usr/arm-none-eabi/include/c++/13.2.0/array ****       size() const noexcept { return _Nm; }
- 188:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 189:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
- 190:/usr/arm-none-eabi/include/c++/13.2.0/array ****       constexpr size_type
- 191:/usr/arm-none-eabi/include/c++/13.2.0/array ****       max_size() const noexcept { return _Nm; }
- 192:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 193:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
- 194:/usr/arm-none-eabi/include/c++/13.2.0/array ****       constexpr bool
- 195:/usr/arm-none-eabi/include/c++/13.2.0/array ****       empty() const noexcept { return size() == 0; }
- 196:/usr/arm-none-eabi/include/c++/13.2.0/array **** 
- 197:/usr/arm-none-eabi/include/c++/13.2.0/array ****       // Element access.
- 198:/usr/arm-none-eabi/include/c++/13.2.0/array ****       [[__nodiscard__]]
- 199:/usr/arm-none-eabi/include/c++/13.2.0/array ****       _GLIBCXX17_CONSTEXPR reference
- 200:/usr/arm-none-eabi/include/c++/13.2.0/array ****       operator[](size_type __n) noexcept
-  98              		.loc 2 200 7 is_stmt 1 view .LVU14
-  99              		.loc 2 200 7 is_stmt 0 view .LVU15
- 100              	.LBE8:
- 101              		.loc 1 9 27 discriminator 2 view .LVU16
- 102 0044 28F81500 		strh	r0, [r8, r5, lsl #1]	@ movhi
-  10:Core/Src/audio_test.cpp ****             buffer[i * 2 + 1] = (int16_t) (sin(2. * M_PI * 8. * i / 2000.) * 500);
- 103              		.loc 1 10 13 is_stmt 1 view .LVU17
- 104              		.loc 1 10 63 is_stmt 0 view .LVU18
- 105 0048 0FA3     		adr	r3, .L5
- 106 004a D3E90023 		ldrd	r2, [r3]
- 107 004e 3046     		mov	r0, r6
- 108 0050 3946     		mov	r1, r7
- 109 0052 FFF7FEFF 		bl	__aeabi_dmul
- 110              	.LVL11:
- 111              		.loc 1 10 47 view .LVU19
- 112 0056 0022     		movs	r2, #0
- 113 0058 0D4B     		ldr	r3, .L5+8
- 114 005a FFF7FEFF 		bl	__aeabi_ddiv
- 115              	.LVL12:
- 116 005e 41EC100B 		vmov	d0, r0, r1
- 117 0062 FFF7FEFF 		bl	sin
- 118              	.LVL13:
- 119 0066 51EC100B 		vmov	r0, r1, d0
- 120              		.loc 1 10 76 discriminator 1 view .LVU20
- 121 006a 0022     		movs	r2, #0
- 122 006c 094B     		ldr	r3, .L5+12
- 123 006e FFF7FEFF 		bl	__aeabi_dmul
- 124              	.LVL14:
- 125              		.loc 1 10 33 discriminator 1 view .LVU21
- 126 0072 FFF7FEFF 		bl	__aeabi_d2iz
- 127              	.LVL15:
- 128              		.loc 1 10 26 discriminator 1 view .LVU22
- 129 0076 0135     		adds	r5, r5, #1
- 130              	.LVL16:
- 131              	.LBB9:
- 132              	.LBI9:
- 133              		.loc 2 200 7 is_stmt 1 view .LVU23
-ARM GAS  /tmp/ccm8pwXn.s 			page 7
+ 185:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 186:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR const_reverse_iterator
+ 187:/usr/arm-none-eabi/include/c++/14.1.0/array ****       crend() const noexcept
+ 188:/usr/arm-none-eabi/include/c++/14.1.0/array ****       { return const_reverse_iterator(begin()); }
+ 189:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 190:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // Capacity.
+ 191:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
+ 192:/usr/arm-none-eabi/include/c++/14.1.0/array ****       constexpr size_type
+ 193:/usr/arm-none-eabi/include/c++/14.1.0/array ****       size() const noexcept { return _Nm; }
+ 194:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 195:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
+ 196:/usr/arm-none-eabi/include/c++/14.1.0/array ****       constexpr size_type
+ 197:/usr/arm-none-eabi/include/c++/14.1.0/array ****       max_size() const noexcept { return _Nm; }
+ 198:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 199:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__, __gnu__::__const__, __gnu__::__always_inline__]]
+ 200:/usr/arm-none-eabi/include/c++/14.1.0/array ****       constexpr bool
+ 201:/usr/arm-none-eabi/include/c++/14.1.0/array ****       empty() const noexcept { return size() == 0; }
+ 202:/usr/arm-none-eabi/include/c++/14.1.0/array **** 
+ 203:/usr/arm-none-eabi/include/c++/14.1.0/array ****       // Element access.
+ 204:/usr/arm-none-eabi/include/c++/14.1.0/array ****       [[__nodiscard__]]
+ 205:/usr/arm-none-eabi/include/c++/14.1.0/array ****       _GLIBCXX17_CONSTEXPR reference
+ 206:/usr/arm-none-eabi/include/c++/14.1.0/array ****       operator[](size_type __n) noexcept
+  94              		.loc 2 206 7 is_stmt 1 view .LVU14
+  95              		.loc 2 206 7 is_stmt 0 view .LVU15
+  96              	.LBE10:
+  97              		.loc 1 9 27 discriminator 2 view .LVU16
+  98 0044 28F81500 		strh	r0, [r8, r5, lsl #1]	@ movhi
+  10:Test/Src/audio_test.cpp ****             buffer[i * 2 + 1] = (int16_t) (sin(2. * M_PI * 8. * i / 2000.) * 500);
+  99              		.loc 1 10 13 is_stmt 1 view .LVU17
+ 100              		.loc 1 10 63 is_stmt 0 view .LVU18
+ 101 0048 0FA3     		adr	r3, .L5
+ 102 004a D3E90023 		ldrd	r2, [r3]
+ 103 004e 3046     		mov	r0, r6
+ 104 0050 3946     		mov	r1, r7
+ 105 0052 FFF7FEFF 		bl	__aeabi_dmul
+ 106              	.LVL11:
+ 107              		.loc 1 10 47 view .LVU19
+ 108 0056 0022     		movs	r2, #0
+ 109 0058 0D4B     		ldr	r3, .L5+8
+ 110 005a FFF7FEFF 		bl	__aeabi_ddiv
+ 111              	.LVL12:
+ 112 005e 41EC100B 		vmov	d0, r0, r1
+ 113 0062 FFF7FEFF 		bl	sin
+ 114              	.LVL13:
+ 115 0066 51EC100B 		vmov	r0, r1, d0
+ 116              		.loc 1 10 76 discriminator 1 view .LVU20
+ 117 006a 0022     		movs	r2, #0
+ 118 006c 094B     		ldr	r3, .L5+12
+ 119 006e FFF7FEFF 		bl	__aeabi_dmul
+ 120              	.LVL14:
+ 121              		.loc 1 10 33 discriminator 1 view .LVU21
+ 122 0072 FFF7FEFF 		bl	__aeabi_d2iz
+ 123              	.LVL15:
+ 124              		.loc 1 10 26 discriminator 1 view .LVU22
+ 125 0076 0135     		adds	r5, r5, #1
+ 126              	.LVL16:
+ 127              	.LBB11:
+ARM GAS  /tmp/ccWqoTLz.s 			page 7
 
 
- 134              		.loc 2 200 7 is_stmt 0 view .LVU24
- 135              	.LBE9:
- 136              		.loc 1 10 31 discriminator 2 view .LVU25
- 137 0078 28F81500 		strh	r0, [r8, r5, lsl #1]	@ movhi
-   8:Core/Src/audio_test.cpp ****             buffer[i * 2] = (int16_t) (sin(2. * M_PI * 10. * i / 2000.) * 500);
- 138              		.loc 1 8 9 is_stmt 1 discriminator 3 view .LVU26
- 139 007c 0134     		adds	r4, r4, #1
- 140              	.LVL17:
- 141              	.L2:
-   8:Core/Src/audio_test.cpp ****             buffer[i * 2] = (int16_t) (sin(2. * M_PI * 10. * i / 2000.) * 500);
- 142              		.loc 1 8 26 discriminator 1 view .LVU27
- 143 007e B4F5005F 		cmp	r4, #8192
- 144 0082 C4DB     		blt	.L3
- 145              	.LBE7:
-  11:Core/Src/audio_test.cpp ****         }
-  12:Core/Src/audio_test.cpp ****     }
- 146              		.loc 1 12 5 is_stmt 0 view .LVU28
- 147 0084 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 148              	.LVL18:
- 149              	.L6:
- 150              		.loc 1 12 5 view .LVU29
- 151              		.align	3
- 152              	.L5:
- 153 0088 182D4454 		.word	1413754136
- 154 008c FB214940 		.word	1078534651
- 155 0090 00409F40 		.word	1084178432
- 156 0094 00407F40 		.word	1082081280
- 157 0098 5E385529 		.word	693450846
- 158 009c 7A6A4F40 		.word	1078946426
- 159              		.cfi_endproc
- 160              	.LFE1151:
- 161              		.fnend
- 163              		.section	.text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject,"ax",
- 164              		.align	1
- 165              		.global	_ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
- 166              		.syntax unified
- 167              		.thumb
- 168              		.thumb_func
- 170              	_ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:
- 171              		.fnstart
- 172              	.LVL19:
- 173              	.LFB1152:
-  13:Core/Src/audio_test.cpp **** 
-  14:Core/Src/audio_test.cpp ****     void runTest(I2C_HandleTypeDef& hi2c, DMA_HandleTypeDef& hdma_spi_tx, i2sObject& i2sObj) {
- 174              		.loc 1 14 94 is_stmt 1 view -0
- 175              		.cfi_startproc
- 176              		@ args = 0, pretend = 0, frame = 32784
- 177              		@ frame_needed = 0, uses_anonymous_args = 0
- 178              		.loc 1 14 94 is_stmt 0 view .LVU31
- 179 0000 10B5     		push	{r4, lr}
- 180              		.save {r4, lr}
- 181              		.cfi_def_cfa_offset 8
- 182              		.cfi_offset 4, -8
- 183              		.cfi_offset 14, -4
- 184              		.pad #32768
- 185 0002 ADF5004D 		sub	sp, sp, #32768
- 186              		.cfi_def_cfa_offset 32776
-ARM GAS  /tmp/ccm8pwXn.s 			page 8
+ 128              	.LBI11:
+ 129              		.loc 2 206 7 is_stmt 1 view .LVU23
+ 130              		.loc 2 206 7 is_stmt 0 view .LVU24
+ 131              	.LBE11:
+ 132              		.loc 1 10 31 discriminator 2 view .LVU25
+ 133 0078 28F81500 		strh	r0, [r8, r5, lsl #1]	@ movhi
+   8:Test/Src/audio_test.cpp ****             buffer[i * 2] = (int16_t) (sin(2. * M_PI * 10. * i / 2000.) * 500);
+ 134              		.loc 1 8 9 is_stmt 1 discriminator 3 view .LVU26
+ 135 007c 0134     		adds	r4, r4, #1
+ 136              	.LVL17:
+ 137              	.L2:
+   8:Test/Src/audio_test.cpp ****             buffer[i * 2] = (int16_t) (sin(2. * M_PI * 10. * i / 2000.) * 500);
+ 138              		.loc 1 8 26 discriminator 1 view .LVU27
+ 139 007e B4F5005F 		cmp	r4, #8192
+ 140 0082 C4DB     		blt	.L3
+ 141              	.LBE9:
+  11:Test/Src/audio_test.cpp ****         }
+  12:Test/Src/audio_test.cpp ****     }
+ 142              		.loc 1 12 5 is_stmt 0 view .LVU28
+ 143 0084 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 144              	.LVL18:
+ 145              	.L6:
+ 146              		.loc 1 12 5 view .LVU29
+ 147              		.align	3
+ 148              	.L5:
+ 149 0088 182D4454 		.word	1413754136
+ 150 008c FB214940 		.word	1078534651
+ 151 0090 00409F40 		.word	1084178432
+ 152 0094 00407F40 		.word	1082081280
+ 153 0098 5E385529 		.word	693450846
+ 154 009c 7A6A4F40 		.word	1078946426
+ 155              		.cfi_endproc
+ 156              	.LFE1178:
+ 157              		.fnend
+ 159              		.section	.text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject,"ax",
+ 160              		.align	1
+ 161              		.global	_ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
+ 162              		.syntax unified
+ 163              		.thumb
+ 164              		.thumb_func
+ 166              	_ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:
+ 167              		.fnstart
+ 168              	.LVL19:
+ 169              	.LFB1179:
+  13:Test/Src/audio_test.cpp **** 
+  14:Test/Src/audio_test.cpp ****     void runTest(I2C_HandleTypeDef& hi2c, DMA_HandleTypeDef& hdma_spi_tx, i2sObject& i2sObj) {
+ 170              		.loc 1 14 94 is_stmt 1 view -0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 32784
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              		.loc 1 14 94 is_stmt 0 view .LVU31
+ 175 0000 30B5     		push	{r4, r5, lr}
+ 176              		.save {r4, r5, lr}
+ 177              		.cfi_def_cfa_offset 12
+ 178              		.cfi_offset 4, -12
+ 179              		.cfi_offset 5, -8
+ 180              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccWqoTLz.s 			page 8
 
 
- 187              		.pad #16
- 188 0006 84B0     		sub	sp, sp, #16
- 189              		.cfi_def_cfa_offset 32792
- 190 0008 1446     		mov	r4, r2
-  15:Core/Src/audio_test.cpp ****         Audio audioSys(hi2c,hdma_spi_tx,i2sObj);
- 191              		.loc 1 15 9 is_stmt 1 view .LVU32
- 192              		.loc 1 15 47 is_stmt 0 view .LVU33
- 193 000a 1346     		mov	r3, r2
- 194 000c 0A46     		mov	r2, r1
- 195              	.LVL20:
- 196              		.loc 1 15 47 view .LVU34
- 197 000e 0146     		mov	r1, r0
- 198              	.LVL21:
- 199              		.loc 1 15 47 view .LVU35
- 200 0010 01A8     		add	r0, sp, #4
- 201              	.LVL22:
- 202              		.loc 1 15 47 view .LVU36
- 203 0012 FFF7FEFF 		bl	_ZN5AudioC1ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
- 204              	.LVL23:
-  16:Core/Src/audio_test.cpp ****         genBuffer(audioSys, 400.);
- 205              		.loc 1 16 9 is_stmt 1 view .LVU37
- 206              		.loc 1 16 18 is_stmt 0 view .LVU38
- 207 0016 9FED070A 		vldr.32	s0, .L11
- 208 001a 01A8     		add	r0, sp, #4
- 209 001c FFF7FEFF 		bl	_ZN10audio_test9genBufferER5Audiof
- 210              	.LVL24:
- 211              	.L8:
-  17:Core/Src/audio_test.cpp ****         while(1) {
- 212              		.loc 1 17 9 is_stmt 1 view .LVU39
-  18:Core/Src/audio_test.cpp ****             if(i2sObj.bufferIsEmpty())
- 213              		.loc 1 18 13 view .LVU40
- 214              		.loc 1 18 36 is_stmt 0 view .LVU41
- 215 0020 2046     		mov	r0, r4
- 216 0022 FFF7FEFF 		bl	_ZN9i2sObject13bufferIsEmptyEv
- 217              	.LVL25:
- 218              		.loc 1 18 13 discriminator 1 view .LVU42
- 219 0026 0028     		cmp	r0, #0
- 220 0028 FAD0     		beq	.L8
-  19:Core/Src/audio_test.cpp ****             { 
-  20:Core/Src/audio_test.cpp ****                 audioSys.play();
- 221              		.loc 1 20 17 is_stmt 1 view .LVU43
- 222              		.loc 1 20 30 is_stmt 0 view .LVU44
- 223 002a 01A8     		add	r0, sp, #4
- 224 002c FFF7FEFF 		bl	_ZN5Audio4playEv
- 225              	.LVL26:
- 226 0030 F6E7     		b	.L8
- 227              	.L12:
- 228 0032 00BF     		.align	2
- 229              	.L11:
- 230 0034 0000C843 		.word	1137180672
- 231              		.cfi_endproc
- 232              	.LFE1152:
- 233              		.fnend
- 235              		.text
- 236              	.Letext0:
- 237              		.file 3 "/usr/arm-none-eabi/include/c++/13.2.0/cmath"
- 238              		.file 4 "/usr/arm-none-eabi/include/c++/13.2.0/type_traits"
-ARM GAS  /tmp/ccm8pwXn.s 			page 9
+ 181              		.pad #32768
+ 182 0002 ADF5004D 		sub	sp, sp, #32768
+ 183              		.cfi_def_cfa_offset 32780
+ 184              		.pad #20
+ 185 0006 85B0     		sub	sp, sp, #20
+ 186              		.cfi_def_cfa_offset 32800
+ 187 0008 1446     		mov	r4, r2
+  15:Test/Src/audio_test.cpp ****         Audio audioSys(hi2c,hdma_spi_tx,i2sObj);
+ 188              		.loc 1 15 9 is_stmt 1 view .LVU32
+ 189              		.loc 1 15 47 is_stmt 0 view .LVU33
+ 190 000a 01AD     		add	r5, sp, #4
+ 191 000c 1346     		mov	r3, r2
+ 192 000e 0A46     		mov	r2, r1
+ 193              	.LVL20:
+ 194              		.loc 1 15 47 view .LVU34
+ 195 0010 0146     		mov	r1, r0
+ 196              	.LVL21:
+ 197              		.loc 1 15 47 view .LVU35
+ 198 0012 2846     		mov	r0, r5
+ 199              	.LVL22:
+ 200              		.loc 1 15 47 view .LVU36
+ 201 0014 FFF7FEFF 		bl	_ZN5AudioC1ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
+ 202              	.LVL23:
+  16:Test/Src/audio_test.cpp ****         genBuffer(audioSys, 400.);
+ 203              		.loc 1 16 9 is_stmt 1 view .LVU37
+ 204              		.loc 1 16 18 is_stmt 0 view .LVU38
+ 205 0018 9FED050A 		vldr.32	s0, .L11
+ 206 001c 2846     		mov	r0, r5
+ 207 001e FFF7FEFF 		bl	_ZN10audio_test9genBufferER5Audiof
+ 208              	.LVL24:
+ 209              	.L8:
+  17:Test/Src/audio_test.cpp ****         while(1) {
+ 210              		.loc 1 17 9 is_stmt 1 view .LVU39
+  18:Test/Src/audio_test.cpp ****             // The audio system interrupt fires when the audio buffer is empty.
+  19:Test/Src/audio_test.cpp ****             if(i2sObj.isInterruptFired())
+ 211              		.loc 1 19 13 view .LVU40
+ 212              	.LBB12:
+ 213              	.LBI12:
+ 214              		.file 3 "Intermediate/Inc/interrupt_handler.h"
+   1:Intermediate/Inc/interrupt_handler.h **** // Minimal virtual interrupt handler
+   2:Intermediate/Inc/interrupt_handler.h **** class InterruptHandler {
+   3:Intermediate/Inc/interrupt_handler.h ****     public:
+   4:Intermediate/Inc/interrupt_handler.h ****     virtual void irq() = 0;
+   5:Intermediate/Inc/interrupt_handler.h **** };
+   6:Intermediate/Inc/interrupt_handler.h **** 
+   7:Intermediate/Inc/interrupt_handler.h **** // Interrupt handler object with added bells and whistles that make it usable
+   8:Intermediate/Inc/interrupt_handler.h **** template <typename T>
+   9:Intermediate/Inc/interrupt_handler.h **** class InterruptObject : public InterruptHandler {
+  10:Intermediate/Inc/interrupt_handler.h **** public:
+  11:Intermediate/Inc/interrupt_handler.h **** 
+  12:Intermediate/Inc/interrupt_handler.h ****     // Constructors
+  13:Intermediate/Inc/interrupt_handler.h ****     InterruptObject() : _interruptFlag(false) {}
+  14:Intermediate/Inc/interrupt_handler.h ****     InterruptObject(T& resource) : _interruptFlag(false), _resource(&resource) {}
+  15:Intermediate/Inc/interrupt_handler.h **** 
+  16:Intermediate/Inc/interrupt_handler.h ****     // "Default" irq behavior is simply to set the flag boolean to true.
+  17:Intermediate/Inc/interrupt_handler.h ****     void irq() { setFlag(); }
+  18:Intermediate/Inc/interrupt_handler.h **** 
+ARM GAS  /tmp/ccWqoTLz.s 			page 9
 
 
- 239              		.file 5 "/usr/arm-none-eabi/include/c++/13.2.0/debug/debug.h"
- 240              		.file 6 "/usr/arm-none-eabi/include/c++/13.2.0/bits/std_abs.h"
- 241              		.file 7 "/usr/arm-none-eabi/include/c++/13.2.0/arm-none-eabi/thumb/v7e-m+fp/hard/bits/c++config.h"
- 242              		.file 8 "/usr/arm-none-eabi/include/c++/13.2.0/bits/predefined_ops.h"
- 243              		.file 9 "/usr/arm-none-eabi/include/machine/_default_types.h"
- 244              		.file 10 "/usr/arm-none-eabi/include/math.h"
- 245              		.file 11 "/usr/arm-none-eabi/include/c++/13.2.0/math.h"
- 246              		.file 12 "/usr/arm-none-eabi/include/sys/_stdint.h"
- 247              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
- 248              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 249              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 250              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
- 251              		.file 17 "Core/Inc/sys_const.h"
- 252              		.file 18 "Intermediate/Inc/audio.h"
- 253              		.file 19 "Intermediate/Inc/concrete_interrupt_handlers.h"
- 254              		.file 20 "Core/Inc/audio_test.h"
-ARM GAS  /tmp/ccm8pwXn.s 			page 10
+  19:Intermediate/Inc/interrupt_handler.h ****     // IRQ flag boolean management
+  20:Intermediate/Inc/interrupt_handler.h ****     inline bool isInterruptFired() { return this->_interruptFlag; }
+ 215              		.loc 3 20 17 view .LVU41
+ 216              	.LBB13:
+ 217              		.loc 3 20 51 is_stmt 0 view .LVU42
+ 218 0022 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 219              	.LVL25:
+ 220              		.loc 3 20 51 view .LVU43
+ 221              	.LBE13:
+ 222              	.LBE12:
+ 223              		.loc 1 19 13 discriminator 1 view .LVU44
+ 224 0024 002B     		cmp	r3, #0
+ 225 0026 FCD0     		beq	.L8
+  20:Test/Src/audio_test.cpp ****             { 
+  21:Test/Src/audio_test.cpp ****                 audioSys.play();
+ 226              		.loc 1 21 17 is_stmt 1 view .LVU45
+ 227              		.loc 1 21 30 is_stmt 0 view .LVU46
+ 228 0028 01A8     		add	r0, sp, #4
+ 229 002a FFF7FEFF 		bl	_ZN5Audio4playEv
+ 230              	.LVL26:
+ 231 002e F8E7     		b	.L8
+ 232              	.L12:
+ 233              		.align	2
+ 234              	.L11:
+ 235 0030 0000C843 		.word	1137180672
+ 236              		.cfi_endproc
+ 237              	.LFE1179:
+ 238              		.fnend
+ 240              		.text
+ 241              	.Letext0:
+ 242              		.file 4 "/usr/arm-none-eabi/include/c++/14.1.0/cmath"
+ 243              		.file 5 "/usr/arm-none-eabi/include/c++/14.1.0/type_traits"
+ 244              		.file 6 "/usr/arm-none-eabi/include/c++/14.1.0/debug/debug.h"
+ 245              		.file 7 "/usr/arm-none-eabi/include/c++/14.1.0/bits/std_abs.h"
+ 246              		.file 8 "/usr/arm-none-eabi/include/c++/14.1.0/cstdint"
+ 247              		.file 9 "/usr/arm-none-eabi/include/c++/14.1.0/arm-none-eabi/thumb/v7e-m+fp/hard/bits/c++config.h"
+ 248              		.file 10 "/usr/arm-none-eabi/include/c++/14.1.0/bits/predefined_ops.h"
+ 249              		.file 11 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 250              		.file 12 "/usr/arm-none-eabi/include/math.h"
+ 251              		.file 13 "/usr/arm-none-eabi/include/c++/14.1.0/math.h"
+ 252              		.file 14 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 253              		.file 15 "/usr/arm-none-eabi/include/stdint.h"
+ 254              		.file 16 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ 255              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 256              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 257              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"
+ 258              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
+ 259              		.file 21 "Core/Inc/sys_const.h"
+ 260              		.file 22 "Intermediate/Inc/audio.h"
+ 261              		.file 23 "Test/Inc/audio_test.h"
+ARM GAS  /tmp/ccWqoTLz.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 audio_test.cpp
-     /tmp/ccm8pwXn.s:25     .text._ZN10audio_test9genBufferER5Audiof:00000000 $t
-     /tmp/ccm8pwXn.s:31     .text._ZN10audio_test9genBufferER5Audiof:00000000 _ZN10audio_test9genBufferER5Audiof
-     /tmp/ccm8pwXn.s:153    .text._ZN10audio_test9genBufferER5Audiof:00000088 $d
+     /tmp/ccWqoTLz.s:21     .text._ZN10audio_test9genBufferER5Audiof:00000000 $t
+     /tmp/ccWqoTLz.s:27     .text._ZN10audio_test9genBufferER5Audiof:00000000 _ZN10audio_test9genBufferER5Audiof
+     /tmp/ccWqoTLz.s:149    .text._ZN10audio_test9genBufferER5Audiof:00000088 $d
 .ARM.exidx.text._ZN10audio_test9genBufferER5Audiof:00000000 $d
-     /tmp/ccm8pwXn.s:164    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $t
-     /tmp/ccm8pwXn.s:170    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
-     /tmp/ccm8pwXn.s:230    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000034 $d
+     /tmp/ccWqoTLz.s:160    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $t
+     /tmp/ccWqoTLz.s:166    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 _ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
+     /tmp/ccWqoTLz.s:235    .text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000030 $d
 .ARM.extab.text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $d
 .ARM.exidx.text._ZN10audio_test7runTestER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject:00000000 $d
 
 UNDEFINED SYMBOLS
+_ZN5Audio17getBufferInstanceEv
 __aeabi_i2d
 __aeabi_dmul
 __aeabi_ddiv
-__aeabi_d2iz
-_ZN5Audio17getBufferInstanceEv
 sin
+__aeabi_d2iz
 __aeabi_unwind_cpp_pr0
 _ZN5AudioC1ER17I2C_HandleTypeDefR19__DMA_HandleTypeDefR9i2sObject
-_ZN9i2sObject13bufferIsEmptyEv
 _ZN5Audio4playEv
 __aeabi_unwind_cpp_pr1

@@ -25,7 +25,6 @@ public:
 private:
     inline bool isBufferSet();
 
-
     std::array<int16_t,audio_buffer_size*nSpeakers()> sampleBuffer;
 
     i2sObject* i2sObj;

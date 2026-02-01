@@ -24,6 +24,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "audio_test.h"
+#include "sleep_test.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -33,8 +34,10 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-const int n_interrupts = 1;
+const int n_interrupts = 2;
+
 const int spi_txcplt_irqn = 0;
+const int alarm_wakeup_irqn = 1;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -57,6 +60,7 @@ UART_HandleTypeDef huart1;
 /* USER CODE BEGIN PV */
 
 i2sObject i2sObj(hi2s2);
+alarmObject alarmObj(hrtc);
 
 static InterruptHandler *Handlers[n_interrupts];
 
@@ -117,9 +121,12 @@ int main(void)
   MX_RTC_Init();
   /* USER CODE BEGIN 2 */
   register_handler(spi_txcplt_irqn, &i2sObj);
-  audio_test::runTest(hi2c1, hdma_spi2_tx, i2sObj);
-  /* USER CODE END 2 */
+  register_handler(alarm_wakeup_irqn, &alarmObj);
+  //audio_test::runTest(hi2c1, hdma_spi2_tx, i2sObj);
+  sleep_test::runTest(hrtc);
 
+  /* USER CODE END 2 */
+ 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -471,7 +478,11 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 extern "C" void HAL_I2S_TxCpltCallback(I2S_HandleTypeDef *hi2s) {
-    Handlers[spi_txcplt_irqn]->irq();
+  Handlers[spi_txcplt_irqn]->irq();
+}                      
+
+extern "C" void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc) {
+  Handlers[alarm_wakeup_irqn]->irq();
 }
 
 void register_handler(int irq_n, InterruptHandler* handler) {

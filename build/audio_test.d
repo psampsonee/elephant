@@ -1,4 +1,4 @@
-build/audio_test.o: Core/Src/audio_test.cpp Core/Inc/audio_test.h \
+build/audio_test.o: Test/Src/audio_test.cpp Test/Inc/audio_test.h \
  Intermediate/Inc/audio.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  Core/Inc/stm32f4xx_hal_conf.h \
@@ -33,7 +33,7 @@ build/audio_test.o: Core/Src/audio_test.cpp Core/Inc/audio_test.h \
  Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  Core/Inc/sys_const.h Intermediate/Inc/concrete_interrupt_handlers.h \
  Intermediate/Inc/interrupt_handler.h
-Core/Inc/audio_test.h:
+Test/Inc/audio_test.h:
 Intermediate/Inc/audio.h:
 Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 Core/Inc/stm32f4xx_hal_conf.h:

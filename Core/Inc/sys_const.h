@@ -1,4 +1,5 @@
 #pragma once
+#include <cstdint>
 
 const bool is_audio_stereo = true;
 

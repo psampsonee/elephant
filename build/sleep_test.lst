@@ -1,0 +1,213 @@
+ARM GAS  /tmp/cc29sc9R.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"sleep_test.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Test/Src/sleep_test.cpp"
+  20              		.section	.text._ZN10sleep_test9enterStopER17RTC_HandleTypeDef,"ax",%progbits
+  21              		.align	1
+  22              		.global	_ZN10sleep_test9enterStopER17RTC_HandleTypeDef
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN10sleep_test9enterStopER17RTC_HandleTypeDef:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB135:
+   1:Test/Src/sleep_test.cpp **** #include "sleep_test.h"
+   2:Test/Src/sleep_test.cpp **** 
+   3:Test/Src/sleep_test.cpp **** namespace sleep_test {
+   4:Test/Src/sleep_test.cpp ****     void runTest(RTC_HandleTypeDef& hrtc) {
+   5:Test/Src/sleep_test.cpp ****         while (1) {
+   6:Test/Src/sleep_test.cpp ****             enterStop(hrtc);
+   7:Test/Src/sleep_test.cpp ****             leaveStop();
+   8:Test/Src/sleep_test.cpp ****         }
+   9:Test/Src/sleep_test.cpp ****     }
+  10:Test/Src/sleep_test.cpp **** 
+  11:Test/Src/sleep_test.cpp ****     void enterStop(RTC_HandleTypeDef& hrtc) {
+  31              		.loc 1 11 45 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 11 45 is_stmt 0 view .LVU1
+  36 0000 08B5     		push	{r3, lr}
+  37              		.save {r3, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 3, -8
+  40              		.cfi_offset 14, -4
+  12:Test/Src/sleep_test.cpp ****     __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+  41              		.loc 1 12 5 is_stmt 1 view .LVU2
+  42 0002 094A     		ldr	r2, .L3
+  43 0004 1368     		ldr	r3, [r2]
+  44 0006 43F00403 		orr	r3, r3, #4
+  45 000a 1360     		str	r3, [r2]
+  13:Test/Src/sleep_test.cpp ****     __HAL_RTC_WAKEUPTIMER_CLEAR_FLAG(&hrtc, RTC_FLAG_WUTF);
+ARM GAS  /tmp/cc29sc9R.s 			page 2
+
+
+  46              		.loc 1 13 5 view .LVU3
+  47 000c 0268     		ldr	r2, [r0]
+  48 000e D368     		ldr	r3, [r2, #12]
+  49 0010 DBB2     		uxtb	r3, r3
+  50 0012 63F49063 		orn	r3, r3, #1152
+  51 0016 D360     		str	r3, [r2, #12]
+  14:Test/Src/sleep_test.cpp ****     HAL_SuspendTick();
+  52              		.loc 1 14 5 view .LVU4
+  53              		.loc 1 14 20 is_stmt 0 view .LVU5
+  54 0018 FFF7FEFF 		bl	HAL_SuspendTick
+  55              	.LVL1:
+  15:Test/Src/sleep_test.cpp ****     HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+  56              		.loc 1 15 5 is_stmt 1 view .LVU6
+  57              		.loc 1 15 26 is_stmt 0 view .LVU7
+  58 001c 0121     		movs	r1, #1
+  59 001e 0846     		mov	r0, r1
+  60 0020 FFF7FEFF 		bl	HAL_PWR_EnterSTOPMode
+  61              	.LVL2:
+  16:Test/Src/sleep_test.cpp ****     }
+  62              		.loc 1 16 5 view .LVU8
+  63 0024 08BD     		pop	{r3, pc}
+  64              	.L4:
+  65 0026 00BF     		.align	2
+  66              	.L3:
+  67 0028 00700040 		.word	1073770496
+  68              		.cfi_endproc
+  69              	.LFE135:
+  70              		.fnend
+  72              		.section	.text._ZN10sleep_test9leaveStopEv,"ax",%progbits
+  73              		.align	1
+  74              		.global	_ZN10sleep_test9leaveStopEv
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	_ZN10sleep_test9leaveStopEv:
+  80              		.fnstart
+  81              	.LFB136:
+  17:Test/Src/sleep_test.cpp **** 
+  18:Test/Src/sleep_test.cpp ****     void leaveStop() {
+  82              		.loc 1 18 22 is_stmt 1 view -0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86 0000 08B5     		push	{r3, lr}
+  87              		.save {r3, lr}
+  88              		.cfi_def_cfa_offset 8
+  89              		.cfi_offset 3, -8
+  90              		.cfi_offset 14, -4
+  19:Test/Src/sleep_test.cpp ****         //SysTick_Config();
+  20:Test/Src/sleep_test.cpp **** 	    HAL_ResumeTick();
+  91              		.loc 1 20 6 view .LVU10
+  92              		.loc 1 20 20 is_stmt 0 view .LVU11
+  93 0002 FFF7FEFF 		bl	HAL_ResumeTick
+  94              	.LVL3:
+  21:Test/Src/sleep_test.cpp ****     }
+  95              		.loc 1 21 5 view .LVU12
+  96 0006 08BD     		pop	{r3, pc}
+ARM GAS  /tmp/cc29sc9R.s 			page 3
+
+
+  97              		.cfi_endproc
+  98              	.LFE136:
+  99              		.fnend
+ 101              		.section	.text._ZN10sleep_test7runTestER17RTC_HandleTypeDef,"ax",%progbits
+ 102              		.align	1
+ 103              		.global	_ZN10sleep_test7runTestER17RTC_HandleTypeDef
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 108              	_ZN10sleep_test7runTestER17RTC_HandleTypeDef:
+ 109              		.fnstart
+ 110              	.LVL4:
+ 111              	.LFB134:
+   4:Test/Src/sleep_test.cpp ****         while (1) {
+ 112              		.loc 1 4 43 is_stmt 1 view -0
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+   4:Test/Src/sleep_test.cpp ****         while (1) {
+ 116              		.loc 1 4 43 is_stmt 0 view .LVU14
+ 117 0000 10B5     		push	{r4, lr}
+ 118              		.save {r4, lr}
+ 119              		.cfi_def_cfa_offset 8
+ 120              		.cfi_offset 4, -8
+ 121              		.cfi_offset 14, -4
+ 122 0002 0446     		mov	r4, r0
+ 123              	.LVL5:
+ 124              	.L8:
+   5:Test/Src/sleep_test.cpp ****             enterStop(hrtc);
+ 125              		.loc 1 5 9 is_stmt 1 view .LVU15
+   6:Test/Src/sleep_test.cpp ****             leaveStop();
+ 126              		.loc 1 6 13 view .LVU16
+   6:Test/Src/sleep_test.cpp ****             leaveStop();
+ 127              		.loc 1 6 22 is_stmt 0 view .LVU17
+ 128 0004 2046     		mov	r0, r4
+ 129 0006 FFF7FEFF 		bl	_ZN10sleep_test9enterStopER17RTC_HandleTypeDef
+ 130              	.LVL6:
+   7:Test/Src/sleep_test.cpp ****         }
+ 131              		.loc 1 7 13 is_stmt 1 discriminator 1 view .LVU18
+   7:Test/Src/sleep_test.cpp ****         }
+ 132              		.loc 1 7 22 is_stmt 0 discriminator 1 view .LVU19
+ 133 000a FFF7FEFF 		bl	_ZN10sleep_test9leaveStopEv
+ 134              	.LVL7:
+   5:Test/Src/sleep_test.cpp ****             enterStop(hrtc);
+ 135              		.loc 1 5 9 is_stmt 1 view .LVU20
+ 136 000e F9E7     		b	.L8
+ 137              		.cfi_endproc
+ 138              	.LFE134:
+ 139              		.fnend
+ 141              		.text
+ 142              	.Letext0:
+ 143              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 144              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 145              		.file 4 "/usr/arm-none-eabi/include/stdint.h"
+ 146              		.file 5 "/usr/arm-none-eabi/include/c++/14.1.0/cstdint"
+ 147              		.file 6 "Core/Inc/sys_const.h"
+ 148              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ARM GAS  /tmp/cc29sc9R.s 			page 4
+
+
+ 149              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 150              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h"
+ 151              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 152              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h"
+ 153              		.file 12 "/usr/arm-none-eabi/include/c++/14.1.0/arm-none-eabi/thumb/v7e-m+fp/hard/bits/c++config.h
+ 154              		.file 13 "Test/Inc/sleep_test.h"
+ARM GAS  /tmp/cc29sc9R.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sleep_test.cpp
+     /tmp/cc29sc9R.s:21     .text._ZN10sleep_test9enterStopER17RTC_HandleTypeDef:00000000 $t
+     /tmp/cc29sc9R.s:27     .text._ZN10sleep_test9enterStopER17RTC_HandleTypeDef:00000000 _ZN10sleep_test9enterStopER17RTC_HandleTypeDef
+     /tmp/cc29sc9R.s:67     .text._ZN10sleep_test9enterStopER17RTC_HandleTypeDef:00000028 $d
+.ARM.extab.text._ZN10sleep_test9enterStopER17RTC_HandleTypeDef:00000000 $d
+.ARM.exidx.text._ZN10sleep_test9enterStopER17RTC_HandleTypeDef:00000000 $d
+     /tmp/cc29sc9R.s:73     .text._ZN10sleep_test9leaveStopEv:00000000 $t
+     /tmp/cc29sc9R.s:79     .text._ZN10sleep_test9leaveStopEv:00000000 _ZN10sleep_test9leaveStopEv
+.ARM.extab.text._ZN10sleep_test9leaveStopEv:00000000 $d
+.ARM.exidx.text._ZN10sleep_test9leaveStopEv:00000000 $d
+     /tmp/cc29sc9R.s:102    .text._ZN10sleep_test7runTestER17RTC_HandleTypeDef:00000000 $t
+     /tmp/cc29sc9R.s:108    .text._ZN10sleep_test7runTestER17RTC_HandleTypeDef:00000000 _ZN10sleep_test7runTestER17RTC_HandleTypeDef
+.ARM.exidx.text._ZN10sleep_test7runTestER17RTC_HandleTypeDef:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_SuspendTick
+HAL_PWR_EnterSTOPMode
+__aeabi_unwind_cpp_pr1
+HAL_ResumeTick
+__aeabi_unwind_cpp_pr0

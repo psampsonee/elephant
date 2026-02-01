@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ssm2518")(type "KiCad")(uri "/home/paul/ssm2518.kicad_sym")(options "")(descr ""))
+  (lib (name "Lou")(type "KiCad")(uri "/home/paul/Documents/Lou/Lou.kicad_sym")(options "")(descr ""))
+)
