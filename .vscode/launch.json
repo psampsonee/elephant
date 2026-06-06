@@ -1,9 +1,30 @@
 {
   "configurations": [
     {
+      "name": "Debug STM32",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/elephant.elf",
+
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/stm32f4x.cfg"
+      ],
+
+      "preLaunchTask": "Build STM",
+
+      "runToEntryPoint": "main",
+
+      "gdbPath": "arm-none-eabi-gdb",
+      "showDevDebugOutput": "none"
+    },
+    {
       "showDevDebugOutput": "parsed",
       "cwd": "${workspaceRoot}",
-      "executable": "./build/ElephantR9.elf",
+      "executable": "./build/debug/ElephantR9.elf",
       "name": "Debug STM32",
       "request": "launch",
       "type": "cortex-debug",
@@ -17,7 +38,7 @@
     {
       "showDevDebugOutput": "parsed",
       "cwd": "${workspaceRoot}",
-      "executable": "./build/ElephantR9.elf",
+      "executable": "./build/debug/ElephantR9.elf",
       "name": "Attach STM32",
       "request": "attach",
       "type": "cortex-debug",
