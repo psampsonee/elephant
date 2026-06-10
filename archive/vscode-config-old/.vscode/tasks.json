@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+	{
+		"label": "Build STM",
+		"type": "shell",
+		"command": "make",
+		"args": [
+			"-j16",
+			"-f",
+			"Makefile"
+		],
+		"options": {
+			"cwd": "${workspaceFolder}"
+		},
+		"group": {
+			"kind": "build",
+			"isDefault": true
+		},
+		"problemMatcher": [
+			"$gcc"
+		]
+	},
+	{
+		"label": "Clean STM",
+		"type": "shell",
+		"command": "make",
+		"args": [
+			"clean",
+			"-f",
+			"Makefile"
+		],
+		"options": {
+			"cwd": "${workspaceFolder}"
+		},
+		"problemMatcher": [
+			"$gcc"
+		]
+	},
+	{
+		"label": "Flash STM",
+		"type": "shell",
+		"command": "openocd",
+		"args": [
+			"-f",
+			"interface/stlink.cfg",
+			"-f",
+			"target/stm32f4x.cfg",
+			"-c",
+			"program build/elephant.elf verify reset exit"
+		],
+		"options": {
+			"cwd": "${workspaceFolder}"
+		},
+		"dependsOn": "Build STM",
+		"problemMatcher": []
+	},
+	{
+		"label": "Build Clean STM",
+		"type": "process",
+		"command": "${command:stm32-for-vscode.cleanBuild}",
+		"options": {
+			"cwd": "${workspaceRoot}"
+		},
+		"group": {
+			"kind": "build",
+			"isDefault": true
+		},
+		"problemMatcher": [
+			"$gcc"
+		]
+	}
+]
+}
