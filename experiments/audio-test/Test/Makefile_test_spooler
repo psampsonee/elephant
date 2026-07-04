@@ -1,0 +1,23 @@
+CXX := g++
+CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IAudio/Inc -ITest
+SRC := Audio/Src/sample_spooler.cpp
+TEST_SRC := Test/test_spooler.cpp
+
+BUILD_DIR := Test/build
+TARGET := $(BUILD_DIR)/test_spooler
+
+.PHONY: all test clean
+
+all: test
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(TARGET): $(SRC) $(TEST_SRC) | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+test: $(TARGET)
+	./$(TARGET)
+
+clean:
+	rm -rf $(BUILD_DIR)

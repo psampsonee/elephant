@@ -1,0 +1,6 @@
+magic: ELEPHANT_AUDIO_TEST
+version: 1
+sample_rate: 16000
+channels: 1
+bits_per_sample: 16
+audio_start_sector: 16

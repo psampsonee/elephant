@@ -1,0 +1,527 @@
+ARM GAS  /tmp/ccuTFnQ2.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"i2s.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Core/Src/i2s.c"
+  20              		.section	.text.MX_I2S2_Init,"ax",%progbits
+  21              		.align	1
+  22              		.global	MX_I2S2_Init
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	MX_I2S2_Init:
+  28              	.LFB130:
+   1:Core/Src/i2s.c **** /* USER CODE BEGIN Header */
+   2:Core/Src/i2s.c **** /**
+   3:Core/Src/i2s.c ****   ******************************************************************************
+   4:Core/Src/i2s.c ****   * @file    i2s.c
+   5:Core/Src/i2s.c ****   * @brief   This file provides code for the configuration
+   6:Core/Src/i2s.c ****   *          of the I2S instances.
+   7:Core/Src/i2s.c ****   ******************************************************************************
+   8:Core/Src/i2s.c ****   * @attention
+   9:Core/Src/i2s.c ****   *
+  10:Core/Src/i2s.c ****   * Copyright (c) 2026 STMicroelectronics.
+  11:Core/Src/i2s.c ****   * All rights reserved.
+  12:Core/Src/i2s.c ****   *
+  13:Core/Src/i2s.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  14:Core/Src/i2s.c ****   * in the root directory of this software component.
+  15:Core/Src/i2s.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:Core/Src/i2s.c ****   *
+  17:Core/Src/i2s.c ****   ******************************************************************************
+  18:Core/Src/i2s.c ****   */
+  19:Core/Src/i2s.c **** /* USER CODE END Header */
+  20:Core/Src/i2s.c **** /* Includes ------------------------------------------------------------------*/
+  21:Core/Src/i2s.c **** #include "i2s.h"
+  22:Core/Src/i2s.c **** 
+  23:Core/Src/i2s.c **** /* USER CODE BEGIN 0 */
+  24:Core/Src/i2s.c **** 
+  25:Core/Src/i2s.c **** /* USER CODE END 0 */
+  26:Core/Src/i2s.c **** 
+  27:Core/Src/i2s.c **** I2S_HandleTypeDef hi2s2;
+  28:Core/Src/i2s.c **** 
+  29:Core/Src/i2s.c **** /* I2S2 init function */
+  30:Core/Src/i2s.c **** void MX_I2S2_Init(void)
+ARM GAS  /tmp/ccuTFnQ2.s 			page 2
+
+
+  31:Core/Src/i2s.c **** {
+  29              		.loc 1 31 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  32:Core/Src/i2s.c **** 
+  33:Core/Src/i2s.c ****   /* USER CODE BEGIN I2S2_Init 0 */
+  34:Core/Src/i2s.c **** 
+  35:Core/Src/i2s.c ****   /* USER CODE END I2S2_Init 0 */
+  36:Core/Src/i2s.c **** 
+  37:Core/Src/i2s.c ****   /* USER CODE BEGIN I2S2_Init 1 */
+  38:Core/Src/i2s.c **** 
+  39:Core/Src/i2s.c ****   /* USER CODE END I2S2_Init 1 */
+  40:Core/Src/i2s.c ****   hi2s2.Instance = SPI2;
+  38              		.loc 1 40 3 view .LVU1
+  39              		.loc 1 40 18 is_stmt 0 view .LVU2
+  40 0002 0B48     		ldr	r0, .L5
+  41 0004 0B4B     		ldr	r3, .L5+4
+  42 0006 0360     		str	r3, [r0]
+  41:Core/Src/i2s.c ****   hi2s2.Init.Mode = I2S_MODE_MASTER_TX;
+  43              		.loc 1 41 3 is_stmt 1 view .LVU3
+  44              		.loc 1 41 19 is_stmt 0 view .LVU4
+  45 0008 4FF40073 		mov	r3, #512
+  46 000c 4360     		str	r3, [r0, #4]
+  42:Core/Src/i2s.c ****   hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
+  47              		.loc 1 42 3 is_stmt 1 view .LVU5
+  48              		.loc 1 42 23 is_stmt 0 view .LVU6
+  49 000e 0023     		movs	r3, #0
+  50 0010 8360     		str	r3, [r0, #8]
+  43:Core/Src/i2s.c ****   hi2s2.Init.DataFormat = I2S_DATAFORMAT_16B;
+  51              		.loc 1 43 3 is_stmt 1 view .LVU7
+  52              		.loc 1 43 25 is_stmt 0 view .LVU8
+  53 0012 C360     		str	r3, [r0, #12]
+  44:Core/Src/i2s.c ****   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
+  54              		.loc 1 44 3 is_stmt 1 view .LVU9
+  55              		.loc 1 44 25 is_stmt 0 view .LVU10
+  56 0014 0361     		str	r3, [r0, #16]
+  45:Core/Src/i2s.c ****   hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_8K;
+  57              		.loc 1 45 3 is_stmt 1 view .LVU11
+  58              		.loc 1 45 24 is_stmt 0 view .LVU12
+  59 0016 4FF4FA52 		mov	r2, #8000
+  60 001a 4261     		str	r2, [r0, #20]
+  46:Core/Src/i2s.c ****   hi2s2.Init.CPOL = I2S_CPOL_LOW;
+  61              		.loc 1 46 3 is_stmt 1 view .LVU13
+  62              		.loc 1 46 19 is_stmt 0 view .LVU14
+  63 001c 8361     		str	r3, [r0, #24]
+  47:Core/Src/i2s.c ****   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
+  64              		.loc 1 47 3 is_stmt 1 view .LVU15
+  65              		.loc 1 47 26 is_stmt 0 view .LVU16
+  66 001e C361     		str	r3, [r0, #28]
+  48:Core/Src/i2s.c ****   hi2s2.Init.FullDuplexMode = I2S_FULLDUPLEXMODE_DISABLE;
+  67              		.loc 1 48 3 is_stmt 1 view .LVU17
+ARM GAS  /tmp/ccuTFnQ2.s 			page 3
+
+
+  68              		.loc 1 48 29 is_stmt 0 view .LVU18
+  69 0020 0362     		str	r3, [r0, #32]
+  49:Core/Src/i2s.c ****   if (HAL_I2S_Init(&hi2s2) != HAL_OK)
+  70              		.loc 1 49 3 is_stmt 1 view .LVU19
+  71              		.loc 1 49 7 is_stmt 0 view .LVU20
+  72 0022 FFF7FEFF 		bl	HAL_I2S_Init
+  73              	.LVL0:
+  74              		.loc 1 49 6 discriminator 1 view .LVU21
+  75 0026 00B9     		cbnz	r0, .L4
+  76              	.L1:
+  50:Core/Src/i2s.c ****   {
+  51:Core/Src/i2s.c ****     Error_Handler();
+  52:Core/Src/i2s.c ****   }
+  53:Core/Src/i2s.c ****   /* USER CODE BEGIN I2S2_Init 2 */
+  54:Core/Src/i2s.c **** 
+  55:Core/Src/i2s.c ****   /* USER CODE END I2S2_Init 2 */
+  56:Core/Src/i2s.c **** 
+  57:Core/Src/i2s.c **** }
+  77              		.loc 1 57 1 view .LVU22
+  78 0028 08BD     		pop	{r3, pc}
+  79              	.L4:
+  51:Core/Src/i2s.c ****   }
+  80              		.loc 1 51 5 is_stmt 1 view .LVU23
+  81 002a FFF7FEFF 		bl	Error_Handler
+  82              	.LVL1:
+  83              		.loc 1 57 1 is_stmt 0 view .LVU24
+  84 002e FBE7     		b	.L1
+  85              	.L6:
+  86              		.align	2
+  87              	.L5:
+  88 0030 00000000 		.word	hi2s2
+  89 0034 00380040 		.word	1073756160
+  90              		.cfi_endproc
+  91              	.LFE130:
+  93              		.section	.text.HAL_I2S_MspInit,"ax",%progbits
+  94              		.align	1
+  95              		.global	HAL_I2S_MspInit
+  96              		.syntax unified
+  97              		.thumb
+  98              		.thumb_func
+ 100              	HAL_I2S_MspInit:
+ 101              	.LVL2:
+ 102              	.LFB131:
+  58:Core/Src/i2s.c **** 
+  59:Core/Src/i2s.c **** void HAL_I2S_MspInit(I2S_HandleTypeDef* i2sHandle)
+  60:Core/Src/i2s.c **** {
+ 103              		.loc 1 60 1 is_stmt 1 view -0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 48
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              		.loc 1 60 1 is_stmt 0 view .LVU26
+ 108 0000 00B5     		push	{lr}
+ 109              	.LCFI1:
+ 110              		.cfi_def_cfa_offset 4
+ 111              		.cfi_offset 14, -4
+ 112 0002 8DB0     		sub	sp, sp, #52
+ 113              	.LCFI2:
+ARM GAS  /tmp/ccuTFnQ2.s 			page 4
+
+
+ 114              		.cfi_def_cfa_offset 56
+  61:Core/Src/i2s.c **** 
+  62:Core/Src/i2s.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+ 115              		.loc 1 62 3 is_stmt 1 view .LVU27
+ 116              		.loc 1 62 20 is_stmt 0 view .LVU28
+ 117 0004 0023     		movs	r3, #0
+ 118 0006 0793     		str	r3, [sp, #28]
+ 119 0008 0893     		str	r3, [sp, #32]
+ 120 000a 0993     		str	r3, [sp, #36]
+ 121 000c 0A93     		str	r3, [sp, #40]
+ 122 000e 0B93     		str	r3, [sp, #44]
+  63:Core/Src/i2s.c ****   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+ 123              		.loc 1 63 3 is_stmt 1 view .LVU29
+ 124              		.loc 1 63 28 is_stmt 0 view .LVU30
+ 125 0010 0293     		str	r3, [sp, #8]
+ 126 0012 0393     		str	r3, [sp, #12]
+ 127 0014 0493     		str	r3, [sp, #16]
+ 128 0016 0593     		str	r3, [sp, #20]
+ 129 0018 0693     		str	r3, [sp, #24]
+  64:Core/Src/i2s.c ****   if(i2sHandle->Instance==SPI2)
+ 130              		.loc 1 64 3 is_stmt 1 view .LVU31
+ 131              		.loc 1 64 15 is_stmt 0 view .LVU32
+ 132 001a 0268     		ldr	r2, [r0]
+ 133              		.loc 1 64 5 view .LVU33
+ 134 001c 1B4B     		ldr	r3, .L13
+ 135 001e 9A42     		cmp	r2, r3
+ 136 0020 02D0     		beq	.L11
+ 137              	.LVL3:
+ 138              	.L7:
+  65:Core/Src/i2s.c ****   {
+  66:Core/Src/i2s.c ****   /* USER CODE BEGIN SPI2_MspInit 0 */
+  67:Core/Src/i2s.c **** 
+  68:Core/Src/i2s.c ****   /* USER CODE END SPI2_MspInit 0 */
+  69:Core/Src/i2s.c **** 
+  70:Core/Src/i2s.c ****   /** Initializes the peripherals clock
+  71:Core/Src/i2s.c ****   */
+  72:Core/Src/i2s.c ****     PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2S;
+  73:Core/Src/i2s.c ****     PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
+  74:Core/Src/i2s.c ****     PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
+  75:Core/Src/i2s.c ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  76:Core/Src/i2s.c ****     {
+  77:Core/Src/i2s.c ****       Error_Handler();
+  78:Core/Src/i2s.c ****     }
+  79:Core/Src/i2s.c **** 
+  80:Core/Src/i2s.c ****     /* I2S2 clock enable */
+  81:Core/Src/i2s.c ****     __HAL_RCC_SPI2_CLK_ENABLE();
+  82:Core/Src/i2s.c **** 
+  83:Core/Src/i2s.c ****     __HAL_RCC_GPIOB_CLK_ENABLE();
+  84:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+  85:Core/Src/i2s.c ****     PB10     ------> I2S2_CK
+  86:Core/Src/i2s.c ****     PB12     ------> I2S2_WS
+  87:Core/Src/i2s.c ****     PB15     ------> I2S2_SD
+  88:Core/Src/i2s.c ****     */
+  89:Core/Src/i2s.c ****     GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_12|GPIO_PIN_15;
+  90:Core/Src/i2s.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  91:Core/Src/i2s.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+  92:Core/Src/i2s.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ARM GAS  /tmp/ccuTFnQ2.s 			page 5
+
+
+  93:Core/Src/i2s.c ****     GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+  94:Core/Src/i2s.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  95:Core/Src/i2s.c **** 
+  96:Core/Src/i2s.c ****   /* USER CODE BEGIN SPI2_MspInit 1 */
+  97:Core/Src/i2s.c **** 
+  98:Core/Src/i2s.c ****   /* USER CODE END SPI2_MspInit 1 */
+  99:Core/Src/i2s.c ****   }
+ 100:Core/Src/i2s.c **** }
+ 139              		.loc 1 100 1 view .LVU34
+ 140 0022 0DB0     		add	sp, sp, #52
+ 141              	.LCFI3:
+ 142              		.cfi_remember_state
+ 143              		.cfi_def_cfa_offset 4
+ 144              		@ sp needed
+ 145 0024 5DF804FB 		ldr	pc, [sp], #4
+ 146              	.LVL4:
+ 147              	.L11:
+ 148              	.LCFI4:
+ 149              		.cfi_restore_state
+  72:Core/Src/i2s.c ****     PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
+ 150              		.loc 1 72 5 is_stmt 1 view .LVU35
+  72:Core/Src/i2s.c ****     PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
+ 151              		.loc 1 72 46 is_stmt 0 view .LVU36
+ 152 0028 0123     		movs	r3, #1
+ 153 002a 0293     		str	r3, [sp, #8]
+  73:Core/Src/i2s.c ****     PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
+ 154              		.loc 1 73 5 is_stmt 1 view .LVU37
+  73:Core/Src/i2s.c ****     PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
+ 155              		.loc 1 73 40 is_stmt 0 view .LVU38
+ 156 002c C023     		movs	r3, #192
+ 157 002e 0393     		str	r3, [sp, #12]
+  74:Core/Src/i2s.c ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+ 158              		.loc 1 74 5 is_stmt 1 view .LVU39
+  74:Core/Src/i2s.c ****     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+ 159              		.loc 1 74 40 is_stmt 0 view .LVU40
+ 160 0030 0223     		movs	r3, #2
+ 161 0032 0493     		str	r3, [sp, #16]
+  75:Core/Src/i2s.c ****     {
+ 162              		.loc 1 75 5 is_stmt 1 view .LVU41
+  75:Core/Src/i2s.c ****     {
+ 163              		.loc 1 75 9 is_stmt 0 view .LVU42
+ 164 0034 02A8     		add	r0, sp, #8
+ 165              	.LVL5:
+  75:Core/Src/i2s.c ****     {
+ 166              		.loc 1 75 9 view .LVU43
+ 167 0036 FFF7FEFF 		bl	HAL_RCCEx_PeriphCLKConfig
+ 168              	.LVL6:
+  75:Core/Src/i2s.c ****     {
+ 169              		.loc 1 75 8 discriminator 1 view .LVU44
+ 170 003a 18BB     		cbnz	r0, .L12
+ 171              	.L9:
+  81:Core/Src/i2s.c **** 
+ 172              		.loc 1 81 5 is_stmt 1 view .LVU45
+ 173              	.LBB2:
+  81:Core/Src/i2s.c **** 
+ 174              		.loc 1 81 5 view .LVU46
+ 175 003c 0022     		movs	r2, #0
+ARM GAS  /tmp/ccuTFnQ2.s 			page 6
+
+
+ 176 003e 0092     		str	r2, [sp]
+  81:Core/Src/i2s.c **** 
+ 177              		.loc 1 81 5 view .LVU47
+ 178 0040 134B     		ldr	r3, .L13+4
+ 179 0042 196C     		ldr	r1, [r3, #64]
+ 180 0044 41F48041 		orr	r1, r1, #16384
+ 181 0048 1964     		str	r1, [r3, #64]
+  81:Core/Src/i2s.c **** 
+ 182              		.loc 1 81 5 view .LVU48
+ 183 004a 196C     		ldr	r1, [r3, #64]
+ 184 004c 01F48041 		and	r1, r1, #16384
+ 185 0050 0091     		str	r1, [sp]
+  81:Core/Src/i2s.c **** 
+ 186              		.loc 1 81 5 view .LVU49
+ 187 0052 0099     		ldr	r1, [sp]
+ 188              	.LBE2:
+  81:Core/Src/i2s.c **** 
+ 189              		.loc 1 81 5 view .LVU50
+  83:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+ 190              		.loc 1 83 5 view .LVU51
+ 191              	.LBB3:
+  83:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+ 192              		.loc 1 83 5 view .LVU52
+ 193 0054 0192     		str	r2, [sp, #4]
+  83:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+ 194              		.loc 1 83 5 view .LVU53
+ 195 0056 196B     		ldr	r1, [r3, #48]
+ 196 0058 41F00201 		orr	r1, r1, #2
+ 197 005c 1963     		str	r1, [r3, #48]
+  83:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+ 198              		.loc 1 83 5 view .LVU54
+ 199 005e 1B6B     		ldr	r3, [r3, #48]
+ 200 0060 03F00203 		and	r3, r3, #2
+ 201 0064 0193     		str	r3, [sp, #4]
+  83:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+ 202              		.loc 1 83 5 view .LVU55
+ 203 0066 019B     		ldr	r3, [sp, #4]
+ 204              	.LBE3:
+  83:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+ 205              		.loc 1 83 5 view .LVU56
+  89:Core/Src/i2s.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 206              		.loc 1 89 5 view .LVU57
+  89:Core/Src/i2s.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+ 207              		.loc 1 89 25 is_stmt 0 view .LVU58
+ 208 0068 4FF41443 		mov	r3, #37888
+ 209 006c 0793     		str	r3, [sp, #28]
+  90:Core/Src/i2s.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 210              		.loc 1 90 5 is_stmt 1 view .LVU59
+  90:Core/Src/i2s.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 211              		.loc 1 90 26 is_stmt 0 view .LVU60
+ 212 006e 0223     		movs	r3, #2
+ 213 0070 0893     		str	r3, [sp, #32]
+  91:Core/Src/i2s.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 214              		.loc 1 91 5 is_stmt 1 view .LVU61
+  91:Core/Src/i2s.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 215              		.loc 1 91 26 is_stmt 0 view .LVU62
+ 216 0072 0992     		str	r2, [sp, #36]
+ARM GAS  /tmp/ccuTFnQ2.s 			page 7
+
+
+  92:Core/Src/i2s.c ****     GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+ 217              		.loc 1 92 5 is_stmt 1 view .LVU63
+  92:Core/Src/i2s.c ****     GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
+ 218              		.loc 1 92 27 is_stmt 0 view .LVU64
+ 219 0074 0A92     		str	r2, [sp, #40]
+  93:Core/Src/i2s.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 220              		.loc 1 93 5 is_stmt 1 view .LVU65
+  93:Core/Src/i2s.c ****     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 221              		.loc 1 93 31 is_stmt 0 view .LVU66
+ 222 0076 0523     		movs	r3, #5
+ 223 0078 0B93     		str	r3, [sp, #44]
+  94:Core/Src/i2s.c **** 
+ 224              		.loc 1 94 5 is_stmt 1 view .LVU67
+ 225 007a 07A9     		add	r1, sp, #28
+ 226 007c 0548     		ldr	r0, .L13+8
+ 227 007e FFF7FEFF 		bl	HAL_GPIO_Init
+ 228              	.LVL7:
+ 229              		.loc 1 100 1 is_stmt 0 view .LVU68
+ 230 0082 CEE7     		b	.L7
+ 231              	.L12:
+  77:Core/Src/i2s.c ****     }
+ 232              		.loc 1 77 7 is_stmt 1 view .LVU69
+ 233 0084 FFF7FEFF 		bl	Error_Handler
+ 234              	.LVL8:
+ 235 0088 D8E7     		b	.L9
+ 236              	.L14:
+ 237 008a 00BF     		.align	2
+ 238              	.L13:
+ 239 008c 00380040 		.word	1073756160
+ 240 0090 00380240 		.word	1073887232
+ 241 0094 00040240 		.word	1073873920
+ 242              		.cfi_endproc
+ 243              	.LFE131:
+ 245              		.section	.text.HAL_I2S_MspDeInit,"ax",%progbits
+ 246              		.align	1
+ 247              		.global	HAL_I2S_MspDeInit
+ 248              		.syntax unified
+ 249              		.thumb
+ 250              		.thumb_func
+ 252              	HAL_I2S_MspDeInit:
+ 253              	.LVL9:
+ 254              	.LFB132:
+ 101:Core/Src/i2s.c **** 
+ 102:Core/Src/i2s.c **** void HAL_I2S_MspDeInit(I2S_HandleTypeDef* i2sHandle)
+ 103:Core/Src/i2s.c **** {
+ 255              		.loc 1 103 1 view -0
+ 256              		.cfi_startproc
+ 257              		@ args = 0, pretend = 0, frame = 0
+ 258              		@ frame_needed = 0, uses_anonymous_args = 0
+ 259              		.loc 1 103 1 is_stmt 0 view .LVU71
+ 260 0000 08B5     		push	{r3, lr}
+ 261              	.LCFI5:
+ 262              		.cfi_def_cfa_offset 8
+ 263              		.cfi_offset 3, -8
+ 264              		.cfi_offset 14, -4
+ 104:Core/Src/i2s.c **** 
+ 105:Core/Src/i2s.c ****   if(i2sHandle->Instance==SPI2)
+ARM GAS  /tmp/ccuTFnQ2.s 			page 8
+
+
+ 265              		.loc 1 105 3 is_stmt 1 view .LVU72
+ 266              		.loc 1 105 15 is_stmt 0 view .LVU73
+ 267 0002 0268     		ldr	r2, [r0]
+ 268              		.loc 1 105 5 view .LVU74
+ 269 0004 074B     		ldr	r3, .L19
+ 270 0006 9A42     		cmp	r2, r3
+ 271 0008 00D0     		beq	.L18
+ 272              	.LVL10:
+ 273              	.L15:
+ 106:Core/Src/i2s.c ****   {
+ 107:Core/Src/i2s.c ****   /* USER CODE BEGIN SPI2_MspDeInit 0 */
+ 108:Core/Src/i2s.c **** 
+ 109:Core/Src/i2s.c ****   /* USER CODE END SPI2_MspDeInit 0 */
+ 110:Core/Src/i2s.c ****     /* Peripheral clock disable */
+ 111:Core/Src/i2s.c ****     __HAL_RCC_SPI2_CLK_DISABLE();
+ 112:Core/Src/i2s.c **** 
+ 113:Core/Src/i2s.c ****     /**I2S2 GPIO Configuration
+ 114:Core/Src/i2s.c ****     PB10     ------> I2S2_CK
+ 115:Core/Src/i2s.c ****     PB12     ------> I2S2_WS
+ 116:Core/Src/i2s.c ****     PB15     ------> I2S2_SD
+ 117:Core/Src/i2s.c ****     */
+ 118:Core/Src/i2s.c ****     HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10|GPIO_PIN_12|GPIO_PIN_15);
+ 119:Core/Src/i2s.c **** 
+ 120:Core/Src/i2s.c ****   /* USER CODE BEGIN SPI2_MspDeInit 1 */
+ 121:Core/Src/i2s.c **** 
+ 122:Core/Src/i2s.c ****   /* USER CODE END SPI2_MspDeInit 1 */
+ 123:Core/Src/i2s.c ****   }
+ 124:Core/Src/i2s.c **** }
+ 274              		.loc 1 124 1 view .LVU75
+ 275 000a 08BD     		pop	{r3, pc}
+ 276              	.LVL11:
+ 277              	.L18:
+ 111:Core/Src/i2s.c **** 
+ 278              		.loc 1 111 5 is_stmt 1 view .LVU76
+ 279 000c 064A     		ldr	r2, .L19+4
+ 280 000e 136C     		ldr	r3, [r2, #64]
+ 281 0010 23F48043 		bic	r3, r3, #16384
+ 282 0014 1364     		str	r3, [r2, #64]
+ 118:Core/Src/i2s.c **** 
+ 283              		.loc 1 118 5 view .LVU77
+ 284 0016 4FF41441 		mov	r1, #37888
+ 285 001a 0448     		ldr	r0, .L19+8
+ 286              	.LVL12:
+ 118:Core/Src/i2s.c **** 
+ 287              		.loc 1 118 5 is_stmt 0 view .LVU78
+ 288 001c FFF7FEFF 		bl	HAL_GPIO_DeInit
+ 289              	.LVL13:
+ 290              		.loc 1 124 1 view .LVU79
+ 291 0020 F3E7     		b	.L15
+ 292              	.L20:
+ 293 0022 00BF     		.align	2
+ 294              	.L19:
+ 295 0024 00380040 		.word	1073756160
+ 296 0028 00380240 		.word	1073887232
+ 297 002c 00040240 		.word	1073873920
+ 298              		.cfi_endproc
+ 299              	.LFE132:
+ARM GAS  /tmp/ccuTFnQ2.s 			page 9
+
+
+ 301              		.global	hi2s2
+ 302              		.section	.bss.hi2s2,"aw",%nobits
+ 303              		.align	2
+ 306              	hi2s2:
+ 307 0000 00000000 		.space	72
+ 307      00000000 
+ 307      00000000 
+ 307      00000000 
+ 307      00000000 
+ 308              		.text
+ 309              	.Letext0:
+ 310              		.file 2 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 311              		.file 3 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 312              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"
+ 313              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 314              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"
+ 315              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 316              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 317              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"
+ 318              		.file 10 "Core/Inc/i2s.h"
+ 319              		.file 11 "Core/Inc/main.h"
+ARM GAS  /tmp/ccuTFnQ2.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 i2s.c
+     /tmp/ccuTFnQ2.s:21     .text.MX_I2S2_Init:00000000 $t
+     /tmp/ccuTFnQ2.s:27     .text.MX_I2S2_Init:00000000 MX_I2S2_Init
+     /tmp/ccuTFnQ2.s:88     .text.MX_I2S2_Init:00000030 $d
+     /tmp/ccuTFnQ2.s:306    .bss.hi2s2:00000000 hi2s2
+     /tmp/ccuTFnQ2.s:94     .text.HAL_I2S_MspInit:00000000 $t
+     /tmp/ccuTFnQ2.s:100    .text.HAL_I2S_MspInit:00000000 HAL_I2S_MspInit
+     /tmp/ccuTFnQ2.s:239    .text.HAL_I2S_MspInit:0000008c $d
+     /tmp/ccuTFnQ2.s:246    .text.HAL_I2S_MspDeInit:00000000 $t
+     /tmp/ccuTFnQ2.s:252    .text.HAL_I2S_MspDeInit:00000000 HAL_I2S_MspDeInit
+     /tmp/ccuTFnQ2.s:295    .text.HAL_I2S_MspDeInit:00000024 $d
+     /tmp/ccuTFnQ2.s:303    .bss.hi2s2:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_I2S_Init
+Error_Handler
+HAL_RCCEx_PeriphCLKConfig
+HAL_GPIO_Init
+HAL_GPIO_DeInit

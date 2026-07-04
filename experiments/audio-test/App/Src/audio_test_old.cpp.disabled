@@ -1,0 +1,27 @@
+void run(AppHandles* handles)
+{
+    if (handles == nullptr) {
+        while (1) { }
+    }
+
+    SdCard sd(*handles->spi1,
+        handles->sd_cs_port,
+        handles->sd_cs_pin);
+
+    uint8_t sector[512];
+
+    volatile bool ok = sd.init();
+
+    if (ok) {
+        ok = sd.readBlock(0, sector);
+    }
+
+    if (ok) {
+
+        __BKPT(0);
+    }
+
+    while (1) {
+        // real app loop
+    }
+}
