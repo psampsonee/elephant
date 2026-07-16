@@ -1,4 +1,3 @@
-// TODO: Write out control flow, what is going on, thoughts within longer functions.
 #include "sample_spooler.h"
 
 SampleSpooler::SampleSpooler()
@@ -74,7 +73,8 @@ int16_t SampleSpooler::nextSample()
     }
 
     // The next sample is on the playing buffer at playPos_. Iterate playPos_:
-    int16_t sample = buffer_[playBuf_][playPos_++];
+    int16_t sample = buffer_[playBuf_][playPos_];
+    playPos_ += 1;
 
     // When playPos_ reaches the end of the buffer, mark it for refill and rotate.
     if (playPos_ >= SamplesPerBuffer) {

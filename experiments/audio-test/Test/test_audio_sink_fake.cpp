@@ -7,6 +7,8 @@
 int main()
 {
     AudioSinkFake sink;
+    sink.prepare(19200);
+    sink.start();
     assert(sink.writeSample(123));
     assert(sink.lastSampleWritten() == 123);
     assert(sink.samplesWritten() == 1);

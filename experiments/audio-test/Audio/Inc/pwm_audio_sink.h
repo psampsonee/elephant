@@ -4,7 +4,7 @@
 
 class PwmAudioSink : public AudioSink{
 public:
-    void writeSample(int16_t sample) override;
-    void stop() override;
-    void silence() override;
+    bool writeSample(int16_t sample) override;
+    bool stop() override;
+    bool silence() override;
 };

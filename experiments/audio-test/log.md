@@ -26,6 +26,106 @@ Current state:
 - Added samplesRemaining_ to AudioPlayer as a way to track samples read from the storage device.
 
 Next steps:
-- Make refillOneBuffer functional by adding code to derive samplesRemaining_
+- Make refillOneBuffer functional by adding code to derive samplesRemainingToRead_
 - Make one unit test to test refillOneBuffer.
 - Make unit tests to test AudioPlayer state machine.
+
+7/4/2026
+
+Current state:
+- Fake sink extended to include initialization steps
+- AudioPlayer::refillOneBuffer(uint8_t index) defined and written
+- Added samplesRemainingToRead_ to track the number of samples to read left from storage for the given clip.
+- AudioPlayer servicePrepare code outline written
+- Began creating a test harness for the AudioPlayer
+
+Next steps:
+- Begin initialization tests for AudioPlayer
+
+7/5/2026
+
+Current state:
+- AudioPlayer test code compiles without error
+- Basic AudioPlayer initialization tests run without error
+- Created test handles struct to easily initialize fake sink, fake storage, and AudioPlayer.
+
+Next steps:
+- Write tests for playback state
+- Write tests for error states
+- Fill in code for servicePlayback
+
+7/7/2026
+
+Current state:
+- Wrote servicePlayback code
+
+Next steps:
+- Write tests for playback state
+- Write tests for error states
+
+7/8/2026
+
+Current state:
+- Listed several successful-path unit tests to write in test_audio_player.cpp
+
+Next steps:
+- Write successful-path unit tests and get them to pass
+- List failure unit tests
+
+7/9/2026
+
+Current state:
+- Wrote and successfully ran several happy-path unit tests in test_audio_player.cpp:
+    - test_start_while_playing_stops_current_playback_first()
+    - test_start_from_finished_enters_prepare_without_stopping()
+    - test_service_playback_consumes_samples()
+    - test_samples_played_equals_samples_written()
+    - test_successful_playback_enters_finished()
+    
+Next steps:
+- Practical and underrun unit tests
+- Error-path tests
+- Begin tests on real hardware
+
+7/12/2026
+
+Current state:
+- Wrote unit test showing that storage sectors are written to the spooler successfully.
+
+Next steps:
+- Error-path tests
+- Begin tests on real hardware
+
+7/13/2026
+
+Current state:
+- Added player read error test and functionality
+- Added storage read status functionality
+- Added player underrun test (which fails)
+
+Next steps:
+- Get the underrun test to pass.
+
+7/14/2026
+
+Current state:
+- Wired amplifier on breadboard
+- Configured STM32 for 25MHz clock
+- Set up TIM4 for 200kHz PWM
+- Confirmed 200kHz square wave with USB scope
+
+Next steps:
+- Make underrun test pass—trace expected transition and identify where the fake readiness behavior diverges.
+- solder pins to speaker
+- generate 500Hz sine wave table at 44.1kHz sample rate
+- Use a timer interrupt at 44.1 kHz to update TIM4 CCR to the next sine wave sample (+- 10).
+
+7/15/2026
+
+Current State:
+- AudioPlayer happy path, error handling, and underrun behavior are tested and work in fake environment.
+
+Next Steps:
+- solder pins to speaker
+- generate 500Hz sine wave table at 44.1kHz sample rate
+- Use a timer interrupt at 44.1 kHz to update TIM4 CCR to the next sine wave sample (+- 10).

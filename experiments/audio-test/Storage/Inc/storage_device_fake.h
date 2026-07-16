@@ -1,25 +1,47 @@
 #pragma once
 #include "storage_device.h"
+#include <string.h>
 #include <cstdint>
 #include <cstddef>
+#include <algorithm>
 
 class StorageDeviceFake : public StorageDevice {
 public:
-    explicit StorageDeviceFake(bool failInit = false, bool failRead = false)
-        : failInit_(failInit), failRead_(failRead) {}
+    static constexpr size_t BLOCKS_MAX = 400;
+    static constexpr size_t BLOCK_SIZE = 512;
+
+    struct StorageData {
+        uint8_t data[BLOCKS_MAX][BLOCK_SIZE]{};
+        size_t blockCount = 0;
+        size_t sampleCount = 0;
+    };
+
+    explicit StorageDeviceFake(bool failInit = false, bool failRead = false, size_t blockCount = 0, size_t sampleCount = 0)
+        : failInit_(failInit), failRead_(failRead) {
+            data_.blockCount = std::min(blockCount, BLOCKS_MAX);
+            data_.sampleCount = sampleCount;
+        }
 
     bool init() override;
-    bool read(uint32_t block, uint8_t* buffer) override;
+    ReadResult read(uint32_t block, uint8_t* buffer) override;
+
+    StorageData& getStorageData() { return data_; }
+    const StorageData& getStorageData() const { return data_; }
 
     uint32_t getReadCount() const { return readCount_; }
     bool getIsInitialized() const { return isInitialized_; }
-    static uint16_t getBufSize() { return BUF_SIZE; }
+
+    void setReady(bool ready) { isReady_ = ready; }
 
 private:
-    static constexpr uint16_t BUF_SIZE = 512;
     uint32_t readCount_ = 0;
+
+    void setStorageData();
+
+    StorageData data_ {};
 
     bool failInit_ = false;
     bool failRead_ = false;
     bool isInitialized_ = false;
+    bool isReady_ = false;
 };

@@ -3,7 +3,9 @@ CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IStorage/Inc -ITest
 SRC := \
 Storage/Src/storage_device_fake.cpp
 
-TEST_SRC := Test/test_storage_device_fake.cpp
+TEST_SRC := \
+Test/storage_device_fake_test_handles.cpp \
+Test/test_storage_device_fake.cpp
 
 BUILD_DIR := Test/build
 TARGET := $(BUILD_DIR)/test_storage_device_fake

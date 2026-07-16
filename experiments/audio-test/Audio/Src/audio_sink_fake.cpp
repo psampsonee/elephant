@@ -1,21 +1,43 @@
 #include "audio_sink_fake.h"
 #include <iostream>
 
-bool AudioSinkFake::writeSample(int16_t sample) {
-    if(fail_all_public_functions_) {
+bool AudioSinkFake::prepare(uint16_t sampleRateHz)
+{
+    isPrepareCalled_ = true;
+    preparedSampleRateHz_ = sampleRateHz;
+    return !fail_all_public_functions_;
+}
+
+bool AudioSinkFake::start()
+{
+    if (!isPrepareCalled_ || fail_all_public_functions_) {
+        return false;
+    }
+
+    isStarted_ = true;
+    isSampleNeeded_ = true;
+
+    return true;
+}
+
+bool AudioSinkFake::writeSample(int16_t sample)
+{
+    if (!isStarted_ || fail_all_public_functions_ || !isSampleNeeded_) {
         return false;
     }
 
     isSilenced_ = false;
     isStopped_ = false;
-    lastSampleWritten_ = sample;
+    lastSample_ = sample;
     samplesWritten_++;
+    isSampleNeeded_ = false;
 
     return true;
 }
 
-bool AudioSinkFake::stop() {
-    if(fail_all_public_functions_) {
+bool AudioSinkFake::stop()
+{
+    if (!isStarted_ || fail_all_public_functions_) {
         return false;
     }
     isStopped_ = true;
@@ -23,13 +45,21 @@ bool AudioSinkFake::stop() {
     return true;
 }
 
-bool AudioSinkFake::silence() {
-    if(fail_all_public_functions_) {
+bool AudioSinkFake::silence()
+{
+    if (!isStarted_ || fail_all_public_functions_) {
         return false;
     }
 
     isSilenced_ = true;
-    lastSampleWritten_ = 0;
+    lastSample_ = 0;
 
     return true;
+}
+
+void AudioSinkFake::consumeSample()
+{
+    if (isStarted_) {
+        isSampleNeeded_ = true;
+    }
 }
