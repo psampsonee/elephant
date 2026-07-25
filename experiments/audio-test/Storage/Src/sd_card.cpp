@@ -1,18 +1,13 @@
 #include "sd_card.h"
 
-SdCard::SdCard(SPI_HandleTypeDef& spi, GPIO_TypeDef* csPort, uint16_t csPin)
-    : spi_(&spi), csPort_(csPort), csPin_(csPin)
-{
-}
-
 void SdCard::csLow()
 {
-    SpiStorageBase::csLow()
+    SpiStorageBase::csLow();
 }
 
 void SdCard::csHigh()
 {
-    SpiStorageBase::csHigh()
+    SpiStorageBase::csHigh();
     txrx(0xFF); // extra clocks after release
 }
 
@@ -142,10 +137,10 @@ bool SdCard::init()
     return true;
 }
 
-bool SdCard::read(uint32_t block, uint8_t* buffer)
+SdCard::ReadResult SdCard::read(uint32_t block, uint8_t* buffer)
 {
     if (buffer == nullptr) {
-        return false;
+        return ReadResult::Error;
     }
 
     uint32_t addr = highCapacity_ ? block : block * 512;
@@ -154,7 +149,7 @@ bool SdCard::read(uint32_t block, uint8_t* buffer)
 
     if (r != 0x00) {
         csHigh();
-        return false;
+        return ReadResult::Error;
     }
 
     uint8_t token = 0xFF;
@@ -169,7 +164,7 @@ bool SdCard::read(uint32_t block, uint8_t* buffer)
 
     if (token != 0xFE) {
         csHigh();
-        return false;
+        return ReadResult::Error;
     }
 
     for (int i = 0; i < 512; i++) {
@@ -182,5 +177,5 @@ bool SdCard::read(uint32_t block, uint8_t* buffer)
 
     csHigh();
 
-    return true;
+    return ReadResult::Success;
 }

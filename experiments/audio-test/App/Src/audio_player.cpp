@@ -2,8 +2,6 @@
 #include <cmath>
 #include <cstdint>
 
-namespace audio_test {
-
 AudioPlayer::AudioPlayer(StorageDevice& storage, AudioSink& sink)
     : storage_(storage)
     , sink_(sink)
@@ -253,6 +251,4 @@ void AudioPlayer::init()
 
 void AudioPlayer::errorHandler()
 {
-}
-
 }

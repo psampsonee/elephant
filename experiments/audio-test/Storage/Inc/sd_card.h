@@ -8,10 +8,10 @@
 class SdCard : public SpiStorageBase {
 public:
     SdCard(SPI_HandleTypeDef& spi, GPIO_TypeDef* csPort, uint16_t csPin)
-        : SpiStorageBase(SPI_HandleTypeDef& spi, GPIO_TypeDef* csPort, uint16_t csPin);
+        : SpiStorageBase(spi, csPort, csPin) {}
 
     bool init() override;
-    bool read(uint32_t block, uint8_t* buffer) override;
+    ReadResult read(uint32_t block, uint8_t* buffer) override;
 
     bool isHighCapacity() const { return highCapacity_; }
 

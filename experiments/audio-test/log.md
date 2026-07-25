@@ -129,3 +129,56 @@ Next Steps:
 - solder pins to speaker
 - generate 500Hz sine wave table at 44.1kHz sample rate
 - Use a timer interrupt at 44.1 kHz to update TIM4 CCR to the next sine wave sample (+- 10).
+
+7/16/2026
+
+Current state:
+- Made a working LM386 amplifier circuit on a breadboard.
+- Used STM32 PWM and timers to play a sine wave on the amplifier
+- The cat screwed it up.
+
+Next steps:
+- Fix the circuit and make it play sound again
+- Write PwmAudioSink to interface the PWM audio with the AudioPlayer
+- Use hal_callbacks.cpp in App/Src folder to hold a callback for the timer interrupt which updates the PWM sample.
+
+
+7/17/2026
+
+Current state:
+- Created hal_callbacks.cpp to handle all interrupt callbacks that the program may have
+- Filled out pwm_audio_sink.h sufficiently to begin implementation
+- Created empty function implementations in pwm_audio_sink.cpp
+
+Next steps:
+- Implement prepare, start, and interrupt / sample functionality.
+- Mind error handling and return false when invariants are violated.
+
+7/20/2026
+
+Current State:
+- PwmAudioSink is functional enough to create arbitrary waveforms with expected distortion.
+- Tested on Analog Discovery 2.
+
+Next steps:
+- Implement PwmAudioSink interrupt failure detection (i.e. timeout / watchdog)
+- Reduce amplifier gain with a pot.
+- Complete sd_card storage_device implementation
+- Test sd_card storage_device implementation
+- Test AudioPlayer with SDcard -> PwmAudioSink pipeline in place
+
+
+7/25/2026
+
+Current State:
+- Created 48000 Hz Signed 16-bit PCM test file with Audacity.
+- Tested AudioPlayer functionality with SD card storage and PWM audio sink.
+- Spotted shadowed variable in AudioSink (isSampleNeeded_).
+- AudioPlayer can successfully play an audio clip from storage on a functioning audio sink.
+
+Next Steps:
+- Design SSM2518 / EEPROM interface board.
+- Configure and verify the SSM2518 over I2C.
+- Produce a simple I2S tone.
+- Stream a PCM buffer through I2S DMA.
+- Connect that sink to the existing AudioPlayer.

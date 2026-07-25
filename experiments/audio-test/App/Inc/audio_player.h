@@ -8,8 +8,6 @@
 
 struct AppHandles;
 
-namespace audio_test {
-
 // Internal class states
 class AudioPlayer {
 public:
@@ -42,6 +40,7 @@ public:
 
     SampleSpooler& debug_getSpooler() { return spooler_; }
     const SampleSpooler& debug_getSpooler() const { return spooler_; }
+    uint32_t debug_getSamplesPlayed() const { return samplesPlayed_; }
 
 private:
     void init(); // Initializes player to silent Idle state.
@@ -76,6 +75,3 @@ private:
     uint32_t samplesRemainingToRead_;
     uint32_t samplesPlayed_;
 };
-
-// void run(AppHandles* handles);
-}

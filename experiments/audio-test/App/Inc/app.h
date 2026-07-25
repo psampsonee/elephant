@@ -1,23 +1,17 @@
 #pragma once
-#include "main.h"
-#include <stdint.h>
+
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+    static constexpr uint16_t SAMPLE_RATE_HZ = 48000;
+    static constexpr uint16_t PCM_PEAK = 32768;
+    static constexpr uint32_t CLIP_LENGTH_SAMPLES = 109593;
+    static constexpr uint16_t CLIP_START_SECTOR = 2048;
 
-typedef struct {
-    SPI_HandleTypeDef* spi1;
-    // I2C_HandleTypeDef* i2c1;
-    // I2S_HandleTypeDef* i2s2;
-
-    // DMA_HandleTypeDef* dma_spi_tx;
-
-    GPIO_TypeDef* sd_cs_port;
-    uint16_t sd_cs_pin;
-} AppHandles;
-
-void app_main(AppHandles* handles);
+void app_main();
 
 #ifdef __cplusplus
 }

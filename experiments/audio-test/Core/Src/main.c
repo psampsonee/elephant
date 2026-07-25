@@ -91,8 +91,8 @@ int main(void)
   MX_I2S2_Init();
   MX_SPI1_Init();
   MX_TIM4_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
 
   /* USER CODE END 2 */
 
@@ -102,22 +102,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    app_main();
     }
   /* USER CODE END 3 */
 }
-/*
- *     AppHandles handles = {
-        .spi1 = &hspi1,
-        //.i2c1 = &hi2c1,
-        //.i2s2 = &hi2s2,
-        //.dma_spi_tx = &hdma_spi1_tx,
-
-        .sd_cs_port = GPIOA,
-        .sd_cs_pin = GPIO_PIN_4,
-    };
-
-    app_main(&handles);
- */
 
 /**
   * @brief System Clock Configuration
