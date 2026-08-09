@@ -1,0 +1,26 @@
+CXX := g++
+CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IAudio/Inc -ITest
+SRC := \
+Audio/Src/ADPCM_codec.cpp
+
+TEST_SRC := Test/test_ADPCM_codec.cpp
+
+BUILD_DIR := Test/build
+TARGET := $(BUILD_DIR)/test_ADPCM_codec
+TARGET_ARGS := $(BUILD_DIR)/../../Image/elephant.adpcm $(BUILD_DIR)/../../Image/elephant_decoded.pcm
+
+.PHONY: all test clean
+
+all: test
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(TARGET): $(SRC) $(TEST_SRC) | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+test: $(TARGET)
+	./$(TARGET) $(TARGET_ARGS)
+
+clean:
+	rm -rf $(BUILD_DIR)

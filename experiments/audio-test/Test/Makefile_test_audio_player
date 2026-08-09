@@ -1,0 +1,36 @@
+CXX := g++
+
+SRC := \
+App/Src/audio_player.cpp \
+Audio/Src/sample_spooler.cpp \
+Audio/Src/audio_sink_fake.cpp \
+Storage/Src/storage_device_fake.cpp
+
+INCLUDE := \
+-IApp/Inc \
+-IAudio/Inc \
+-IStorage/Inc
+
+TEST_SRC := Test/test_audio_player.cpp
+
+CXXFLAGS := -std=c++20  -g3 -O0 -Wall -Wextra -Wpedantic $(INCLUDE) -ITest
+
+
+BUILD_DIR := Test/build
+TARGET := $(BUILD_DIR)/test_audio_player
+
+.PHONY: all test clean
+
+all: test
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(TARGET): $(SRC) $(TEST_SRC) | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+test: $(TARGET)
+	./$(TARGET)
+
+clean:
+	rm -rf $(BUILD_DIR)
