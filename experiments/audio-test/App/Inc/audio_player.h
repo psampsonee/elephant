@@ -2,11 +2,15 @@
 
 #include "audio_sink.h"
 #include "sample_spooler.h"
-#include "storage_device.h"
+#include "sample_source.h"
 
 #include <cstdint>
 
-struct AppHandles;
+struct ClipInfo {
+    std::size_t startSector;
+    std::size_t lengthSamples;
+    uint16_t sampleRateHz;
+    };
 
 // Internal class states
 class AudioPlayer {
@@ -20,11 +24,12 @@ public:
         Error
     };
 
-    AudioPlayer(StorageDevice& storage, AudioSink& sink);
+    AudioPlayer(SampleSource& source, AudioSink& sink);
 
-    void start(uint32_t clipStartSector,
-        uint32_t clipLengthSamples,
-        uint16_t sampleRateHz); // Requests playback of a clip. buffers.
+    void start(std::size_t clipStartSector,
+        std::size_t clipLengthSamples,
+        uint16_t sampleRateHz); // Requests playback of a clip. deprecated implementation.
+    void start(ClipInfo clip); // With clipInfo struct. Functionally identical.
     void service(); // Iterates playback
     void stop(); // Ends playback, puts PWM in silent state, clears spooler.
 
@@ -36,11 +41,11 @@ public:
     bool isActive() const;
     bool hasUnderrun() const;
 
-    uint32_t samplesPlayed() const { return samplesPlayed_; }
+    std::size_t samplesPlayed() const { return samplesPlayed_; }
 
     SampleSpooler& debug_getSpooler() { return spooler_; }
     const SampleSpooler& debug_getSpooler() const { return spooler_; }
-    uint32_t debug_getSamplesPlayed() const { return samplesPlayed_; }
+    std::size_t debug_getSamplesPlayed() const { return samplesPlayed_; }
 
 private:
     void init(); // Initializes player to silent Idle state.
@@ -54,6 +59,7 @@ private:
     // Service functions for the service loop
     void servicePrepare();
     void servicePlayback();
+    //void serviceUnderrun(); // Future implementation
 
     // Helper functions
     bool refillOneBuffer(uint8_t index);
@@ -64,14 +70,11 @@ private:
 
     State state_;
 
-    StorageDevice& storage_;
+    SampleSource& source_;
     AudioSink& sink_;
     SampleSpooler spooler_;
+    ClipInfo clip_;
 
-    uint32_t nextSectorToRead_;
-    uint32_t clipStartSector_;
-    uint32_t clipLengthSamples_;
-    uint16_t sampleRateHz_;
-    uint32_t samplesRemainingToRead_;
-    uint32_t samplesPlayed_;
+    std::size_t samplesRemainingToRead_;
+    std::size_t samplesPlayed_;
 };

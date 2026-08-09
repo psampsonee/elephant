@@ -59,3 +59,4 @@ THEN
 - Finish buck enable trigger circuit
 - Put D-flip flop in its own subckt (or replace)
 - Test buck enable trigger circuit with emulated logic pin
+

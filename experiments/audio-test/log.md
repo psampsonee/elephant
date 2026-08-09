@@ -167,7 +167,6 @@ Next steps:
 - Test sd_card storage_device implementation
 - Test AudioPlayer with SDcard -> PwmAudioSink pipeline in place
 
-
 7/25/2026
 
 Current State:
@@ -182,3 +181,26 @@ Next Steps:
 - Produce a simple I2S tone.
 - Stream a PCM buffer through I2S DMA.
 - Connect that sink to the existing AudioPlayer.
+- Implement ADPCM compression to optimize for limited EEPROM capacity.
+
+~7/31/2026
+
+Current State:
+- Wrote ADPCM codec
+
+Next Steps:
+- Testing and integration of ADPCM codec.
+
+8/8/2026
+
+Current State:
+- Successfully tested ADPCM codec on PC
+- Wrote headers for SampleSource, StorageSampleSource, and PCM/ADPCM sources to convert data into samples
+- Refactored AudioPlayer to use SampleSource instead of StorageDevice.
+    - Consistently use size_t instead of uint32_t for variable indexes / counts
+    - Refactored refillOneBuffer per the SampleSource contract
+- Put some code from audio_player.cpp into PCMSampleSource (bookkeeping & some code from refillOneBuffer)
+
+Next Steps:
+- Write PCMSampleSource implementation
+- Test PCMSampleSource implementation

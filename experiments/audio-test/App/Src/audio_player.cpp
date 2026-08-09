@@ -9,10 +9,17 @@ AudioPlayer::AudioPlayer(StorageDevice& storage, AudioSink& sink)
     init();
 }
 
+void AudioPlayer::start(std::size_t clipStartSector,
+        std::size_t clipLengthSamples,
+        uint16_t sampleRateHz) {
+
+    start(ClipInfo{clipStartSector,
+        clipLengthSamples,
+        sampleRateHz});
+}
+
 // Initiates audio playback for the player service to begin.
-void AudioPlayer::start(uint32_t clipStartSector,
-    uint32_t clipLengthSamples,
-    uint16_t sampleRateHz)
+void AudioPlayer::start(ClipInfo clip)
 {
     if (isActive()) {
         stop();
@@ -22,10 +29,9 @@ void AudioPlayer::start(uint32_t clipStartSector,
 
     // Check if sample length is valid
 
-    nextSectorToRead_ = clipStartSector;
-    clipStartSector_ = clipStartSector;
-    clipLengthSamples_ = clipLengthSamples;
-    sampleRateHz_ = sampleRateHz;
+    clip_ = clip;
+    source_.start(clip_.startSector);
+
     samplesPlayed_ = 0;
     samplesRemainingToRead_ = clipLengthSamples;
 
@@ -73,11 +79,12 @@ void AudioPlayer::stop()
 
 void AudioPlayer::clearPlaybackState()
 {
+    source.reset();
+
     // Clear bookkeeping for the current playback task
-    nextSectorToRead_ = 0;
-    clipStartSector_ = 0;
-    clipLengthSamples_ = 0;
-    sampleRateHz_ = 0;
+    clip_.StartSector = 0;
+    clip_.LengthSamples = 0;
+    clip_.sampleRateHz = 0;
     samplesPlayed_ = 0;
     samplesRemainingToRead_ = 0;
 }
@@ -113,18 +120,18 @@ void AudioPlayer::enterFinished()
 
 void AudioPlayer::servicePrepare()
 {
-    // Initialize storage device
-    if (!storage_.init()) {
+    // Initialize source
+    if (!source_.init()) {
         enterError();
         return;
     }
 
-    // Reset spooler
+    // Reset spouint16_toler
     spooler_.reset();
 
     // For each spooler buffer:
     for (uint8_t i = 0; i < spooler_.getNumBuffers(); i++) {
-        // Fill buffer with data from storage device
+        // Fill buffer with data from sample source
         if (!refillOneBuffer(i)) {
             enterError();
             return;
@@ -132,7 +139,7 @@ void AudioPlayer::servicePrepare()
     }
 
     // Initialize playback device
-    if(!sink_.prepare(sampleRateHz_)) {
+    if(!sink_.prepare(clip_.sampleRateHz)) {
         enterError();
         return;
     }
@@ -150,7 +157,7 @@ void AudioPlayer::servicePlayback()
     // Check if the sink needs a sample
     if (sink_.isSampleNeeded()) {
         // Check if the player has played all samples on the clip and return if so
-        if (samplesPlayed_ >= clipLengthSamples_) {
+        if (samplesPlayed_ >= clip_.lengthSamples) {
             enterFinished();
             return;
         }
@@ -188,7 +195,7 @@ bool AudioPlayer::refillOneBuffer(uint8_t index)
 {
     RefillBuffer buffer = spooler_.getRefillBuffer(index);
 
-    uint16_t samplesToRead = buffer.sample_count;
+    size_t samplesToRead = buffer.sample_count;
 
     if (samplesRemainingToRead_ < samplesToRead) {
         samplesToRead = samplesRemainingToRead_;
@@ -198,18 +205,10 @@ bool AudioPlayer::refillOneBuffer(uint8_t index)
         return spooler_.markRefilled(index, 0);
     }
 
-    uint8_t* dst = reinterpret_cast<uint8_t*>(buffer.data);
-    auto readResult=storage_.read(nextSectorToRead_, dst);
-
-    if (readResult == StorageDevice::ReadResult::Error) {
+    if (!source_.getSamples(buffer.data, samplesToRead)) {
         return false;
     }
 
-    if (readResult == StorageDevice::ReadResult::NotReady) {
-        return true; // no fatal error, but leave buffer needing refill
-    }
-
-    nextSectorToRead_++;
     samplesRemainingToRead_ -= samplesToRead;
 
     return spooler_.markRefilled(index, samplesToRead);
