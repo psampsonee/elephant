@@ -24,9 +24,7 @@ public:
 
     virtual bool init() = 0;
     virtual bool start(size_t clipStartSector) = 0;
-    virtual bool reset() = 0;
+    virtual void reset() = 0;
     virtual bool getSamples(int16_t* destination, std::size_t sampleCount) = 0;
-    virtual size_t getReadPositionSamples() const = 0;
-
     virtual std::size_t getReadPositionSamples() const = 0;
 };

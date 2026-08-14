@@ -11,5 +11,5 @@ public:
 protected:
     StorageDevice& storage_;
 
-    size_t nextSectorToRead_;
+    bool ready_ = false;
 };

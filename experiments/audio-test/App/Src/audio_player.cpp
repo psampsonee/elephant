@@ -126,7 +126,7 @@ void AudioPlayer::servicePrepare()
         return;
     }
 
-    // Reset spouint16_toler
+    // Reset spooler
     spooler_.reset();
 
     // For each spooler buffer:

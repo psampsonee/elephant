@@ -11,11 +11,13 @@ public:
         : SpiStorageBase(spi, csPort, csPin) {}
 
     bool init() override;
-    ReadResult read(uint32_t block, uint8_t* buffer) override;
+    ReadResult read(std::size_t block, uint8_t* buffer) override;
 
     bool isHighCapacity() const { return highCapacity_; }
+    std::size_t getBlockSize() { return BLOCK_SIZE; }
 
 private:
+    static constexpr std::size_t BLOCK_SIZE = 512;
     bool highCapacity_ = false;
 
     void csLow();

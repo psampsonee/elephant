@@ -137,7 +137,7 @@ bool SdCard::init()
     return true;
 }
 
-SdCard::ReadResult SdCard::read(uint32_t block, uint8_t* buffer)
+SdCard::ReadResult SdCard::read(std::size_t block, uint8_t* buffer)
 {
     if (buffer == nullptr) {
         return ReadResult::Error;

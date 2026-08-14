@@ -8,7 +8,7 @@ public:
     ADPCMSampleSource(StorageDevice& storage);
 
     bool init() override;
-    bool reset() override;
+    void reset() override;
     bool getSamples(int16_t* destination, std::size_t sampleCount) override;
     std::size_t getReadPositionSamples() const override;
 

@@ -20,7 +20,7 @@ bool StorageDeviceFake::init() {
     return true;
 }
 
-StorageDevice::ReadResult StorageDeviceFake::read(uint32_t block, uint8_t* buffer) {
+StorageDevice::ReadResult StorageDeviceFake::read(std::size_t block, uint8_t* buffer) {
 
     if (failRead_ ||
         !isInitialized_ ||

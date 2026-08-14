@@ -204,3 +204,13 @@ Current State:
 Next Steps:
 - Write PCMSampleSource implementation
 - Test PCMSampleSource implementation
+
+8/13/2026
+
+Current State:
+- Wrote PCMSampleSource.
+- Need to assert invariants after the fact
+
+Next Steps:
+- Write down PCMSampleSource invariants (esp. getSamples)
+- Test PCMSampleSource

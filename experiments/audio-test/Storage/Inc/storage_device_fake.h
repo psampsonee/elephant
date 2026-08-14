@@ -23,7 +23,7 @@ public:
         }
 
     bool init() override;
-    ReadResult read(uint32_t block, uint8_t* buffer) override;
+    ReadResult read(std::size_t block, uint8_t* buffer) override;
 
     StorageData& getStorageData() { return data_; }
     const StorageData& getStorageData() const { return data_; }
@@ -32,6 +32,8 @@ public:
     bool getIsInitialized() const { return isInitialized_; }
 
     void setReady(bool ready) { isReady_ = ready; }
+
+    std::size_t getBlockSize() { return 512; }
 
 private:
     uint32_t readCount_ = 0;

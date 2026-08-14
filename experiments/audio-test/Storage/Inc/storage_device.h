@@ -11,5 +11,6 @@ public:
     };
 
     virtual bool init() = 0;
-    virtual ReadResult read(uint32_t block, uint8_t* buffer) = 0;
+    virtual ReadResult read(std::size_t block, uint8_t* buffer) = 0;
+    virtual std::size_t getBlockSize() = 0;
 };
