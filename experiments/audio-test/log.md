@@ -224,3 +224,4 @@ Current State:
 Next Steps:
 - The first sector of storage is being read twice, once by source_.start and once by source_.getSamples. It seems to be a bookkeeping problem at start but I have not traced it through yet.
 - Underruns are not being tracked by AudioPlayer at this time.
+- Create helper function in the source to handle storage read transactions.

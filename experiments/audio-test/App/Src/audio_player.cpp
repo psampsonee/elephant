@@ -30,7 +30,6 @@ void AudioPlayer::start(ClipInfo clip)
     // Check if sample length is valid
 
     clip_ = clip;
-    source_.start(clip_.startSector);
 
     samplesPlayed_ = 0;
     samplesRemainingToRead_ = clip_.lengthSamples;
