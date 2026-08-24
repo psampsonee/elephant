@@ -28,7 +28,7 @@ public:
 private:
     static constexpr std::size_t MAX_BLOCK_SIZE_BYTES = 1024;
 
-    bool readStorage(std::size_t block, uint8_t* buffer);
+    bool fillWorkspace();
 
     int16_t workspace_[MAX_BLOCK_SIZE_BYTES / sizeof(int16_t)] {};
 

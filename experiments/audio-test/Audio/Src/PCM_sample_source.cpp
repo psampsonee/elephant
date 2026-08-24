@@ -33,19 +33,9 @@ bool PCMSampleSource::start(size_t clipStartSector) {
     workspaceIndex_ = 0;
     workspaceSectorOffset_ = clipStartSector;
 
-    auto readResult=storage_.read(workspaceSectorOffset_,
-                                  reinterpret_cast<uint8_t*>(workspace_));
-
-    if (readResult == StorageDevice::ReadResult::Error) {
+    fillWorkspace();
+    if(!workspaceValid_) {
         return false;
-    }
-
-    if (readResult == StorageDevice::ReadResult::NotReady) {
-        workspaceValid_ = false;
-    }
-
-    else {
-        workspaceValid_ = true;
     }
 
     ready_ = true;
@@ -101,24 +91,15 @@ bool PCMSampleSource::getSamples(int16_t* destination, std::size_t sampleCount) 
 
     while ( samplesRemaining > 0 ) {
         std::size_t samplesLeftInWorkspace = samplesPerBlock - workspaceIndex_;
+        if(samplesLeftInWorkspace == 0) {
+            workspaceValid_ = false;
+        }
 
-        if (samplesLeftInWorkspace == 0 || !workspaceValid_) {
-            auto nextSector = workspaceSectorOffset_ + 1;
-            auto readResult=storage_.read(workspaceSectorOffset_,
-                                          reinterpret_cast<uint8_t*>(workspace_));
-
-            if (readResult == StorageDevice::ReadResult::Error) {
-                return false;
+        if (!workspaceValid_) {
+            fillWorkspace();
+            if(!workspaceValid_) {
+                return true;
             }
-
-            if (readResult == StorageDevice::ReadResult::NotReady) {
-                workspaceValid_ = false;
-                return true; // no fatal error, but leave buffer needing refill
-            }
-
-            workspaceValid_ = true;
-            workspaceIndex_ = 0;
-            workspaceSectorOffset_ = nextSector;
 
             continue;
         }
@@ -150,16 +131,22 @@ std::size_t PCMSampleSource::getReadPositionSamples() const {
     return workspaceSectorOffset_ * samplesPerBlock + workspaceIndex_;
 }
 
-bool PCMSampleSource::readStorage(std::size_t block, uint8_t*buffer) {
-        auto readResult=storage_.read(block, buffer);
+bool PCMSampleSource::fillWorkspace() {
+        auto nextSector = workspaceSectorOffset_ + 1;
+        auto readResult=storage_.read(workspaceSectorOffset_,
+                                      reinterpret_cast<uint8_t*>(workspace_));
 
         if (readResult == StorageDevice::ReadResult::Error) {
             return false;
         }
 
         if (readResult == StorageDevice::ReadResult::NotReady) {
+            workspaceValid_ = false;
             return true; // no fatal error, but leave buffer needing refill
         }
 
+        workspaceValid_ = true;
+        workspaceIndex_ = 0;
+        workspaceSectorOffset_ = nextSector;
         return true;
 }
