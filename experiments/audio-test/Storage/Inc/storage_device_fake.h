@@ -32,6 +32,7 @@ public:
     bool getIsInitialized() const { return isInitialized_; }
 
     void setReady(bool ready) { isReady_ = ready; }
+    void setFailRead(bool failRead) { failRead_ = failRead; }
 
     std::size_t getBlockSize() { return 512; }
 

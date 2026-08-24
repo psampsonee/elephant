@@ -1,3 +1,7 @@
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
+
 #include "ADPCM_codec.h"
 #include <cassert>
 #include <cstdint>

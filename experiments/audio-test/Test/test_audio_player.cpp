@@ -1,4 +1,9 @@
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
+
 #include "audio_player.h"
+#include "PCM_sample_source.h"
 #include "sample_spooler.h"
 #include "audio_sink_fake.h"
 #include "storage_device_fake.h"
@@ -8,7 +13,6 @@
 #include <cstring>
 #include <iostream>
 
-static constexpr size_t BLOCK_COUNT = 10;
 static constexpr uint32_t FAKE_BLOCK = 0xFF000000;
 static constexpr uint16_t BUF_SIZE = 512;
 
@@ -25,15 +29,20 @@ struct AudioPlayerTestConfig {
 
 struct AudioPlayerTestHandles {
     StorageDeviceFake storage;
+    PCMSampleSource source;
     AudioSinkFake sink;
-    audio_test::AudioPlayer player;
+    AudioPlayer player;
 
     AudioPlayerTestHandles(AudioPlayerTestConfig cfg = { })
-        : storage(cfg.storageFailInit, cfg.storageFailRead, cfg.blockCount, cfg.sampleCount)
+        : storage(
+            cfg.storageFailInit,
+            cfg.storageFailRead,
+            cfg.blockCount,
+            cfg.sampleCount)
+        , source(storage)
         , sink(cfg.sinkFailPrepare)
-        , player(storage, sink)
-    {
-    }
+        , player(source, sink)
+    {}
 
     AudioPlayerTestHandles(const AudioPlayerTestHandles&) = delete;
     AudioPlayerTestHandles& operator=(const AudioPlayerTestHandles&) = delete;
@@ -43,7 +52,7 @@ void test_initial_state_is_idle()
 {
     AudioPlayerTestHandles h;
 
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Idle);
+    assert(h.player.getState() == AudioPlayer::State::Idle);
 }
 
 void test_start_enters_prepare_without_touching_sink()
@@ -52,7 +61,7 @@ void test_start_enters_prepare_without_touching_sink()
 
     h.player.start(0, CLIP_LENGTH_SAMPLES, SAMPLE_RATE_HZ);
 
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Prepare);
+    assert(h.player.getState() == AudioPlayer::State::Prepare);
     assert(h.sink.isPrepareCalled() == false);
 }
 
@@ -61,6 +70,7 @@ void test_service_prepare_calls_sink_prepare()
     AudioPlayerTestHandles h;
     h.player.start(0, CLIP_LENGTH_SAMPLES, SAMPLE_RATE_HZ);
     h.player.service();
+    assert(h.player.getState() != AudioPlayer::State::Error);
     assert(h.sink.isPrepareCalled() == true);
 }
 
@@ -70,7 +80,7 @@ void test_successful_prepare_enters_playback()
     h.player.start(0, CLIP_LENGTH_SAMPLES, SAMPLE_RATE_HZ);
     h.player.service();
     assert(h.player.isPlaying());
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Playback);
+    assert(h.player.getState() == AudioPlayer::State::Playback);
 }
 
 void test_start_while_playing_stops_current_playback_first()
@@ -80,7 +90,7 @@ void test_start_while_playing_stops_current_playback_first()
     h.player.service();
     assert(h.player.isPlaying());
     h.player.start(0, CLIP_LENGTH_SAMPLES, SAMPLE_RATE_HZ);
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Prepare);
+    assert(h.player.getState() == AudioPlayer::State::Prepare);
 }
 
 void test_start_from_finished_enters_prepare_without_stopping()
@@ -92,7 +102,7 @@ void test_start_from_finished_enters_prepare_without_stopping()
     h.sink.consumeSample();
     h.player.service();
     h.player.start(0, 1, SAMPLE_RATE_HZ);
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Prepare);
+    assert(h.player.getState() == AudioPlayer::State::Prepare);
 }
 
 void test_service_playback_consumes_samples()
@@ -172,21 +182,21 @@ void test_non_refilled_next_buffer_causes_underrun() {
     }
     h.player.service();
 
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Underrun);
+    assert(h.player.getState() == AudioPlayer::State::Underrun);
 }
 
 void test_sink_prepare_failure_causes_error() {
         AudioPlayerTestHandles h({.sinkFailPrepare=true});
     h.player.start(0, 1, SAMPLE_RATE_HZ);
     h.player.service();
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Error);
+    assert(h.player.getState() == AudioPlayer::State::Error);
 }
 
 void test_read_failure_causes_player_error() {
     AudioPlayerTestHandles h({.storageFailRead=true});
     h.player.start(0, 1, SAMPLE_RATE_HZ);
     h.player.service();
-    assert(h.player.getState() == audio_test::AudioPlayer::State::Error);
+    assert(h.player.getState() == AudioPlayer::State::Error);
 }
 
 int main()

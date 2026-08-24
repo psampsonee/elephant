@@ -43,9 +43,11 @@ public:
 
     std::size_t samplesPlayed() const { return samplesPlayed_; }
 
+#ifdef UNIT_TEST
     SampleSpooler& debug_getSpooler() { return spooler_; }
     const SampleSpooler& debug_getSpooler() const { return spooler_; }
     std::size_t debug_getSamplesPlayed() const { return samplesPlayed_; }
+#endif
 
 private:
     void init(); // Initializes player to silent Idle state.

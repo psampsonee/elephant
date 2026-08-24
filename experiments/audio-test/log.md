@@ -214,3 +214,13 @@ Current State:
 Next Steps:
 - Write down PCMSampleSource invariants (esp. getSamples)
 - Test PCMSampleSource
+
+8/24/2026
+
+Current State:
+- PCMSampleSource is tested
+- In process of tesing AudioPlayer with new source_ interface
+
+Next Steps:
+- The first sector of storage is being read twice, once by source_.start and once by source_.getSamples. It seems to be a bookkeeping problem at start but I have not traced it through yet.
+- Underruns are not being tracked by AudioPlayer at this time.

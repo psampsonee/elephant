@@ -3,6 +3,7 @@ CXX := g++
 SRC := \
 App/Src/audio_player.cpp \
 Audio/Src/sample_spooler.cpp \
+Audio/Src/PCM_sample_source.cpp \
 Audio/Src/audio_sink_fake.cpp \
 Storage/Src/storage_device_fake.cpp
 

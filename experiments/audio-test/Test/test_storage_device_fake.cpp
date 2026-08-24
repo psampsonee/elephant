@@ -1,3 +1,7 @@
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
+
 #include "storage_device_fake.h"
 #include "storage_device_fake_test_handles.cpp"
 #include <cassert>

@@ -2,19 +2,19 @@
 #include <cmath>
 #include <cstdint>
 
-AudioPlayer::AudioPlayer(StorageDevice& storage, AudioSink& sink)
-    : storage_(storage)
+AudioPlayer::AudioPlayer(SampleSource& source, AudioSink& sink)
+    : source_(source)
     , sink_(sink)
 {
     init();
 }
 
-void AudioPlayer::start(std::size_t clipStartSector,
-        std::size_t clipLengthSamples,
+void AudioPlayer::start(std::size_t startSector,
+        std::size_t lengthSamples,
         uint16_t sampleRateHz) {
 
-    start(ClipInfo{clipStartSector,
-        clipLengthSamples,
+    start(ClipInfo{startSector,
+        lengthSamples,
         sampleRateHz});
 }
 
@@ -33,7 +33,7 @@ void AudioPlayer::start(ClipInfo clip)
     source_.start(clip_.startSector);
 
     samplesPlayed_ = 0;
-    samplesRemainingToRead_ = clipLengthSamples;
+    samplesRemainingToRead_ = clip_.lengthSamples;
 
     state_ = State::Prepare;
 }
@@ -79,11 +79,11 @@ void AudioPlayer::stop()
 
 void AudioPlayer::clearPlaybackState()
 {
-    source.reset();
+    source_.reset();
 
     // Clear bookkeeping for the current playback task
-    clip_.StartSector = 0;
-    clip_.LengthSamples = 0;
+    clip_.startSector = 0;
+    clip_.lengthSamples = 0;
     clip_.sampleRateHz = 0;
     samplesPlayed_ = 0;
     samplesRemainingToRead_ = 0;
@@ -122,6 +122,11 @@ void AudioPlayer::servicePrepare()
 {
     // Initialize source
     if (!source_.init()) {
+        enterError();
+        return;
+    }
+
+    if (!source_.start(clip_.startSector)) {
         enterError();
         return;
     }
@@ -196,6 +201,7 @@ bool AudioPlayer::refillOneBuffer(uint8_t index)
     RefillBuffer buffer = spooler_.getRefillBuffer(index);
 
     size_t samplesToRead = buffer.sample_count;
+    size_t sourceReadPosition_initial = source_.getReadPositionSamples();
 
     if (samplesRemainingToRead_ < samplesToRead) {
         samplesToRead = samplesRemainingToRead_;
@@ -209,9 +215,12 @@ bool AudioPlayer::refillOneBuffer(uint8_t index)
         return false;
     }
 
-    samplesRemainingToRead_ -= samplesToRead;
+    size_t sourceReadPosition_final = source_.getReadPositionSamples();
+    size_t samplesRead = sourceReadPosition_final - sourceReadPosition_initial;
 
-    return spooler_.markRefilled(index, samplesToRead);
+    samplesRemainingToRead_ -= samplesRead; // was -= samplesToRead
+
+    return spooler_.markRefilled(index, samplesRead);
 }
 
 AudioPlayer::State AudioPlayer::getState() const

@@ -1,13 +1,13 @@
-#pragma once
-#include <cstddef>
-#include <cstdint>
+
 #include "storage_device.h"
 #include "sample_source.h"
+#include "PCM_sample_source.h"
 
 /* Initialization
  * Prepares SampleSource upon system startup
  * Tasks:
- * Check that startup invariants are valid.
+ * Check that startup invariants are valid:
+ * Sample workspace size >= storage device block size
  * Initialize storage
  * Call reset()
  */
@@ -29,15 +29,23 @@ bool PCMSampleSource::init() {
  * Tasks:
  * Set all sample parameters to first reading state
  */
-bool start(size_t clipStartSector) {
+bool PCMSampleSource::start(size_t clipStartSector) {
     workspaceIndex_ = 0;
     workspaceSectorOffset_ = clipStartSector;
 
-    if(!readStorage(
-        workspaceSectorOffset_,
-        reinterpret_cast<uint8_t*>(sampleWorkspace
-        ))) {
-        return false; // If very first read fails, something may have gone wrong with initialization; throw an error.
+    auto readResult=storage_.read(workspaceSectorOffset_,
+                                  reinterpret_cast<uint8_t*>(workspace_));
+
+    if (readResult == StorageDevice::ReadResult::Error) {
+        return false;
+    }
+
+    if (readResult == StorageDevice::ReadResult::NotReady) {
+        workspaceValid_ = false;
+    }
+
+    else {
+        workspaceValid_ = true;
     }
 
     ready_ = true;
@@ -49,14 +57,15 @@ bool start(size_t clipStartSector) {
  * Set all parameters to initial states.
  */
 void PCMSampleSource::reset() {
+    workspaceIndex_ = 0;
     workspaceSectorOffset_ = 0;
+    std::memset(workspace_, 0, sizeof(workspace_));
 }
 
 /* getSample
  * Tasks:
  * Check runtime invariants and prevent them from being violated:
- * Can't get a sample when the source is not ready.
- * Sample workspace size >= storage device block size
+ *  Can't get a sample when the source is not ready.
  *
  * destination aways gets written to starting at index 0.
  */
@@ -83,7 +92,7 @@ void PCMSampleSource::reset() {
 bool PCMSampleSource::getSamples(int16_t* destination, std::size_t sampleCount) {
 
     if(!ready_) {
-        return true;
+        return false;
     }
 
     std::size_t samplesPerBlock = storage_.getBlockSize() / sizeof(int16_t);
@@ -93,15 +102,24 @@ bool PCMSampleSource::getSamples(int16_t* destination, std::size_t sampleCount) 
     while ( samplesRemaining > 0 ) {
         std::size_t samplesLeftInWorkspace = samplesPerBlock - workspaceIndex_;
 
-        if (samplesLeftInWorkspace == 0) {
-            workspaceIndex_ = 0;
-            workspaceSectorOffset_ += 1;
-            if(!readStorage(
-                workspaceSectorOffset_,
-                reinterpret_cast<uint8_t*>(workspace_)
-                )) {
+        if (samplesLeftInWorkspace == 0 || !workspaceValid_) {
+            auto nextSector = workspaceSectorOffset_ + 1;
+            auto readResult=storage_.read(workspaceSectorOffset_,
+                                          reinterpret_cast<uint8_t*>(workspace_));
+
+            if (readResult == StorageDevice::ReadResult::Error) {
                 return false;
-                }
+            }
+
+            if (readResult == StorageDevice::ReadResult::NotReady) {
+                workspaceValid_ = false;
+                return true; // no fatal error, but leave buffer needing refill
+            }
+
+            workspaceValid_ = true;
+            workspaceIndex_ = 0;
+            workspaceSectorOffset_ = nextSector;
+
             continue;
         }
 
@@ -126,7 +144,10 @@ std::size_t PCMSampleSource::getReadPositionSamples() const {
         return 0;
     }
 
-    return sampleReadPosition_;
+    const std::size_t samplesPerBlock =
+        storage_.getBlockSize() / sizeof(int16_t);
+
+    return workspaceSectorOffset_ * samplesPerBlock + workspaceIndex_;
 }
 
 bool PCMSampleSource::readStorage(std::size_t block, uint8_t*buffer) {
@@ -139,4 +160,6 @@ bool PCMSampleSource::readStorage(std::size_t block, uint8_t*buffer) {
         if (readResult == StorageDevice::ReadResult::NotReady) {
             return true; // no fatal error, but leave buffer needing refill
         }
+
+        return true;
 }

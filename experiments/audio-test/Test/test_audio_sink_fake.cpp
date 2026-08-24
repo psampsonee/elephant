@@ -1,3 +1,7 @@
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
+
 #include "audio_sink_fake.h"
 #include <cassert>
 #include <cstdint>

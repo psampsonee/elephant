@@ -4,7 +4,6 @@
 
 class StorageSampleSource : public SampleSource {
 public:
-
     explicit StorageSampleSource(StorageDevice& storage)
         : storage_(storage) {}
 

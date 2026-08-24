@@ -1,3 +1,7 @@
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
+
 #include "sample_spooler.h"
 #include <cassert>
 #include <cstdint>

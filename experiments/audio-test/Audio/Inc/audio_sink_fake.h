@@ -14,6 +14,7 @@ public:
     bool writeSample(int16_t sample) override;
     bool stop() override;
     bool silence() override;
+    bool isSampleNeeded() const override { return isSampleNeeded_; }
 
     void consumeSample();
 
@@ -31,6 +32,7 @@ private:
     bool isStopped_ = false;
     bool isStarted_ = false;
     bool isPrepareCalled_ = false;
+    bool isSampleNeeded_ = false;
 
     bool fail_all_public_functions_ = false;
 };

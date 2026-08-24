@@ -20,7 +20,10 @@ public:
 
     void handleSampleInterrupt();
 
+#ifdef UNIT_TEST
     void debug_updatePeak(int16_t sample);
+#endif
+
 private:
     static constexpr int16_t PULSE_CENTER   = 62;
     static constexpr int16_t PULSE_VARIANCE = 40;

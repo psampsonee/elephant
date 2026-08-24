@@ -4,11 +4,14 @@
 #include <cstring>
 #include <iostream>
 
+static constexpr size_t BLOCK_COUNT = 10;
+static constexpr size_t SAMPLE_COUNT = 1000;
+
 struct StorageDeviceFakeTestConfig {
     bool storageFailInit = false;
     bool storageFailRead = false;
-    size_t blockCount = 10;
-    size_t sampleCount = 1000;
+    size_t blockCount = BLOCK_COUNT;
+    size_t sampleCount = SAMPLE_COUNT;
 };
 
 struct StorageDeviceFakeTestHandles {
