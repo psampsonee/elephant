@@ -236,3 +236,17 @@ Current State:
 Next Steps:
 - Test hypothesis
 - Make that variable valid.
+- Create dedicated tests:
+    - Show that blocks are not repeated under normal conditions
+    - Show that the contents of each sample out matches the value of the expected sample in.
+
+8/26/2026
+
+Current State:
+
+- Fixed underrun bug: buffers are not marked for refill if the number of samples to be written is 0.
+- Added above two tests to AudioPlayer test code
+
+Next Steps:
+
+- Write ADPCM Sample Source.

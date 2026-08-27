@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IStorage/Inc -ITest
+CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IStorage/Inc -ITest/Inc
 SRC := \
 Storage/Src/storage_device_fake.cpp
 

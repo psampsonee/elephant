@@ -10,9 +10,12 @@ Storage/Src/storage_device_fake.cpp
 INCLUDE := \
 -IApp/Inc \
 -IAudio/Inc \
--IStorage/Inc
+-IStorage/Inc \
+-ITest/Inc
 
-TEST_SRC := Test/test_audio_player.cpp
+TEST_SRC := \
+Test/test_audio_player.cpp \
+Test/magic_result.cpp
 
 CXXFLAGS := -std=c++20  -g3 -O0 -Wall -Wextra -Wpedantic $(INCLUDE) -ITest
 

@@ -7,7 +7,9 @@
 #include "sample_spooler.h"
 #include "audio_sink_fake.h"
 #include "storage_device_fake.h"
-#include "storage_device_fake_test_handles.cpp"
+#include "block_test.h"
+#include "magic_result.h"
+#include "storage_device_fake_test_handles.h"
 #include <cassert>
 #include <cstdint>
 #include <cstring>
@@ -130,6 +132,17 @@ void test_samples_played_equals_samples_written()
     assert(h.sink.samplesWritten() == 6);
 }
 
+void test_each_sample_played_corresponds_to_each_sample_written() {
+    AudioPlayerTestHandles h;
+    h.player.start(0, BUF_SIZE*5, SAMPLE_RATE_HZ);
+    h.player.service();
+    for(auto i = 0; i < BUF_SIZE*5; i++) {
+        h.player.service();
+        h.sink.consumeSample();
+        assert(h.sink.lastSampleWritten() == magicResult(i*2));
+    }
+}
+
 void test_successful_playback_enters_finished()
 {
     AudioPlayerTestHandles h;
@@ -160,6 +173,42 @@ void test_refill_one_buffer_loads_raw_sector_bytes_into_sample_buffer()
         assert(spoolerBytes[i] == storageData.data[0][i]);
     }
 }
+
+void test_buffers_do_not_repeat() {
+    AudioPlayerTestHandles h;
+    h.player.start(0, BUF_SIZE * 5, SAMPLE_RATE_HZ);
+    h.player.service();
+
+    int16_t lastBufferData[BUF_SIZE];
+    bool haveLastBuffer = false;
+
+    for (auto i = 0; i < 5; i++) {
+        for (auto j = 0; j < BUF_SIZE; j++) {
+            h.player.service();
+            h.sink.consumeSample();
+        }
+
+        RefillBuffer currentBuffer =
+            h.player.debug_getSpooler().getRefillBuffer(i % 4);
+
+        if (haveLastBuffer) {
+            assert(memcmp(
+                currentBuffer.data,
+                lastBufferData,
+                BUF_SIZE * sizeof(int16_t)
+            ) != 0);
+        }
+
+        memcpy(
+            lastBufferData,
+            currentBuffer.data,
+            BUF_SIZE * sizeof(int16_t)
+        );
+
+        haveLastBuffer = true;
+    }
+}
+
 
 void test_buffers_stay_refilled_during_playback()
 {
@@ -209,8 +258,10 @@ int main()
     test_start_from_finished_enters_prepare_without_stopping();
     test_service_playback_consumes_samples();
     test_samples_played_equals_samples_written();
+    test_each_sample_played_corresponds_to_each_sample_written();
     test_successful_playback_enters_finished();
     test_refill_one_buffer_loads_raw_sector_bytes_into_sample_buffer();
+    test_buffers_do_not_repeat() ;
     test_non_refilled_next_buffer_causes_underrun();
     test_sink_prepare_failure_causes_error();
     test_read_failure_causes_player_error();

@@ -219,6 +219,10 @@ bool AudioPlayer::refillOneBuffer(uint8_t index)
 
     samplesRemainingToRead_ -= samplesRead; // was -= samplesToRead
 
+    if (samplesRead == 0) {
+        return true;
+    }
+
     return spooler_.markRefilled(index, samplesRead);
 }
 
