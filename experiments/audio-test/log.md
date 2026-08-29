@@ -293,8 +293,12 @@ Current State:
 
 - Created a foundation for test code for ADPCMSampleSource.
 - Began initial tests for ADPCMSampleSource and fixed a state error where workspace_ was not being filled in start function.
+- Created unit tests for ADPCMSampleSource. Uniquely:
+    - Created ADPCMSampleSource unit tests based on PCMSampleSource tests.
+    - Created a test that checks each ADPCMSampleSource output against pre-decoded PCM values, rather than checking buffer boundaries directly.
+- Got AudioPlayer unit tests to work with ADPCMSampleSource with minimal modification (aside from removing the assumption of data in == samples out)
 
 Next Steps:
 
-- Create ADPCMSampleSource unit tests based on PCMSampleSource tests.
-- Check each ADPCMSampleSource output against pre-decoded PCM values, rather than checking buffer boundaries directly.
+- Lay out audio test board
+- component procurement as necessary

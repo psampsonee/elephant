@@ -8,13 +8,21 @@
 # Audio playback
 
 [x] Write audio player code - 20 hr
+[x] Write ADPCM code - 15 hr
 
-# SSM2518 Eval Board 
+# Tilt Switch Verification
+[ ] Design tests for tilt switch circuit - 1 hr
+[ ] Breadboard tilt switch circuit - 0.5 hr
+[ ] Verify circuit meets specified requirements - 1 hr
+
+# Eval Board 
 ### (Note 1)
 
-[ ] Create KiCad circuit - 3 hr
-[ ] Check SSM2518 reference schematic / required passives / I2C address straps - 2 hr
-[ ] Order PCB / parts - 2 hr
+[ ] Engineering checks on all subcircuit schematics - 24 hr
+[ ] Board Layout - 10 hr
+[ ] Create BOM - 3 hr
+[ ] Order PCB - 0.5 hr
+[ ] Order parts - 0.5 hr
 [ ] Resistance checks before power - 0.5 hr
 [ ] Power board without speaker; verify rails and amp config - 1 hr
 [ ] Verify I2S clocks on board - 1 hr
@@ -23,17 +31,12 @@
 
 # Target Firmware
 ### (Note 1)
-[ ] Write I2S code - 6 hr
-[ ] Write EEPROM code - 6 hr
+[ ] Write I2S code - 2 hr
+[ ] Write EEPROM code - 2 hr
 [ ] Write main state machine code - 12 hr
 [ ] implement playback cooldown using RTC - 6 hr
 [ ] Determine sleep management functionality - 3 hr
 [ ] Write sleep management code - 6 hr
-
-# Tilt Switch Verification
-[ ] Design tests for tilt switch circuit - 1 hr
-[ ] Breadboard tilt switch circuit - 0.5 hr
-[ ] Verify circuit meets specified requirements - 1 hr
 
 # Power/Sleep Management Measurements
 [ ] Measure SSM, EEPROM, and black pill currents across the target states and at desired volume - 3 hr
@@ -41,14 +44,12 @@
 [ ] Modify circuit schematics according to conclusions - 2 hr
 
 # Final PCB
+[ ] Adjust schematics based on eval board notes - 5 hr
 [ ] Layout final PCB - 15 hr
 [ ] Verify PCB - 2 hr
 [ ] Check audio routing: MCLK/BCLK/LRCLK/DATA short, clean, referenced to ground - 0.5 hr
 [ ] Check amplifier output / speaker current / thermal assumptions - 0.5 hr
-
-# Ordering
-[ ] Create BOM, choosing up-to-date parts - 2 hr
-[ ] Optional: create BOM for entire board while doing this - +1 hr
+[ ] Create BOM, choosing up-to-date parts - 3 hr
 [ ] Order PCB - 0.5 hr
 [ ] Order parts - 0.5 hr
 
