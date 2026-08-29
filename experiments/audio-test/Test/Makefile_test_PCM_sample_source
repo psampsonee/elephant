@@ -1,0 +1,31 @@
+CXX := g++
+CXXFLAGS := \
+-std=c++20  -g3 -O0 -Wall -Wextra -Wpedantic -IStorage/Inc \
+-IAudio/Inc -ITest/Inc
+
+SRC := \
+Storage/Src/storage_device_fake.cpp \
+Audio/Src/PCM_sample_source.cpp
+
+TEST_SRC := \
+Test/Src/magic_result.cpp \
+Test/Src/test_PCM_sample_source.cpp
+
+BUILD_DIR := Test/build
+TARGET := $(BUILD_DIR)/test_PCM_sample_source
+
+.PHONY: all test clean
+
+all: test
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+$(TARGET): $(SRC) $(TEST_SRC) | $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+test: $(TARGET)
+	./$(TARGET)
+
+clean:
+	rm -rf $(BUILD_DIR)
