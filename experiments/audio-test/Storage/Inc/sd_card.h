@@ -14,7 +14,7 @@ public:
     ReadResult read(std::size_t block, uint8_t* buffer) override;
 
     bool isHighCapacity() const { return highCapacity_; }
-    std::size_t getBlockSize() { return BLOCK_SIZE; }
+    std::size_t getSectorSize() { return BLOCK_SIZE; }
 
 private:
     static constexpr std::size_t BLOCK_SIZE = 512;

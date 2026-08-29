@@ -3,7 +3,7 @@ CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IAudio/Inc -ITest
 SRC := \
 Audio/Src/ADPCM_codec.cpp
 
-TEST_SRC := Test/test_ADPCM_codec.cpp
+TEST_SRC := Test/Src/test_ADPCM_codec.cpp
 
 BUILD_DIR := Test/build
 TARGET := $(BUILD_DIR)/test_ADPCM_codec

@@ -4,8 +4,7 @@ SRC := \
 Storage/Src/storage_device_fake.cpp
 
 TEST_SRC := \
-Test/storage_device_fake_test_handles.cpp \
-Test/test_storage_device_fake.cpp
+Test/Src/test_storage_device_fake.cpp
 
 BUILD_DIR := Test/build
 TARGET := $(BUILD_DIR)/test_storage_device_fake

@@ -1,7 +1,7 @@
 CXX := g++
 CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IAudio/Inc -ITest
 SRC := Audio/Src/sample_spooler.cpp
-TEST_SRC := Test/test_spooler.cpp
+TEST_SRC := Test/Src/test_spooler.cpp
 
 BUILD_DIR := Test/build
 TARGET := $(BUILD_DIR)/test_spooler

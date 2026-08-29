@@ -7,14 +7,14 @@
  * Prepares SampleSource upon system startup
  * Tasks:
  * Check that startup invariants are valid:
- * Sample workspace size >= storage device block size
+ * Sample workspace size >= storage device sector size
  * Initialize storage
  * Call reset()
  */
 bool PCMSampleSource::init() {
     reset();
 
-    if (storage_.getBlockSize() > MAX_BLOCK_SIZE_BYTES) {
+    if (storage_.getSectorSize() > MAX_SECTOR_SIZE_BYTES) {
         return false;
     }
 
@@ -61,16 +61,16 @@ void PCMSampleSource::reset() {
  */
 
     // workspaceIndex_ is a persistent variable starting at 0.
-    // upon start(clipStartSector), workspace_ is filled with the first block.
-    // samplesPerBlock = storage_.getBlockSize() / sizeof(int16_t)
+    // upon start(clipStartSector), workspace_ is filled with the first sector.
+    // samplesPerSector = storage_.getSectorSize() / sizeof(int16_t)
     // samplesRemaining = sampleCount
     // samplesWritten = 0
     // While samplesRemaining > 0:
-    //  samplesLeftInWorkspace = samplesPerBlock - workspaceIndex_
+    //  samplesLeftInWorkspace = samplesPerSector - workspaceIndex_
     //  if ( samplesLeftInWorkspace == 0 ):
     //      workspaceSectorOffset_ += 1
     //      workspaceIndex_ = 0
-    //      write the contents of the block into the workspace as int16_t
+    //      write the contents of the sector into the workspace as int16_t
     //      continue
     //  samplesToCopy = min(samplesRemaining, samplesLeftInWorkspace)
     //  For every i from 0 to samplesToCopy-1:
@@ -85,12 +85,12 @@ bool PCMSampleSource::getSamples(int16_t* destination, std::size_t sampleCount) 
         return false;
     }
 
-    std::size_t samplesPerBlock = storage_.getBlockSize() / sizeof(int16_t);
+    std::size_t samplesPerSector = storage_.getSectorSize() / sizeof(int16_t);
     std::size_t samplesRemaining = sampleCount;
     std::size_t samplesWritten = 0;
 
     while ( samplesRemaining > 0 ) {
-        std::size_t samplesLeftInWorkspace = samplesPerBlock - workspaceIndex_;
+        std::size_t samplesLeftInWorkspace = samplesPerSector - workspaceIndex_;
         if(samplesLeftInWorkspace == 0) {
             workspaceValid_ = false;
         }
@@ -125,10 +125,10 @@ std::size_t PCMSampleSource::getReadPositionSamples() const {
         return 0;
     }
 
-    const std::size_t samplesPerBlock =
-        storage_.getBlockSize() / sizeof(int16_t);
+    const std::size_t samplesPerSector =
+        storage_.getSectorSize() / sizeof(int16_t);
 
-    return workspaceSectorOffset_ * samplesPerBlock + workspaceIndex_;
+    return workspaceSectorOffset_ * samplesPerSector + workspaceIndex_;
 }
 
 bool PCMSampleSource::fillWorkspace() {

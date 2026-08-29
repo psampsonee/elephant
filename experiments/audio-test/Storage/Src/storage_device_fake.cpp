@@ -1,11 +1,11 @@
 #include "storage_device_fake.h"
 
 void StorageDeviceFake::setStorageData() {
-    for (size_t block = 0; block < data_.blockCount; ++block) {
-        for (size_t byte = 0; byte < BLOCK_SIZE; ++byte)
+    for (size_t sector = 0; sector < data_.sectorCount; ++sector) {
+        for (size_t byte = 0; byte < SECTOR_SIZE; ++byte)
         {
-            data_.data[block][byte] =
-            static_cast<uint8_t>((block * 17 + byte) & 0xFF);
+            data_.data[sector][byte] =
+            static_cast<uint8_t>((sector * 17 + byte) & 0xFF);
         }
     }
 }
@@ -13,19 +13,19 @@ void StorageDeviceFake::setStorageData() {
 bool StorageDeviceFake::init() {
     if(failInit_) return false;
 
-    setStorageData();
+    if(!preloadData_) setStorageData();
 
     isInitialized_ = true;
     isReady_ = true;
     return true;
 }
 
-StorageDevice::ReadResult StorageDeviceFake::read(std::size_t block, uint8_t* buffer) {
+ReadResult StorageDeviceFake::read(std::size_t sector, uint8_t* buffer) {
 
     if (failRead_ ||
         !isInitialized_ ||
         buffer == nullptr ||
-        block >= data_.blockCount)
+        sector >= data_.sectorCount)
     {
         return ReadResult::Error;
     }
@@ -35,7 +35,7 @@ StorageDevice::ReadResult StorageDeviceFake::read(std::size_t block, uint8_t* bu
         return ReadResult::NotReady;
     }
 
-    memcpy(buffer, data_.data[block], BLOCK_SIZE);
+    memcpy(buffer, data_.data[sector], SECTOR_SIZE);
 
     readCount_++;
     return ReadResult::Success;

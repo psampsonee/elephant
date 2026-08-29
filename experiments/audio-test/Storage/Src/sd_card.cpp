@@ -137,13 +137,13 @@ bool SdCard::init()
     return true;
 }
 
-SdCard::ReadResult SdCard::read(std::size_t block, uint8_t* buffer)
+SdCard::ReadResult SdCard::read(std::size_t sector, uint8_t* buffer)
 {
     if (buffer == nullptr) {
         return ReadResult::Error;
     }
 
-    uint32_t addr = highCapacity_ ? block : block * 512;
+    uint32_t addr = highCapacity_ ? sector : sector * 512;
 
     uint8_t r = command(17, addr, 0xFF);
 

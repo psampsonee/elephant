@@ -16,21 +16,22 @@ public:
     bool getSamples(int16_t* destination, std::size_t sampleCount) override;
     std::size_t getReadPositionSamples() const override;
 
+#ifdef UNIT_TEST
     int16_t getWorkspaceSample_debug(std::size_t index)
-    { return index < MAX_BLOCK_SIZE_BYTES / sizeof(int16_t) ?
+    { return index < MAX_SECTOR_SIZE_BYTES / sizeof(int16_t) ?
         workspace_[index] : 0; }
 
-#ifdef UNIT_TEST
+
     std::size_t debug_getWorkspaceIndex() { return workspaceIndex_; }
     std::size_t debug_getWorkspaceSectorOffset() { return workspaceSectorOffset_; }
 #endif
 
 private:
-    static constexpr std::size_t MAX_BLOCK_SIZE_BYTES = 1024;
+    static constexpr std::size_t MAX_SECTOR_SIZE_BYTES = 1024;
 
     bool fillWorkspace();
 
-    int16_t workspace_[MAX_BLOCK_SIZE_BYTES / sizeof(int16_t)] {};
+    int16_t workspace_[MAX_SECTOR_SIZE_BYTES / sizeof(int16_t)] {};
 
     bool workspaceValid_ = false;
     std::size_t workspaceIndex_ = 0;

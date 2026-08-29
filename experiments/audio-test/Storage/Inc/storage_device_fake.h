@@ -7,23 +7,23 @@
 
 class StorageDeviceFake : public StorageDevice {
 public:
-    static constexpr size_t BLOCKS_MAX = 400;
-    static constexpr size_t BLOCK_SIZE = 512;
+    static constexpr size_t SECTORS_MAX = 400;
+    static constexpr size_t SECTOR_SIZE = 512;
 
     struct StorageData {
-        uint8_t data[BLOCKS_MAX][BLOCK_SIZE]{};
-        size_t blockCount = 0;
+        uint8_t data[SECTORS_MAX][SECTOR_SIZE]{};
+        size_t sectorCount = 0;
         size_t sampleCount = 0;
     };
 
-    explicit StorageDeviceFake(bool failInit = false, bool failRead = false, size_t blockCount = 0, size_t sampleCount = 0)
-        : failInit_(failInit), failRead_(failRead) {
-            data_.blockCount = std::min(blockCount, BLOCKS_MAX);
+    explicit StorageDeviceFake(bool failInit = false, bool failRead = false, size_t sectorCount = 0, size_t sampleCount = 0, bool preloadData = false)
+        : failInit_(failInit), failRead_(failRead), preloadData_(preloadData) {
+            data_.sectorCount = std::min(sectorCount, SECTORS_MAX);
             data_.sampleCount = sampleCount;
         }
 
     bool init() override;
-    ReadResult read(std::size_t block, uint8_t* buffer) override;
+    ReadResult read(std::size_t sector, uint8_t* buffer) override;
 
     StorageData& getStorageData() { return data_; }
     const StorageData& getStorageData() const { return data_; }
@@ -34,7 +34,7 @@ public:
     void setReady(bool ready) { isReady_ = ready; }
     void setFailRead(bool failRead) { failRead_ = failRead; }
 
-    std::size_t getBlockSize() { return 512; }
+    std::size_t getSectorSize() { return 512; }
 
 private:
     uint32_t readCount_ = 0;
@@ -47,4 +47,5 @@ private:
     bool failRead_ = false;
     bool isInitialized_ = false;
     bool isReady_ = false;
+    bool preloadData_ = false;
 };

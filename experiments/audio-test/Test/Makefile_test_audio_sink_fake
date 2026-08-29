@@ -3,7 +3,7 @@ CXXFLAGS := -std=c++17  -g3 -O0 -Wall -Wextra -Wpedantic -IAudio/Inc -ITest
 SRC := \
 Audio/Src/audio_sink_fake.cpp
 
-TEST_SRC := Test/test_audio_sink_fake.cpp
+TEST_SRC := Test/Src/test_audio_sink_fake.cpp
 
 BUILD_DIR := Test/build
 TARGET := $(BUILD_DIR)/test_audio_sink_fake

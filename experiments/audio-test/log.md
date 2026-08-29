@@ -250,3 +250,51 @@ Current State:
 Next Steps:
 
 - Write ADPCM Sample Source.
+
+8/27/2026
+
+Session 1:
+
+Current State:
+
+- Distinguished storage "sectors" from ADPCM "frames" (previously, both were "blocks"
+- ADPCMSampleSource now has a compressedBuffer containing compressed ADPCM data
+- Decoupled getSamples from sectors.
+    - Must take charge of clipSamplesToDestination_
+    - Uses workspaceSampleCount_ to determine the number of samples currently in workspace.
+- fillWorkspace will orchestrate this process:
+    - Determine if compressedBuffer is used up and call fillCompressedBuffer if so
+    - Determine if the current ADPCM frame is exhausted and decode the next ADPCM frame header and update the sample state with it if so (startADPCMFrame)
+    - Decode enough PCM frames to fit into workspace_ (currently 512) using looped calls of getNextDecodedSample
+    - Report the number of valid samples that workspace_ is currently holding in workspaceSampleCount_.
+
+Next steps:
+- Flesh out fillWorkspace invariants and functionality
+- Write startADPCMFrame and getNextDecodedSample from test code.
+
+Session 2:
+
+Current State:
+
+- Implemented ADPCMSampleSource and added several helper functions.
+
+Next Steps
+
+- Test ADPCMSampleSource in a similar way PCMSampleSource was tested.
+    - With FakeStorageDevice
+    - With AudioPlayer and FakeStorageDevice
+    - Run the fake storage filler algorithm through an ADPCM codec and check against exact values for the above tests.
+    - Use sample error checking that allows for some amount of error inherent to ADPCM to check against PCMSampleSource using actual audio.
+- Lay out Audio test board.
+
+8/28/2026
+
+Current State:
+
+- Created a foundation for test code for ADPCMSampleSource.
+- Began initial tests for ADPCMSampleSource and fixed a state error where workspace_ was not being filled in start function.
+
+Next Steps:
+
+- Create ADPCMSampleSource unit tests based on PCMSampleSource tests.
+- Check each ADPCMSampleSource output against pre-decoded PCM values, rather than checking buffer boundaries directly.
