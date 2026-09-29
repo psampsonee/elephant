@@ -1,0 +1,84 @@
+
+Measurement: vin_max
+  step	MAX(V(MAIN_BAT+) )	FROM	TO
+     1	4.68013095856	0.001	0.002
+     2	4.13915872574	0.001	0.002
+     3	3.62219071388	0.001	0.002
+
+Measurement: vin_min
+  step	MIN(V(MAIN_BAT+) )	FROM	TO
+     1	4.67191314697	0.001	0.002
+     2	4.13311100006	0.001	0.002
+     3	3.60321903229	0.001	0.002
+
+Measurement: vin_avg
+  step	AVG(V(MAIN_BAT+) )	FROM	TO
+     1	4.67665595087	0.001	0.002
+     2	4.13665157286	0.001	0.002
+     3	3.61386900712	0.001	0.002
+
+Measurement: vin_pp
+  step	VIN_MAX-VIN_MIN
+     1	0.00821781158447
+     2	0.00604772567749
+     3	0.0189716815948
+
+Measurement: vout_max
+  step	MAX(V(V_BUCK_OUT) )	FROM	TO
+     1	3.31985497475	0.001	0.002
+     2	3.31958413124	0.001	0.002
+     3	3.32177996635	0.001	0.002
+
+Measurement: vout_min
+  step	MIN(V(V_BUCK_OUT) )	FROM	TO
+     1	3.31940293312	0.001	0.002
+     2	3.31931209564	0.001	0.002
+     3	3.31791591644	0.001	0.002
+
+Measurement: vout_avg
+  step	AVG(V(V_BUCK_OUT) )	FROM	TO
+     1	3.31960043515	0.001	0.002
+     2	3.31941993224	0.001	0.002
+     3	3.31942859025	0.001	0.002
+
+Measurement: vout_pp
+  step	VOUT_MAX-VOUT_MIN
+     1	0.000452041625977
+     2	0.000272035598755
+     3	0.0038640499115
+
+Measurement: i_l_sw_max
+  step	MAX(I(L1) )	FROM	TO
+     1	0.913575232029	0.001	0.002
+     2	0.862730145454	0.001	0.002
+     3	0.884174585342	0.001	0.002
+
+Measurement: i_l_sw_min
+  step	MIN(I(L1) )	FROM	TO
+     1	0.617460012436	0.001	0.002
+     2	0.668302774429	0.001	0.002
+     3	0.611390769482	0.001	0.002
+
+Measurement: i_l_sw_pp
+  step	I_L_SW_MAX-I_L_SW_MIN
+     1	0.296115219593
+     2	0.194427371025
+     3	0.272783815861
+
+Measurement: i_cvin_rms
+  step	RMS(I(C6) )	FROM	TO
+     1	0.29197434227	0.001	0.002
+     2	0.251482201789	0.001	0.002
+     3	0.164824194454	0.001	0.002
+
+Measurement: i_cvin_max
+  step	MAX(I(C6) )	FROM	TO
+     1	0.625347971916	0.001	0.002
+     2	0.675016999245	0.001	0.002
+     3	0.769531309605	0.001	0.002
+
+Measurement: i_cvin_min
+  step	MIN(I(C6) )	FROM	TO
+     1	-0.68845897913	0.001	0.002
+     2	-0.58913487196	0.001	0.002
+     3	-0.548643708229	0.001	0.002

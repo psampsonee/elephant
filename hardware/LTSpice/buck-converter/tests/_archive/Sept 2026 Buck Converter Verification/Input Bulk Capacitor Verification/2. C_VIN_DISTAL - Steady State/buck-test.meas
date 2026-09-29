@@ -1,0 +1,22 @@
+; --- Measurements ---
+; Main battery Voltage
+.meas tran VIN_MAX MAX V(MAIN_BAT+) FROM 1m TO 2m
+.meas tran VIN_MIN MIN V(MAIN_BAT+) FROM 1m TO 2m
+.meas tran VIN_AVG AVG V(MAIN_BAT+) FROM 1m TO 2m
+.meas tran VIN_PP PARAM VIN_MAX-VIN_MIN
+
+; Output bus Voltage
+.meas tran VOUT_MAX MAX V(V_BUCK_OUT) FROM 1m TO 2m
+.meas tran VOUT_MIN MIN V(V_BUCK_OUT) FROM 1m TO 2m
+.meas tran VOUT_AVG AVG V(V_BUCK_OUT) FROM 1m TO 2m
+.meas tran VOUT_PP PARAM VOUT_MAX-VOUT_MIN
+
+; Switching Inductor Current
+.meas tran I_L_SW_MAX MAX I(L1) FROM 1m TO 2m
+.meas tran I_L_SW_MIN MIN I(L1) FROM 1m TO 2m
+.meas tran I_L_SW_PP PARAM I_L_SW_MAX-I_L_SW_MIN
+
+; Bulk input capacitor stress
+.meas tran I_CVIN_RMS RMS I(C6) FROM 1m TO 2m
+.meas tran I_CVIN_MAX MAX I(C6) FROM 1m TO 2m
+.meas tran I_CVIN_MIN MIN I(C6) FROM 1m TO 2m

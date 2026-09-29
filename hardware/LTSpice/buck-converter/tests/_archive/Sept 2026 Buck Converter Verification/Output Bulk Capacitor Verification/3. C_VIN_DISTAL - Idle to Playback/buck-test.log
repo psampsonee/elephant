@@ -1,0 +1,25 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\_archive\Sept 2026 Buck Converter Verification\Output Bulk Capacitor Verification\3. C_VIN_DISTAL - Idle to Playback\buck-test.net
+Start Time: Mon Sep 21 19:11:28 2026
+
+.step l92_mah_init=0
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+Simulation stopped by user.
+Total elapsed time: 1.843 seconds.
+
+Files loaded:
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\_archive\Sept 2026 Buck Converter Verification\Output Bulk Capacitor Verification\3. C_VIN_DISTAL - Idle to Playback\buck-test.net
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\_archive\Sept 2026 Buck Converter Verification\Output Bulk Capacitor Verification\3. C_VIN_DISTAL - Idle to Playback\buck-test.inc
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\_archive\Sept 2026 Buck Converter Verification\Output Bulk Capacitor Verification\3. C_VIN_DISTAL - Idle to Playback\L92_params.inc
+Z:\home\paul\Desktop\Elephant LTSpice Folder\lib\sub\custom\L92\L92.mod
+C:\users\paul\AppData\Local\LTspice\lib\sub\LT8640.sub
+

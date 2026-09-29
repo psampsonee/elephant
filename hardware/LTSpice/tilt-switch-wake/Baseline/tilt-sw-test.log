@@ -1,0 +1,3 @@
+C:\users\paul\Desktop\Elephant LTSpice Folder\tilt-switch-wake\Baseline\tilt-sw-test.net(16): File not found.
+.include tilt-sw-max-voltages.meas
+         ^^^^^^^^^^^^^^^^^^^^^^^^^

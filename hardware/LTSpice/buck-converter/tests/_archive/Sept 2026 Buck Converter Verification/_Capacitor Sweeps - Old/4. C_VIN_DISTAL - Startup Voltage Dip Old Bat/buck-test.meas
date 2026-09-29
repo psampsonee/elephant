@@ -1,0 +1,12 @@
+; --- Measurements ---
+
+; Main battery Voltage
+.meas tran VIN_MAX MAX V(MAIN_BAT+) FROM 0 TO 1m
+.meas tran VIN_NOM AVG V(MAIN_BAT+) FROM 500u TO 1m
+
+; Battery Voltage Sag
+.meas tran RQ_MAX INTEG -4*I(V_BATT_SENSE)*V(RINT) FROM 0 TO 1m
+
+; Output bus Voltage
+.meas tran VOUT_MAX MAX V(V_BUCK_OUT) FROM 0 TO 1m
+.meas tran VOUT_MIN MIN V(V_BUCK_OUT) FROM 0 TO 1m

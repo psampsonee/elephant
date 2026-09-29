@@ -1,0 +1,121 @@
+#ifndef UNIT_TEST
+#define UNIT_TEST
+#endif
+
+#include "ADPCM_codec.h"
+#include <cassert>
+#include <cstdint>
+#include <iostream>
+#include <fstream>
+
+int main(int argc, char* argv[])
+{
+    using namespace std;
+    using namespace ima_adpcm;
+
+    if (argc != 3) {
+        cout << "Invalid number of arguments." << endl;
+        return 1;
+    }
+
+    char* adpcmFilePath = argv[1];
+    char* pcmFilePath = argv[2];
+    streampos size;
+    uint8_t* memBlock;
+    int16_t* output;
+
+    ifstream adpcmFile(adpcmFilePath,ios::in|ios::binary|ios::ate);
+    if(adpcmFile.is_open())
+    {
+        // The below code reads the adpcm file:
+
+        size_t bytesCount = 0;
+
+        size = adpcmFile.tellg();
+        memBlock = new uint8_t [size];
+        output = new int16_t [size*2];
+        adpcmFile.seekg (0, ios::beg);
+        adpcmFile.read(reinterpret_cast<char*>(memBlock), size);
+
+        auto adpcmFilePos = adpcmFile.gcount();
+
+        if (adpcmFile.bad()) {
+            cout << "Error reading file." << endl;
+            return 1;
+        }
+
+        if (adpcmFilePos >= 0) {
+            bytesCount = static_cast<size_t>(adpcmFilePos);
+        }
+
+        else {
+            cout << "Error reading file." << endl;
+            return 1;
+        }
+
+        adpcmFile.close();
+
+
+        // ADPCM decoding implementation code below
+
+        size_t framesCount = bytesCount / FRAME_SIZE;
+
+        IMA_ADPCM_FRAMEHEADER frameHeader;
+        uint8_t currentCode = 0;
+
+        size_t outputPos = 0;
+        SampleState state;
+
+        for (size_t frame = 0; frame < framesCount; frame++ ) {
+            uint8_t* framePos = memBlock+(frame*FRAME_SIZE);
+
+            frameHeader = getBlockHeader(framePos);
+            output[outputPos++] = frameHeader.iSample;
+
+            state.predictor = frameHeader.iSample;
+            state.stepIndex = frameHeader.iIndex;
+
+            framePos += 4; // Leave the frame header.
+
+            for(size_t compByteCnt = 0; compByteCnt < FRAME_SIZE - FRAME_HEADER_SIZE; compByteCnt++) {
+                for(uint8_t nibbleState = 0; nibbleState < 2; nibbleState++) {
+                    currentCode = code(
+                        *framePos,
+                        nibbleState == 1
+                    );
+                    output[outputPos++] = sample(currentCode, state);
+                }
+                framePos++;
+            }
+        }
+
+        delete[] memBlock;
+
+        // Writes the output array to a pcm file:
+
+        ofstream pcmFile(pcmFilePath, ios::binary);
+
+        if(!pcmFile) {
+            cout << "Failure to write decoded file." << endl;
+            return 1;
+        }
+
+        pcmFile.write(
+            reinterpret_cast<const char*>(output),
+            outputPos * sizeof(int16_t)
+        );
+
+        // Cleanup
+
+        delete[] output;
+        cout << "File decoded." << endl;
+
+    }
+
+    else {
+        cout << "Error reading file." << endl;
+        return 1;
+    }
+
+    return 0;
+}

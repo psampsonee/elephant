@@ -1,24 +1,32 @@
 # Hardware Checks for Evaluation Board
 ## Schematic Checks
 ### 1. Power
-- [ ] Values of LT-8640 passives match simulated LTSpice values.
+- [x] Values of LT8640 passives match simulated LTSpice values.
 - [ ] Power OR network topology verified against reference schematic
 - [ ] Power OR network values verified via simulation or calculations
 - [ ] Power OR back-current impedance to coin cell deemed acceptable
 - [ ] Power OR decoupling caps are acceptable values
 - [ ] Test points identified and verified
 - [ ] 0-ohm bridges identified and verified
-- [ ] Inductor saturation - provide documented calculations verifying value.
-- [ ] Capacitor voltage and DC bias deratings keep capacitance values within specification
-- [ ] Resistors are rated for anticipated peak and stready state currents based on LTSpice
+- [x] Inductor saturation - provide documented calculations verifying value.
+- [x] Capacitor voltage and DC bias deratings keep capacitance values within specification
+- [ ] Resistors are rated for anticipated peak and steady state currents based on LTSpice
 - [ ] Regulator is capable of supplying expected steady state current without going into shutdown.
 - [ ] Power network simulated against several conditions:
-    - [ ] Startup
-    - [ ] Steady State
-    - [ ] Shutdown
+    - [x] Startup
+    - [x] Steady State
     - [ ] Source-transition
+    - [ ] Shutdown
 - [ ] peak current and RMS current extracted from simulation and checked against component ratings as relevent
 - [ ] Worst-case node voltages checked against component absolute-maximum ratings
+- [ ] Thermal checks for devices
+    Gather steady state (playback) and peak power + duration, and/or integrated energy
+    - [ ] LT8640
+    - [ ] LM66100 (x2)
+    - [ ] Resistors
+    compare against whatever thermal limits/guidance the datasheet actually provides
+    flag anything that needs layout-dependent thermal verification
+    require ~20% margin where a meaningful numeric limit exists
 
 ### 2. Tilt Switch Circuit
 - [ ] Topology verified against test circuit

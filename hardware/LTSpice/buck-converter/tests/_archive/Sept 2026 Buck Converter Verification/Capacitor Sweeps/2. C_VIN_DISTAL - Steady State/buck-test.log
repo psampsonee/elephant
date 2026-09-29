@@ -1,0 +1,107 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\1. Capacitor Sweeps\2. C_VIN_DISTAL - Steady State\buck-test.net
+Start Time: Sun Sep 13 18:05:15 2026
+
+.step c_vin_distal_nom=1e-07 l92_mah_init=0
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=4.7e-06 l92_mah_init=0
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=1e-05 l92_mah_init=0
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=2.2e-05 l92_mah_init=0
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=4.7e-05 l92_mah_init=0
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=1e-07 l92_mah_init=800
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=4.7e-06 l92_mah_init=800
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=1e-05 l92_mah_init=800
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=2.2e-05 l92_mah_init=800
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=4.7e-05 l92_mah_init=800
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=1e-07 l92_mah_init=1100
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=4.7e-06 l92_mah_init=1100
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=1e-05 l92_mah_init=1100
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=2.2e-05 l92_mah_init=1100
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step c_vin_distal_nom=4.7e-05 l92_mah_init=1100
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+Total elapsed time: 2110.135 seconds.
+
+Files loaded:
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\1. Capacitor Sweeps\2. C_VIN_DISTAL - Steady State\buck-test.net
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\1. Capacitor Sweeps\2. C_VIN_DISTAL - Steady State\buck-test.inc
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\1. Capacitor Sweeps\2. C_VIN_DISTAL - Steady State\L92_params.inc
+Z:\home\paul\Desktop\Elephant LTSpice Folder\lib\sub\custom\L92\L92.mod
+C:\users\paul\AppData\Local\LTspice\lib\sub\LT8640.sub
+

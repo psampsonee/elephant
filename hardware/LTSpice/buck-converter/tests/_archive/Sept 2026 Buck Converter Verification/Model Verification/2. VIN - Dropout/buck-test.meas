@@ -1,0 +1,7 @@
+; Output bus Voltage
+.meas tran VOUT_MAX MAX V(V_BUCK_OUT) FROM 1m TO 2m
+.meas tran VOUT_MIN MIN V(V_BUCK_OUT) FROM 1m TO 2m
+.meas tran VOUT_PP PARAM VOUT_MAX-VOUT_MIN
+
+; Input bus Voltage
+.meas tran VIN MAX V(MAIN_BAT+) FROM 1m TO 2m

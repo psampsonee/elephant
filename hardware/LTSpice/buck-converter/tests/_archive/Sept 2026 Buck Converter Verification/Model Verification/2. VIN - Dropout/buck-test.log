@@ -1,0 +1,322 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\Capacitor Sweeps\VIN - Dropout\buck-test.net
+Start Time: Tue Sep  8 19:18:03 2026
+
+.step vin=3.2
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.225
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.25
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.275
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.3
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.325
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.35
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.375
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.4
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.425
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.45
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.475
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.5
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.525
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.55
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.575
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.6
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.625
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.65
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.675
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.7
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.725
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.75
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.775
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.8
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.825
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.85
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.875
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.9
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.925
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.95
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=3.975
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+
+.step vin=4
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping succeeded in finding the operating point.
+
+Total elapsed time: 2823.074 seconds.
+
+Files loaded:
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\Capacitor Sweeps\VIN - Dropout\buck-test.net
+C:\users\paul\Desktop\Elephant LTSpice Folder\buck-converter\tests\Capacitor Sweeps\VIN - Dropout\buck-test.inc
+Z:\home\paul\Desktop\Elephant LTSpice Folder\lib\sub\custom\L92\L92.mod
+C:\users\paul\AppData\Local\LTspice\lib\sub\LT8640.sub
+
+
+Measurement: vout_max
+  step	MAX(V(V_BUCK_OUT) )	FROM	TO
+     1	3.12307024002	0.001	0.002
+     2	3.1472594738	0.001	0.002
+     3	3.17149782181	0.001	0.002
+     4	3.19574809074	0.001	0.002
+     5	3.21996760368	0.001	0.002
+     6	3.24419951439	0.001	0.002
+     7	3.26845645905	0.001	0.002
+     8	3.29265761375	0.001	0.002
+     9	3.31689381599	0.001	0.002
+    10	3.32073640823	0.001	0.002
+    11	3.32031965256	0.001	0.002
+    12	3.32056522369	0.001	0.002
+    13	3.32034444809	0.001	0.002
+    14	3.31992816925	0.001	0.002
+    15	3.32034850121	0.001	0.002
+    16	3.32052779198	0.001	0.002
+    17	3.32051539421	0.001	0.002
+    18	3.32012033463	0.001	0.002
+    19	3.32021927834	0.001	0.002
+    20	3.31997084618	0.001	0.002
+    21	3.31971669197	0.001	0.002
+    22	3.31976246834	0.001	0.002
+    23	3.32090210915	0.001	0.002
+    24	3.32068943977	0.001	0.002
+    25	3.31990766525	0.001	0.002
+    26	3.32072925568	0.001	0.002
+    27	3.31973648071	0.001	0.002
+    28	3.31985664368	0.001	0.002
+    29	3.32052302361	0.001	0.002
+    30	3.32043457031	0.001	0.002
+    31	3.31992816925	0.001	0.002
+    32	3.3201315403	0.001	0.002
+    33	3.31996226311	0.001	0.002
+
+Measurement: vout_min
+  step	MIN(V(V_BUCK_OUT) )	FROM	TO
+     1	3.12074017525	0.001	0.002
+     2	3.14499115944	0.001	0.002
+     3	3.16922259331	0.001	0.002
+     4	3.19340896606	0.001	0.002
+     5	3.21767950058	0.001	0.002
+     6	3.24190473557	0.001	0.002
+     7	3.2660806179	0.001	0.002
+     8	3.29034972191	0.001	0.002
+     9	3.31457853317	0.001	0.002
+    10	3.31860971451	0.001	0.002
+    11	3.31893491745	0.001	0.002
+    12	3.31882977486	0.001	0.002
+    13	3.31895470619	0.001	0.002
+    14	3.31924319267	0.001	0.002
+    15	3.31875634193	0.001	0.002
+    16	3.31849265099	0.001	0.002
+    17	3.31888604164	0.001	0.002
+    18	3.31905150414	0.001	0.002
+    19	3.31893467903	0.001	0.002
+    20	3.31899428368	0.001	0.002
+    21	3.31937074661	0.001	0.002
+    22	3.31935787201	0.001	0.002
+    23	3.31876850128	0.001	0.002
+    24	3.31853270531	0.001	0.002
+    25	3.31924724579	0.001	0.002
+    26	3.31854510307	0.001	0.002
+    27	3.31929039955	0.001	0.002
+    28	3.31921029091	0.001	0.002
+    29	3.31900405884	0.001	0.002
+    30	3.31874680519	0.001	0.002
+    31	3.31909894943	0.001	0.002
+    32	3.31895923615	0.001	0.002
+    33	3.31900429726	0.001	0.002
+
+Measurement: vout_pp
+  step	VOUT_MAX-VOUT_MIN
+     1	0.00233006477356
+     2	0.00226831436157
+     3	0.00227522850037
+     4	0.00233912467957
+     5	0.00228810310364
+     6	0.00229477882385
+     7	0.00237584114075
+     8	0.0023078918457
+     9	0.00231528282166
+    10	0.00212669372559
+    11	0.00138473510742
+    12	0.00173544883728
+    13	0.00138974189758
+    14	0.000684976577759
+    15	0.00159215927124
+    16	0.00203514099121
+    17	0.00162935256958
+    18	0.00106883049011
+    19	0.0012845993042
+    20	0.0009765625
+    21	0.000345945358276
+    22	0.000404596328735
+    23	0.00213360786438
+    24	0.00215673446655
+    25	0.000660419464111
+    26	0.00218415260315
+    27	0.000446081161499
+    28	0.000646352767944
+    29	0.00151896476746
+    30	0.00168776512146
+    31	0.000829219818115
+    32	0.00117230415344
+    33	0.00095796585083

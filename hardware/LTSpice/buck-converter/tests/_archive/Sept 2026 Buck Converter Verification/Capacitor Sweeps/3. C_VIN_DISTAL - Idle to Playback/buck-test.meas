@@ -1,0 +1,32 @@
+; --- Battery current transient measurement ---
+
+.meas tran BAT_ISS AVG Ix(BATT4:P) FROM 1.5m TO 2m
+.meas tran BAT_IMIN MIN Ix(BATT4:P) FROM 1.05m TO 1.5m
+.meas tran BAT_I97 PARAM BAT_ISS-0.03*(BAT_ISS-BAT_IMIN)
+.meas tran BAT_IT97 WHEN Ix(BATT4:P)=BAT_I97 RISE=1 TD=1.05m
+.meas tran BAT_ITREC PARAM BAT_IT97-1.05m
+
+
+; --- Capacitor current transient measurement ---
+
+.meas tran CAP_ISS AVG I(C6) FROM 1.5m TO 2m
+.meas tran CAP_IMIN MIN I(C6) FROM 1.05m TO 1.5m
+.meas tran CAP_I97 PARAM CAP_ISS-0.03*(CAP_ISS-CAP_IMIN)
+.meas tran CAP_IT97 WHEN I(C6)=CAP_I97 RISE=1 TD=1.05m
+.meas tran CAP_ITREC PARAM CAP_IT97-1.05m
+
+
+; --- Battery voltage sag measurement ---
+
+.meas tran BAT_VSS AVG V(main_bat+) FROM 1.5m TO 2m
+.meas tran BAT_VMIN MIN V(main_bat+) FROM 1.05m TO 1.5m
+.meas tran BAT_V97 PARAM BAT_VSS-0.03*(BAT_VSS-BAT_VMIN)
+.meas tran BAT_VT97 WHEN V(main_bat+)=BAT_V97 RISE=1 TD=1.05m
+.meas tran BAT_VTREC PARAM BAT_VT97-1.05m
+
+
+; --- Switching inductor current during load step ---
+
+.meas tran I_L_SW_PP PP I(L1) FROM 1.05m TO 1.5m
+.meas tran I_L_SW_MAX MAX I(L1) FROM 1.05m TO 1.5m
+.meas tran I_L_SW_MIN MIN I(L1) FROM 1.05m TO 1.5m

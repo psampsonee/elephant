@@ -1,0 +1,60 @@
+
+Measurement: i_batt_pp
+  step	PP(Ix(BATT4:P) )	FROM	TO
+     1	9.98240566254	0	0.001
+     2	14.0227212906	0	0.001
+     3	11.1549787521	0	0.001
+
+Measurement: i_batt_max
+  step	MAX(Ix(BATT4:P) )	FROM	TO
+     1	0	0	0.001
+     2	0	0	0.001
+     3	0	0	0.001
+
+Measurement: i_batt_min
+  step	MIN(Ix(BATT4:P) )	FROM	TO
+     1	-9.98240566254	0	0.001
+     2	-14.0227212906	0	0.001
+     3	-11.1549787521	0	0.001
+
+Measurement: i_cvin_pp
+  step	PP(I(C6) )	FROM	TO
+     1	9.04039478302	0	0.001
+     2	12.3070822358	0	0.001
+     3	9.98372733593	0	0.001
+
+Measurement: i_cvin_max
+  step	MAX(I(C6) )	FROM	TO
+     1	8.08031749725	0	0.001
+     2	11.3511219025	0	0.001
+     3	9.02971839905	0	0.001
+
+Measurement: i_cvin_min
+  step	MIN(I(C6) )	FROM	TO
+     1	-0.960077285767	0	0.001
+     2	-0.955960333347	0	0.001
+     3	-0.954008936882	0	0.001
+
+Measurement: i_l_sw_pp
+  step	PP(I(L1) )	FROM	TO
+     1	0.796505883336	0	0.001
+     2	0.795205645263	0	0.001
+     3	0.794959425926	0	0.001
+
+Measurement: i_l_sw_max
+  step	MAX(I(L1) )	FROM	TO
+     1	0.693508684635	0	0.001
+     2	0.692197561264	0	0.001
+     3	0.691938817501	0	0.001
+
+Measurement: i_l_sw_min
+  step	MIN(I(L1) )	FROM	TO
+     1	-0.102997198701	0	0.001
+     2	-0.103008083999	0	0.001
+     3	-0.103020608425	0	0.001
+
+Measurement: t_vin_3v4
+  step	V(MAIN_BAT+)=3.4 
+     1	4.95398568018e-06
+     2	3.49784884799e-06
+     3	5.79644525774e-06

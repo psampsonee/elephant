@@ -1,0 +1,19 @@
+; --- Measurements ---
+; Battery stress
+.meas tran I_BATT_PP PP Ix(BATT4:P) FROM 0 TO 1m
+.meas tran I_BATT_MAX MAX Ix(BATT4:P) FROM 0 TO 1m
+.meas tran I_BATT_MIN MIN Ix(BATT4:P) FROM 0 TO 1m
+
+; Bulk input capacitor stress
+.meas tran I_CVIN_PP PP I(C6) FROM 0 TO 1m
+.meas tran I_CVIN_MAX MAX I(C6) FROM 0 TO 1m
+.meas tran I_CVIN_MIN MIN I(C6) FROM 0 TO 1m
+
+; Switching Inductor Current
+.meas tran I_L_SW_PP PP I(L1) FROM 0 TO 1m
+.meas tran I_L_SW_MAX MAX I(L1) FROM 0 TO 1m
+.meas tran I_L_SW_MIN MIN I(L1) FROM 0 TO 1m
+;.meas tran I_L_SW_PP PARAM I_L_SW_MAX-I_L_SW_MIN
+
+; Time for main battery voltage to reach buck regulation threshold
+.meas tran T_VIN_3V4 WHEN V(MAIN_BAT+)=3.4 RISE=1

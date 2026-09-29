@@ -1,0 +1,5 @@
+; EN voltage when VOUT begins shutdown decay
+.meas tran V_EN_AT_DROP FIND V(BUCK_EN) WHEN V(V_BUCK_OUT)=3.267 FALL=1
+
+; Time for VOUT to decay from 99% to 1% of nominal
+.meas tran T_VOUT_DECAY TRIG V(V_BUCK_OUT) VAL=3.267 FALL=1 TARG V(V_BUCK_OUT) VAL=0.033 FALL=1

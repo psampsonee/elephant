@@ -1,0 +1,12 @@
+*.raw
+experiments/gpio-assert-test/build/
+*.db
+*.o
+*.elf
+*.d
+*.lst
+Drivers/
+*.s
+elephant-backups/
+hardware/LTSpice/buck-converter/tests/Enable Pin/1. Disable threshold, falling EN/buck-test.txt
+*.txt
