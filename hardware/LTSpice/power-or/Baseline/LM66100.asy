@@ -1,1 +1,0 @@
-../../lib/sym/custom/LM66100/LM66100.asc

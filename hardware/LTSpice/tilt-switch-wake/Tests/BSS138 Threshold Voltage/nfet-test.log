@@ -1,13 +1,13 @@
 LTspice 26.0.2 for Windows
 Circuit: C:\users\paul\Desktop\Elephant LTSpice Folder\tilt-switch-wake\Tests\BSS138 Threshold Voltage\nfet-test.net
-Start Time: Sun Sep 27 12:56:24 2026
+Start Time: Thu Oct  1 19:56:49 2026
 solver = Normal
 Maximum thread count: 4
 tnom = 27
 temp = 27
 method = trap
 Direct Newton iteration succeeded in finding operating point.
-Total elapsed time: 0.728 seconds.
+Total elapsed time: 0.800 seconds.
 
 Files loaded:
 C:\users\paul\Desktop\Elephant LTSpice Folder\tilt-switch-wake\Tests\BSS138 Threshold Voltage\nfet-test.net

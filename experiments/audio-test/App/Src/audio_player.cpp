@@ -12,7 +12,6 @@ AudioPlayer::AudioPlayer(SampleSource& source, AudioSink& sink)
 void AudioPlayer::start(std::size_t startSector,
         std::size_t lengthSamples,
         uint16_t sampleRateHz) {
-
     start(ClipInfo{startSector,
         lengthSamples,
         sampleRateHz});

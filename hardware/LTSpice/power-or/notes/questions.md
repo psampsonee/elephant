@@ -40,3 +40,35 @@
     - 2VDC buck voltage
     - Shorted ideal diode(s)
 - Source crossover (Vbuck ~= Vcoin); buck sweeps slowly. Exposes partial diode conduction, source sharing, or chatter.
+
+# Results
+
+A simplified ideal diode model was used for these tests. This model does not include the transient behavior that the real IC would. So the scope of these tests was limited to questions 1 and a few sub-questions of 4 (D and J).
+
+## Handoff Simulations
+
+### 1. Buck to cell
+
+Minimum backup node voltage: 3.3V
+Backup node P-P voltage: 0V
+Backup node max capacitor current: 7.3pA
+Cell max current: 5E-17A
+Buck max current: -330uA (discharging)
+
+Behavior is consistent with a power-or configuration with the buck voltage higher than the cell voltage. Due to the simplified model, reverse charging current does not reflect the behavior of thereal world components and must be verified via the LM66100 datasheet.
+
+### 2. Cell to buck
+
+
+Minimum backup node voltage: 2.0V
+Backup node P-P voltage: 1.45V (3.3V -> 2.0V)
+Backup node max capacitor current: 672mA
+Cell max current: 57nA
+Buck max current: 3.5E-18A
+
+Behavior is consistent with a power-or configuration in which the cell voltage is lower than the buck voltage.
+
+
+## Fault Simulations
+
+Output-short behavior not evaluated quantitatively because the system-level ideal-diode model does not represent device fault behavior.

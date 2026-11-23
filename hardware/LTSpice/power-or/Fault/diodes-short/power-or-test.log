@@ -1,0 +1,32 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Fault\diodes-short\power-or-test.net
+Start Time: Sat Oct  3 08:28:53 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration failed to find operating point.
+Starting Gmin stepping
+Gmin stepping failed to find operating point. Use".option gminsteps=0" to skip all Gmin stepping.
+Starting source stepping with srcstepmethod=0
+Starting source stepping with srcstepmethod=1
+Source stepping failed to find operating point. Use ".options srcsteps=0" to skip all source stepping.
+Starting Gmin stepping level 2
+Gmin stepping level 2 failed to find operating point. Use".option gminsteps=0" to skip all Gmin stepping.
+Starting source stepping with srcstepmethod=1, level 2
+Starting source stepping with srcstepmethod=0, level 2
+Source stepping level 2 failed to find operating point. Use ".options srcsteps=0" to skip all source stepping.
+Pseudo Transient failed to find the operating point at 7.23222 µs
+Pseudo Transient level 2 failed to find the operating point at 7.23222 µs
+Trouble finding operating point....skipping operating point for Transient analysis.
+
+Simulation stopped by user.
+Total elapsed time: 68.383 seconds.
+
+Files loaded:
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Fault\diodes-short\power-or-test.net
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Fault\diodes-short\power-or-test.inc
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Fault\diodes-short\power-or-test.meas
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Fault\diodes-short\LM66100_SIMPLE.sub
+

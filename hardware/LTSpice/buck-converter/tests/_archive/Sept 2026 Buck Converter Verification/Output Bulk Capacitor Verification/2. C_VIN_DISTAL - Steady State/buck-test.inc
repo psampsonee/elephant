@@ -5,11 +5,12 @@
 .param V_COUT_INIT=3.3225 ; Baseline steady-state = 3.3225
 .param V_EN=1 ; 1V nominal enables the LT8640.
 .param V_LOAD_NOM=3.3
-.param P_LOAD=2.5 ; Watts, steady-state during playback.
+.param P_LOAD=5.5 ; Watts, steady-state during playback.
 .param R_LOAD={V_LOAD_NOM*V_LOAD_NOM/P_LOAD}
+.param L92_MAH_INIT=800
 
 ; --- Test Sweeps ---
-.step param L92_MAH_INIT list 0 800 1100
+;.step param L92_MAH_INIT list 0 800 1100
 
 ; - Fixed Circuit Values -
 

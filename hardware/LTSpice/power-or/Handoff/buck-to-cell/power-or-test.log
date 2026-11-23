@@ -1,0 +1,22 @@
+LTspice 26.0.2 for Windows
+Circuit: C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Handoff\buck-to-cell\power-or-test.net
+Start Time: Sat Oct  3 12:01:24 2026
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration succeeded in finding operating point.
+Total elapsed time: 3.514 seconds.
+
+Files loaded:
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Handoff\buck-to-cell\power-or-test.net
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Handoff\buck-to-cell\power-or-test.inc
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Handoff\buck-to-cell\power-or-test.meas
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Handoff\buck-to-cell\LM66100_SIMPLE.sub
+
+v_backup_min: MIN(V(V_BACKUP) )=3.29962348938 FROM 0 TO 0.002
+v_backup_pp: PP(V(V_BACKUP) )=0 FROM 0 TO 0.002
+i_c_backup_max: MAX(I(C8) )=7.27595761418e-12 FROM 0 TO 0.002
+i_cell_max: MAX(I(B1) )=5.55111512313e-17 FROM 0 TO 0.002
+i_buck_max: MAX(I(V1) )=-0.000329962349497 FROM 0 TO 0.002

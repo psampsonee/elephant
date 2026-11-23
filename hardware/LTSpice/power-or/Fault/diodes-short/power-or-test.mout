@@ -1,0 +1,3 @@
+C:\users\paul\Desktop\Elephant LTSpice Folder\power-or\Handoff\buck-to-cell\power-or-test.meas(3): syntax error
+.meas tran I_C_BACKUP_MAX I(C8) FROM 0 TO 2m
+                          ^^^^^^^^^^^^^^^^^^

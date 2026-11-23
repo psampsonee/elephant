@@ -192,3 +192,40 @@ Next steps
 - Create and execute Cbackup sweep test (variant of buck->coin cell test)
 - Create and execute the four fault conditions highlighted (backup node short/diodes shorted/coin cell flipped/no coin cell)
 - Complete power checklist
+
+9/30/2026
+
+Current State:
+- Tried to get old LM66100 model to work. Presenting issue:
+    - Reverse conduction
+- Rather than trying to get the complex model to work, I asked ChatGPT to program a simple ideal-diode model for me and gave it 4 unit tests, which it passed.
+- Then, I went back to the power-or testbench and found that my voltage drops were very high. I couldn't figure it out, until it occured to me that LTSpice interprets "M" as "milli" instead of "mega"
+- So I searched previous tests and found several cases where I made this same mistake
+
+Next Steps:
+
+- Re-verify tests where I made this mistake
+- Try complex model with the unit tests
+
+10/1/2026
+
+Current State:
+- Re-validated tests where the M/Meg mix-up occured. No instances affected results in any meaningful way.
+- Put the complex LM66100 model into two of the unit tests. It failed both: The ST test (no ST indication) and the reverse-voltage test (reverse-conduction).
+    - The complex model is now condemned to the bored sea voyage project bin.
+
+Next steps:
+- Complete power-or handoff tests with the simple LM66100 model
+- Re-evaluate which other tests are worth performing with a simple model
+- Complete the other LM66100 tests.
+
+10/3/2026
+
+Current State:
+- Interpreted Power-Or simulations.
+- Cut out additional simulations due to simplified model.
+
+Next Steps:
+- Put together a writeup evaluating LM66100 back-current into coin cell
+- Complete power checklist
+- Move on to MCU checks

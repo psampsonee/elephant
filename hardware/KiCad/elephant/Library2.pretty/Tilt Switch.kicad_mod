@@ -3,11 +3,11 @@
 	(generator "pcbnew")
 	(generator_version "10.0")
 	(layer "F.Cu")
-	(property "Reference" "REF**"
-		(at 0 2.1 0)
+	(property "Reference" "SW1"
+		(at 1.6 4.9 0)
 		(unlocked yes)
 		(layer "F.SilkS")
-		(uuid "99718c9d-154a-4bbd-96bd-e6d4e5e4efb6")
+		(uuid "b0b2f6f7-c7ab-4182-ba2c-ea9327bc4e5f")
 		(effects
 			(font
 				(size 1 1)
@@ -15,11 +15,11 @@
 			)
 		)
 	)
-	(property "Value" "Tilt Switch"
-		(at 0 3.6 0)
+	(property "Value" "SW_TILT1"
+		(at 1.6 6.4 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "8ebd7864-75e8-49a5-82a4-d2ba28fa2bde")
+		(uuid "75668bc3-0fa4-45f2-a6bb-78afefe33608")
 		(effects
 			(font
 				(size 1 1)
@@ -32,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "2998807d-2e0a-4414-aa25-b4a964dbaece")
+		(uuid "a7e82141-52ad-45ee-bfbb-66023719c6bc")
 		(effects
 			(font
 				(size 1 1)
@@ -45,7 +45,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "68060d2b-c349-45c8-bc3b-408e712f5dfa")
+		(uuid "c8386c4d-897f-42f5-9482-daad4da3da92")
 		(effects
 			(font
 				(size 1 1)
@@ -53,13 +53,26 @@
 			)
 		)
 	)
-	(attr smd)
+	(sheetname "/")
+	(sheetfile "elephant.kicad_sch")
+	(attr through_hole)
 	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -4 -4)
+		(end 4 4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "d7922c57-4941-4340-884d-4b681069101d")
+	)
 	(fp_text user "${REFERENCE}"
-		(at 0 5.1 0)
+		(at 1.6 7.9 0)
 		(unlocked yes)
 		(layer "F.Fab")
-		(uuid "8f76ee9d-829f-4681-a872-977cc920dc60")
+		(uuid "91854199-06a5-4e0e-a0b2-ab20b76eec29")
 		(effects
 			(font
 				(size 1 1)
@@ -68,20 +81,20 @@
 		)
 	)
 	(pad "1" thru_hole oval
-		(at 0 0)
+		(at -0.8 0.875)
 		(size 1.8 1.8)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "afeafea2-da0d-482f-b397-e0352bc603fe")
+		(uuid "f225e853-2996-4773-a94d-ea3ed33a786b")
 	)
 	(pad "2" thru_hole oval
-		(at 1.6 -1.75)
+		(at 0.8 -0.875)
 		(size 1.8 1.8)
 		(drill 1)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "b21c2416-2d91-49af-9ce2-d36807a3a241")
+		(uuid "d7595425-0222-4aee-b9ee-66a49dd3ad3b")
 	)
 	(embedded_fonts no)
 )

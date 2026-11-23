@@ -11,7 +11,7 @@
 .param V_THRESH_RISING=1.04
 .param V_THRESH_FALLING=0.96
 
-.param R_EN_LT8640=100M ; to achieve passable EN pin leakage behavior
+.param R_EN_LT8640=100Meg ; to achieve passable EN pin leakage behavior
 
 ; -- Test functions --
 .func I_SW(t) {if(t<(1u+T_SW_PULSE) & t>=1u,(V_IN-V(V_RC))/R_CHARGE,0)}
@@ -35,7 +35,7 @@
 ; --- Parasitic Values ---
 
 .param R_CHARGE = 10 ; Upper bound for resistance from voltage source to capacitor
-.param R_GPIO_LEAKAGE=10M ; Rough effective GPIO impedance for leakage/backpowering sensitivity check
+.param R_GPIO_LEAKAGE=10Meg ; Rough effective GPIO impedance for leakage/backpowering sensitivity check
 
 ; --- Component Test Values ---
 

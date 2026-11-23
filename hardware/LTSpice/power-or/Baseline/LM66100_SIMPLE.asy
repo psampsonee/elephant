@@ -1,0 +1,1 @@
+../../lib/sub/custom/LM66100/LM66100_SIMPLE.asy

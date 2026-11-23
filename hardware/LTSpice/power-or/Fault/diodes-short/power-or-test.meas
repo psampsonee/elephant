@@ -1,0 +1,5 @@
+.meas tran V_BACKUP_MIN MIN V(V_BACKUP) FROM 0 TO 2m
+.meas tran V_BACKUP_PP PP V(V_BACKUP) FROM 0 TO 2m
+.meas tran I_C_BACKUP_MAX MAX I(C8) FROM 0 TO 2m
+.meas tran I_CELL_MAX MAX I(B1) FROM 0 TO 2m
+.meas tran I_BUCK_MAX MAX I(V1) FROM 0 TO 2m

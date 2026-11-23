@@ -1,0 +1,4 @@
+.meas tran V_RC_MAX MAX V(V_RC)
+.meas tran V_EN_MAX MAX V(V_EN)
+.meas tran T_EN_FALL WHEN V(V_EN)={V_THRESH_FALLING} FALL=1
+.meas tran T_EN_HOLD PARAM T_EN_FALL-(1u+T_SW_PULSE)

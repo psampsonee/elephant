@@ -26,8 +26,8 @@
 
 ; -- Nominals --
 
-.param R_ST_PRIORITY_NOM=2M
-.param R_ST_SECONDARY_NOM=1M
+.param R_ST_PRIORITY_NOM=2Meg
+.param R_ST_SECONDARY_NOM=1Meg
 .param C_VBACKUP_NOM=1u
 
 ; -- Worst-Case Tolerance Factors --
